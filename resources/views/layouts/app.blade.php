@@ -3,83 +3,78 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png')}}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description"
+        content="Discover Furni: Your go-to solution for modern interior design and premium furniture.">
+    <meta name="keywords" content="Furniture, Interior Design, Modern, Shop">
+    <meta property="og:title" content="Furni - Modern Interior Design & Furniture">
+    <meta property="og:description"
+        content="Shop the latest in modern furniture and interior design at Furni. Quality and style guaranteed.">
+    <meta property="og:image" content="{{ URL::asset('/assets/images/hero.jpg') }}">
+    <meta property="og:url" content="https://yourwebsite.com">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <!-- Bootstrap CSS -->
+    <link href="{{ URL::asset('/assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('/assets/css/tiny-slider.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('/assets/css/style.css') }}" rel="stylesheet">
+    <title>projecttorSiam</title>
 
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <!-- Start Header/Navigation -->
+        <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark"
+            arial-label="Furni navigation bar">
+
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+                    aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                <div class="collapse navbar-collapse" id="navbarsFurni">
+                    <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li><a class="nav-link" href="shop.html">Shop</a></li>
+                        <li><a class="nav-link" href="about.html">About us</a></li>
+                        <li><a class="nav-link" href="services.html">Services</a></li>
+                        <li><a class="nav-link" href="blog.html">Blog</a></li>
+                        <li><a class="nav-link" href="contact.html">Contact us</a></li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                    <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+                        <li><a class="nav-link" href="#"><img
+                                    src="{{ URL::asset('/assets/images/user.svg') }}"></a>
+                        </li>
+                        <li><a class="nav-link" href="cart.html"><img
+                                    src="{{ URL::asset('/assets/images/cart.svg') }}"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
+
         </nav>
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
+        @include('layouts.footer')
+
     </div>
+
+
+    <script src="{{ URL::asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/tiny-slider.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/custom.js') }}"></script>
 </body>
 
 </html>
