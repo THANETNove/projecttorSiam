@@ -1031,3 +1031,12 @@ textarea {
   border-radius: 50%;
   background: rgba(59, 93, 80, 0.2);
 }
+
+.telColor {
+  color: #3b5d50 !important;
+  margin-right: 4px;
+}
+
+.mr-3 {
+  margin-right: 4px;
+}

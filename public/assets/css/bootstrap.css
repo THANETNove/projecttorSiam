@@ -636,9 +636,12 @@ progress {
 }
 
 .img-fluid {
-    max-width: 100%;
+    width: 100%;
     height: auto
 }
+
+
+
 
 .img-thumbnail {
     padding: .25rem;
@@ -12178,3 +12181,4 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
+
