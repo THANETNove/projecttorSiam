@@ -4023,9 +4023,9 @@ fieldset:disabled .btn {
     color: #212529;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #45675a;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
+    border: 1px solid #3b5d50;
     border-radius: .25rem
 }
 
@@ -4263,14 +4263,14 @@ fieldset:disabled .btn {
 .dropdown-item:focus,
 .dropdown-item:hover {
     color: #1e2125;
-    background-color: #e9ecef
+    background-color: #364f45 !important
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #0d6efd
+    background-color: #364f45 !important
 }
 
 .dropdown-item.disabled,
