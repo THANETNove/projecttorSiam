@@ -129,17 +129,16 @@
                     <p class="mb-2 text-center text-lg-start">Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. &mdash; Designed with love by <a
-                            href="https://untree.co">Untree.co</a> Distributed By <a
-                            hreff="https://themewagon.com">ThemeWagon</a>
+                        </script>. All Rights Reserved. &mdash; Power By
+                        Projectorsiam.com
                         <!-- License information: https://untree.co/license/ -->
                     </p>
                 </div>
 
                 <div class="col-lg-6 text-center text-lg-end">
                     <ul class="list-unstyled d-inline-flex ms-auto">
-                        <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        {{--    <li class="me-4"><a href="#">Terms &amp; Conditions</a></li> --}}
+                        <li><a href="{{ url('policy') }}"> Terms &amp; Conditions &amp; Privacy Policy</a></li>
 
                     </ul>
                     <ul class="list-unstyled custom-social">
