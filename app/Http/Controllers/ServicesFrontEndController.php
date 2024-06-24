@@ -13,6 +13,10 @@ class ServicesFrontEndController extends Controller
     {
         return view('frontEndWeb.services');
     }
+    public function productPolicy()
+    {
+        return view('frontEndWeb.productPolicy');
+    }
 
     /**
      * Show the form for creating a new resource.

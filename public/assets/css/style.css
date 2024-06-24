@@ -1041,6 +1041,26 @@ textarea {
   color: #3b5d50 !important;
 }
 
+.colorTextBold {
+  color: #3b5d50 !important;
+  font-weight: bold;
+}
+
 .mr-3 {
   margin-right: 4px;
+}
+
+.cartUser {
+  text-align: center;
+  margin-top: -8px;
+  margin-left: -10px;
+  position: absolute;
+  width: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 25px;
+  color: #ffffff !important;
+  background-color: #f9bf29;
+  border-radius: 50px;
+  z-index: 0;
 }

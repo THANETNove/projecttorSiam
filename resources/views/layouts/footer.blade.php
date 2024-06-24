@@ -87,16 +87,16 @@
                 <div class="row links-wrap">
                     <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">วิธีการจัดส่งสินค้า</a></li>
+                            <li><a href="{{ url('aboutus') }}">About us</a></li>
+                            <li><a href="{{ url('services') }}">วิธีการจัดส่งสินค้า</a></li>
 
                         </ul>
                     </div>
 
                     <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="#">วิธีการชำระเงิน</a></li>
-                            <li><a href="#">นโยบายการรับประกันสินค้า</a></li>
+                            <li><a href="{{ url('services') }}">วิธีการชำระเงิน</a></li>
+                            <li><a href="{{ url('policy') }}">นโยบายการรับประกันสินค้า</a></li>
 
                         </ul>
                     </div>
