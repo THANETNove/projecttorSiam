@@ -29,6 +29,7 @@
     <script src="{{ URL::asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/tiny-slider.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/custom.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/javascript.js') }}"></script>
 </body>
 
 </html>
