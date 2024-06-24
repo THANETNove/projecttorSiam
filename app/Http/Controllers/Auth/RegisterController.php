@@ -73,32 +73,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /* return User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'email' => $data['email'],
-            'status' => "0",
-            'password' => Hash::make($data['password']),
-        ]);
+     
 
-
-        return Address::create([
-            'user_id' => User->id,
-            'phone' => $data['phone'],
-            'fax' => $data['fax'],
-            'company' => $data['company'],
-            'address_1' => $data['address_1'],
-            'address_2' => $data['address_2'],
-            'state_city' => $data['state_city'],
-            'postal_zip' => $data['postal_zip'],
-            'country' => $data['country'],
-            'region' => $data['region'],
-           
-            
-        ]);
- */
-
-                // Create the user
         $user = User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
