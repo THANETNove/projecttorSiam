@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Address;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,23 +50,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'max:255'],
+            'address_1' => ['required', 'string', 'max:255'],
+            'state_city' => ['required', 'string', 'max:255'],
+            'postal_zip' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'region' => ['required', 'string', 'max:255'],
         ]);
-
-
-    $remember_me = $request->has('remember_me') ? true : false; 
-
-
-    if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me))
-    {
-        $user = auth()->user();
-        dd($user);
-    }else{
-        return back()->with('error','your username and password are wrong.');
     }
-    }
+
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -75,10 +73,57 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        /* return User::create([
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
             'email' => $data['email'],
+            'status' => "0",
             'password' => Hash::make($data['password']),
         ]);
+
+
+        return Address::create([
+            'user_id' => User->id,
+            'phone' => $data['phone'],
+            'fax' => $data['fax'],
+            'company' => $data['company'],
+            'address_1' => $data['address_1'],
+            'address_2' => $data['address_2'],
+            'state_city' => $data['state_city'],
+            'postal_zip' => $data['postal_zip'],
+            'country' => $data['country'],
+            'region' => $data['region'],
+           
+            
+        ]);
+ */
+
+                // Create the user
+        $user = User::create([
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
+            'email' => $data['email'],
+            'status' => "0",
+            'password' => Hash::make($data['password']),
+        ]);
+
+        // Create the address associated with the user
+        $address = Address::create([
+            'user_id' => $user->id,
+            'phone' => $data['phone'],
+            'fax' => $data['fax'],
+            'company' => $data['company'],
+            'address_1' => $data['address_1'],
+            'address_2' => $data['address_2'],
+            'state_city' => $data['state_city'],
+            'postal_zip' => $data['postal_zip'],
+            'country' => $data['country'],
+            'region' => $data['region'],
+        ]);
+
+        // Return both the user and address
+        return $user;
+
+
     }
 }
