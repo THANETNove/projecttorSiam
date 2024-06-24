@@ -17,10 +17,10 @@
                     <a class="nav-link" href="{{ url('shop') }}">Shop</a>
                 </li>
                 <li class="nav-item @if (Request::is('aboutus')) active @endif">
-                    <a class="nav-link @if (Request::is('aboutus')) active @endif" href="about.html">About us</a>
+                    <a class="nav-link" href="{{ url('aboutus') }}">About us</a>
                 </li>
                 <li class="nav-item @if (Request::is('services')) active @endif">
-                    <a class="nav-link" href="services.html">Services</a>
+                    <a class="nav-link" href="{{ url('services') }}">Services</a>
                 </li>
                 <li class="nav-item @if (Request::is('blog')) active @endif">
                     <a class="nav-link" href="blog.html">Blog</a>

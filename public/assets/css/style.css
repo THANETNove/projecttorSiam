@@ -1037,6 +1037,10 @@ textarea {
   margin-right: 4px;
 }
 
+.colorText {
+  color: #3b5d50 !important;
+}
+
 .mr-3 {
   margin-right: 4px;
 }

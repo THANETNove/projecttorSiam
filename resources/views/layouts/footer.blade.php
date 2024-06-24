@@ -2,7 +2,7 @@
     <div class="container relative">
 
         <div class="sofa-img">
-            <img src="{{ URL::asset('/assets/images/sofa.png') }}" alt="Image" class="img-fluid">
+            <img src="{{ URL::asset('/assets/images/cover/EpsonEF-11_EF12-8.jpg') }}" alt="Image" class="img-fluid">
         </div>
 
         <div class="row">

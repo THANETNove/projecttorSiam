@@ -637,7 +637,9 @@ progress {
 
 .img-fluid {
     width: 100%;
-    height: auto
+    height: "auto";
+    max-width: 611px;
+    max-height: 482px;
 }
 
 
@@ -12181,4 +12183,3 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
-
