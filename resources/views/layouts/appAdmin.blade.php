@@ -43,9 +43,13 @@
 
         <div class="wrapper">
             @include('layouts.sidebarAdmin')
+            <div class="main-panel">
 
-            @yield('content')
+                @include('layouts.navbarAdmin')
 
+                @yield('content')
+                @include('layouts.footerAdmin')
+            </div>
         </div>
 
     </div>
