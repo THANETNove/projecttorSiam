@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="hero">
+    {{--     <div class="hero">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-5">
@@ -16,6 +16,118 @@
                 <div class="col-lg-7">
                     <div class="hero-img-wrap">
                         <img src="{{ URL::asset('/assets/images/cover/EpsonEF-11_EF12-5.jpg') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    <div class="testimonial-section">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="testimonial-slider-wrap text-center">
+
+                        <div id="testimonial-nav" aria-label="Carousel Navigation" tabindex="0">
+                            <span class="prev" data-controls="prev" aria-controls="tns1" tabindex="-1"><span
+                                    class="fa fa-chevron-left"></span></span>
+                            <span class="next" data-controls="next" aria-controls="tns1" tabindex="-1"><span
+                                    class="fa fa-chevron-right"></span></span>
+                        </div>
+
+                        <div class="tns-outer" id="tns1-ow">
+                            <div class="tns-nav" aria-label="Carousel Pagination"><button data-nav="0"
+                                    aria-controls="tns1" style="" aria-label="Carousel Page 1 (Current Slide)"
+                                    class="tns-nav-active"></button><button data-nav="1" aria-controls="tns1"
+                                    style="" aria-label="Carousel Page 2" class=""
+                                    tabindex="-1"></button><button data-nav="2" aria-controls="tns1" style=""
+                                    aria-label="Carousel Page 3" class="" tabindex="-1"></button></div>
+                            <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide
+                                <span class="current">5</span> of 3
+                            </div>
+                            <div id="tns1-mw" class="tns-ovh">
+                                <div class="tns-inner" id="tns1-iw">
+                                    <div class="testimonial-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
+                                        id="tns1" style="transform: translate3d(-80%, 0px, 0px);">
+                                        <div class="item tns-item" aria-hidden="true" tabindex="-1">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-12 mx-auto">
+
+                                                    <div class="testimonial-block text-center row">
+                                                        <blockquote class="mb-5 col-6">
+                                                            <p>“Donec facilisis quam ut purus rutrum lobortis. Donec vitae
+                                                                odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+                                                                Aliquam vulputate velit imperdiet dolor tempor tristique.
+                                                                Pellentesque habitant morbi tristique senectus et netus et
+                                                                malesuada fames ac turpis egestas. Integer convallis
+                                                                volutpat dui quis scelerisque.”</p>
+                                                        </blockquote>
+
+                                                        <div class="author-info col-6">
+                                                            <img src="{{ URL::asset('/assets/images/cover/banner-image.png') }}"
+                                                                class="bannerImage" alt="Maria Jones">
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- item tns-ite  end -->
+                                        <div class="item tns-item" aria-hidden="true" tabindex="-1">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-12 mx-auto">
+
+                                                    <div class="testimonial-block text-center row">
+                                                        <blockquote class="mb-5 col-6">
+                                                            <p>“Donec facilisis quam ut purus rutrum lobortis. Donec vitae
+                                                                odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+                                                                Aliquam vulputate velit imperdiet dolor tempor tristique.
+                                                                Pellentesque habitant morbi tristique senectus et netus et
+                                                                malesuada fames ac turpis egestas. Integer convallis
+                                                                volutpat dui quis scelerisque.”</p>
+                                                        </blockquote>
+
+                                                        <div class="author-info col-6">
+                                                            <img src="{{ URL::asset('/assets/images/cover/banner-image.png') }}"
+                                                                class="bannerImage" alt="Maria Jones">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- item tns-ite  end -->
+                                        <div class="item tns-item" aria-hidden="true" tabindex="-1">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-12 mx-auto">
+
+                                                    <div class="testimonial-block text-center row">
+                                                        <blockquote class="mb-5 col-6">
+                                                            <p>“Donec facilisis quam ut purus rutrum lobortis. Donec vitae
+                                                                odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
+                                                                Aliquam vulputate velit imperdiet dolor tempor tristique.
+                                                                Pellentesque habitant morbi tristique senectus et netus et
+                                                                malesuada fames ac turpis egestas. Integer convallis
+                                                                volutpat dui quis scelerisque.”</p>
+                                                        </blockquote>
+
+                                                        <div class="author-info col-6">
+                                                            <img src="{{ URL::asset('/assets/images/cover/banner-image.png') }}"
+                                                                class="bannerImage" alt="Maria Jones">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- item tns-ite  end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -109,7 +221,8 @@
                         <div class="col-6 col-md-6">
                             <div class="feature">
                                 <div class="icon">
-                                    <img src="{{ URL::asset('/assets/images/bag.svg') }}" alt="Image" class="imf-fluid">
+                                    <img src="{{ URL::asset('/assets/images/bag.svg') }}" alt="Image"
+                                        class="imf-fluid">
                                 </div>
                                 <h3>Easy to Shop</h3>
                                 <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
@@ -263,7 +376,7 @@
 
                             <div class="item">
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-8 mx-auto">
+                                    <div class="col-lg-12 mx-auto">
 
                                         <div class="testimonial-block text-center">
                                             <blockquote class="mb-5">
@@ -292,7 +405,7 @@
 
                             <div class="item">
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-8 mx-auto">
+                                    <div class="col-lg-12 mx-auto">
 
                                         <div class="testimonial-block text-center">
                                             <blockquote class="mb-5">
@@ -321,7 +434,7 @@
 
                             <div class="item">
                                 <div class="row justify-content-center">
-                                    <div class="col-lg-8 mx-auto">
+                                    <div class="col-lg-12 mx-auto">
 
                                         <div class="testimonial-block text-center">
                                             <blockquote class="mb-5">
