@@ -15,13 +15,13 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="hero-img-wrap">
-                        <img src="{{ URL::asset('/assets/images/couch.png') }}" class="img-fluid">
+                        <img src="{{ URL::asset('/assets/images/cover/EpsonEF-11_EF12-5.jpg') }}" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="untree_co-section product-section before-footer-section">
         <div class="container">
             <div class="row">

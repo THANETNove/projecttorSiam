@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="hero-img-wrap">
-                        <img src="{{ URL::asset('/assets/images/couch.png') }}" class="img-fluid">
+                        <img src="{{ URL::asset('/assets/images/cover/w11000h.jpg') }}" class="img-fluid">
                     </div>
                 </div>
             </div>
