@@ -10873,6 +10873,8 @@ body[data-background-color="dark2"] .jvm-zoom-btn {
 .message-text {
   color: #31CE36;
   font-size: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /*# sourceMappingURL=kaiadmin.css.map */

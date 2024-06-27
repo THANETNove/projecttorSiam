@@ -51,7 +51,7 @@
                 @if (session('message'))
                     <p class="message-text text-center mt-4"> {{ session('message') }}</p>
                 @endif
-                <p class="message-text text-center mt-4">บันทึกสำเร็จ</p>
+
 
 
                 <li class="nav-item topbar-user dropdown hidden-caret">

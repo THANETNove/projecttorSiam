@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bank;
+use DB;
 
 class BankController extends Controller
 {
@@ -12,7 +13,11 @@ class BankController extends Controller
      */
     public function index()
     {
-        return view('admin.bank.index');
+        $data = DB::table('banks')
+        ->get();
+
+
+        return view('admin.bank.index',['data' => $data]);
     }
 
     /**
@@ -31,7 +36,7 @@ class BankController extends Controller
 
         $validated = $request->validate([
             'bank_name' => ['required', 'string', 'max:255'],
-            'account_name' => ['required', 'string', 'max:255'],
+          
             'account_number' => ['required', 'string', 'max:255'],
             'bank_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate as an image
         ]);
