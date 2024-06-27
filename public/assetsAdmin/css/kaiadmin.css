@@ -10870,4 +10870,9 @@ body[data-background-color="dark2"] .jvm-zoom-btn {
   margin-top: 64px !important;
 }
 
+.message-text {
+  color: #31CE36;
+  font-size: 16px;
+}
+
 /*# sourceMappingURL=kaiadmin.css.map */

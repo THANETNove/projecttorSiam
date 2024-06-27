@@ -39,20 +39,20 @@
 </head>
 
 <body>
-    <div id="app">
 
-        <div class="wrapper">
-            @include('layouts.sidebarAdmin')
-            <div class="main-panel">
 
-                @include('layouts.navbarAdmin')
+    <div class="wrapper">
+        @include('layouts.sidebarAdmin')
 
-                @yield('content')
-                @include('layouts.footerAdmin')
-            </div>
+        <div class="main-panel">
+
+            @include('layouts.navbarAdmin')
+
+            @yield('content')
+            @include('layouts.footerAdmin')
         </div>
-
     </div>
+
 
 
     <!--   Core JS Files   -->
@@ -87,6 +87,39 @@
 
     <!-- Kaiadmin JS -->
     <script src="{{ URL::asset('/assetsAdmin/js/kaiadmin.min.js') }}"></script>
+
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="{{ URL::asset('/assetsAdmin//js/setting-demo.js') }}"></script>
+    <script src="{{ URL::asset('/assetsAdmin//js/demo.js') }}"></script>
+    <script>
+        $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+            type: "line",
+            height: "70",
+            width: "100%",
+            lineWidth: "2",
+            lineColor: "#177dff",
+            fillColor: "rgba(23, 125, 255, 0.14)",
+        });
+
+        $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+            type: "line",
+            height: "70",
+            width: "100%",
+            lineWidth: "2",
+            lineColor: "#f3545d",
+            fillColor: "rgba(243, 84, 93, .14)",
+        });
+
+        $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+            type: "line",
+            height: "70",
+            width: "100%",
+            lineWidth: "2",
+            lineColor: "#ffa534",
+            fillColor: "rgba(255, 165, 52, .14)",
+        });
+    </script>
 
 
 
