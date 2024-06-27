@@ -60,7 +60,12 @@
                     </a>
                     <div class="collapse {{ Request::is('components/*') ? 'show' : '' }}" id="base">
                         <ul class="nav nav-collapse">
-                            <li class="{{ Request::is('components/avatars') ? 'active' : '' }}">
+                            <li class="{{ Request::is('components/bank*') ? 'active' : '' }}">
+                                <a href="{{ url('components/bank') }}">
+                                    <span class="sub-item">บัญชีธนาคาร</span>
+                                </a>
+                            </li>
+                            <li class=<li class="{{ Request::is('components/avatars') ? 'active' : '' }}">
                                 <a href="{{ url('components/avatars') }}">
                                     <span class="sub-item">Avatars</span>
                                 </a>
