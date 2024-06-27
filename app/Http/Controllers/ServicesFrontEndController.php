@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+
 
 class ServicesFrontEndController extends Controller
 {
@@ -11,7 +13,10 @@ class ServicesFrontEndController extends Controller
      */
     public function index()
     {
-        return view('frontEndWeb.services');
+        $data = DB::table('banks')
+        ->get();
+
+        return view('frontEndWeb.services',['data' => $data]);
     }
     public function productPolicy()
     {

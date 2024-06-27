@@ -66,23 +66,19 @@
                         <h3>วิธีการชำระเงิน</h3>
                         <table class="table">
                             <tbody>
-                                <tr>
-                                    <th>
-                                        <img src="{{ URL::asset('/assets/images/bag.svg') }}" alt="Image"
-                                            class="imf-fluid">
-                                    </th>
-                                    <td>ธนาคารกรุงเทพ</td>
-                                    <td>024-7-01523-3</td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <img src="{{ URL::asset('/assets/images/bag.svg') }}" alt="Image"
-                                            class="imf-fluid">
-                                    </th>
-                                    <td>ธนาคารกรุงเทพ</td>
-                                    <td>024-7-01523-3</td>
-                                </tr>
-
+                                @foreach ($data as $da)
+                                    <tr>
+                                        <th>
+                                            {{--     <img src="{{ URL::asset('/assets/images/bag.svg') }}" alt="Image"
+                                                class="imf-fluid"> --}}
+                                            <img src="{{ URL::asset($da->bank_image) }}" alt="Bank Image"
+                                                style="width: 50px; height: auto;" class="imf-fluid">
+                                        </th>
+                                        <td>{{ $da->bank_name }}</td>
+                                        <td>{{ $da->account_name }}</td>
+                                        <td>{{ $da->account_number }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

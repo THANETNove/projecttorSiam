@@ -51,7 +51,7 @@
                                                 <td>{{ $da->account_name }}</td>
                                                 <td>{{ $da->account_number }}</td>
                                                 <td>
-                                                    <img src="{{ asset($da->bank_image) }}" alt="Bank Image"
+                                                    <img src="{{ URL::asset($da->bank_image) }}" alt="Bank Image"
                                                         style="width: 50px; height: auto;">
                                                 </td>
                                             </tr>
