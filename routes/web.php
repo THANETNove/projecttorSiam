@@ -25,6 +25,10 @@ Route::get('/shop', [ShopFrontEndController::class, 'index'])->name('shop');
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/services', [ServicesFrontEndController::class, 'index'])->name('services');
 Route::get('/policy', [ServicesFrontEndController::class, 'productPolicy'])->name('policy');
-Route::get('/components/bank', [BankController::class, 'index'])->name('components/bank');
-Route::get('/components/bank/create', [BankController::class, 'create'])->name('components/bank/create');
-Route::post('account_bank', [BankController::class, 'store'])->name('account_bank');
+
+Route::group(['middleware' => ['is_admin']], function () {
+    Route::get('/components/bank', [BankController::class, 'index'])->name('components/bank');
+    Route::get('/components/bank/create', [BankController::class, 'create'])->name('components/bank/create');
+
+    Route::post('account_bank', [BankController::class, 'store'])->name('account_bank');
+});
