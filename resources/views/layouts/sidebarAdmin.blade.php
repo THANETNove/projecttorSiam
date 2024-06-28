@@ -68,12 +68,33 @@
                                     <span class="sub-item">Manu Bar</span>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('components/gridsystem') ? 'active' : '' }}">
-                                <a href="{{ url('components/gridsystem') }}">
-                                    <span class="sub-item">Grid System</span>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item {{ Request::is('shop/*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#shop" class="{{ Request::is('shop/*') ? '' : 'collapsed' }}">
+                        <i class="fas fa-store"></i>
+                        <p>Shop</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse {{ Request::is('shop/*') ? 'show' : '' }}" id="shop">
+                        <ul class="nav nav-collapse">
+                            <li class="{{ Request::is('shop/bank*') ? 'active' : '' }}">
+                                <a href="{{ url('shop/bank') }}">
+                                    <span class="sub-item">บัญชีธนาคาร</span>
                                 </a>
                             </li>
 
+                            <li class="{{ Request::is('shop/slide*') ? 'active' : '' }}">
+                                <a href="{{ url('shop/slide') }}">
+                                    <span class="sub-item">Picture Slide Home</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('shop/manuBar*') ? 'active' : '' }}">
+                                <a href="{{ url('shop/manuBar') }}">
+                                    <span class="sub-item">Manu Bar</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
