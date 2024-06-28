@@ -1,7 +1,7 @@
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navb ar-brand" href="{{ url('/') }}">
             <img src="{{ URL::asset('/assets/images/cover/1.jpg') }}" class="imageLogo">
         </a>
 
@@ -10,11 +10,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        @php
+            $data = DB::table('menu_bars')->orderBy('use')->orderBy('resolution')->get();
+        @endphp
         <div class="collapse navbar-collapse" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-                <li class="nav-item @if (Request::is('/')) active @endif">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
-                </li>
+
                 {{--    <li class="nav-item @if (Request::is('shop')) active @endif">
                     <a class="nav-link" href="{{ url('shop') }}">Shop</a>
                 </li> --}}
@@ -28,70 +29,48 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Use</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/homeCinemaProjectors') }}">Home Cinema
-                                        Projectors</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/officeProjectors') }}">Office Projectors
-                                    </a></li>
-                                <li><a class="nav-link" href="{{ url('projector/largeVenueProjectors') }}">Large Venue
-                                        Projectors</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/golfSimulationProjectors') }}">Golf
-                                        Simulation Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/gamingProjectors') }}">Gaming
-                                        Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/outdoorProjectors') }}">Outdoor
-                                        Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/pubandBarProjectors') }}">Pub and Bar
-                                        Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/placeofWorshipProjectors') }}">GPlace
-                                        of Worship Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/cameraClubProjectors') }}">Camera
-                                        Club Projectors</a>
-                                </li>
+                                <li><a class="nav-link textHead">By Use</a></li>
+
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 1 && $da->resolution == 1)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+
+
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
                                 <li><a class="nav-link textHead" href="#">By Feature</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/4KProjectors') }}">4K Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/1080pProjectors') }}">1080p
-                                        Projectors</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/shortThrow') }}">Short Throw</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/ultraShortThrow') }}">Ultra Short
-                                        Throw</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/laserProjectors') }}">Laser
-                                        Projectors</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/LEDProjectors') }}">LED Projectors</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('projector/DLPProjectors') }}">DLP Projectors</a>
-                                </li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 1 && $da->resolution == 2)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
                                 <li><a class="nav-link textHead" href="#">By Resolution</a>
                                 </li>
-                                <li><a class="nav-link" href="{{ url('projector/43XGA1024x768') }}">4:3 XGA
-                                        (1024x768)
-                                    </a></li>
-                                <li><a class="nav-link" href="{{ url('projector/1610WXGA1280x800') }}">16:10 WXGA
-                                        (1280x800)</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/1610WUXGA1920x1200') }}">16:10 WUXGA
-                                        (1920x1200)</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/1691080P1920x1080') }}">16:9 1080P
-                                        (1920x1080)</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/1694KUHD3840x2160') }}">16:9 4K UHD
-                                        (3840x2160)</a></li>
-                                <li><a class="nav-link" href="{{ url('projector/1694KSXRD4096x2160') }}">16:9 4K SXRD
-                                        (4096x2160)</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 1 && $da->resolution == 3)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown @if (Request::is('screen*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,74 +82,123 @@
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
                                 <li><a class="nav-link textHead" href="#">By Type</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/ElectricProjectorScreens') }}">Electric
-                                        Projector Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/PullDownProjectorScreens') }}">Pull Down
-                                        Projector Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/FixedFrameProjectorScreens') }}">Fixed
-                                        Frame Projector Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/PortableProjectorScreens') }}">Portable
-                                        Projector Screens</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('screen/PortableProjectorScreens') }}">Portable
-                                        Projector Screens</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('screen/4KProjectorScreens') }}">Portable
-                                        4K Projector Screens</a>
-                                </li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 2 && $da->resolution == 1)
+                                        <li><a class="nav-link"
+                                                href="{{ url('screen', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
                                 <li><a class="nav-link textHead" href="#">By Format</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/169ProjectorScreens') }}">16:9 Projector
-                                        Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/1610ProjectorScreens') }}">16:10
-                                        Projector Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/43ProjectorScreens') }}">4:3 Projector
-                                        Screens</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/2351ProjectorScreens') }}">2.35:1
-                                        Projector Screens</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 2 && $da->resolution == 2)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
                                 <li><a class="nav-link textHead" href="#">By Diagonal Size</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/under100inch') }}">under 100 inch</a>
-                                </li>
-                                <li><a class="nav-link" href="{{ url('screen/110inch') }}">110 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/120inch') }}">120 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/130inch') }}">130 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/140inch') }}">140 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/150inch') }}">150 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/180inch') }}">180 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/200inch') }}">200 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/240inch') }}">240 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/250inch') }}">250 inch</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/LargeProjectorScreens') }}">Large
-                                        Projector Screens</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 2 && $da->resolution == 3)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown @if (Request::is('displays/*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Displays
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="displaysDropdown">
-                        <li><a class="nav-link" href="{{ url('displays/privacy') }}">Privacy Policy</a></li>
-                        <li><a class="nav-link" href="{{ url('displays/terms') }}">Terms of Service</a></li>
-                        <li><a class="nav-link" href="{{ url('displays/cookie') }}">Cookie Policy</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="policyDropdown">
+                        <!-- เริ่มต้น row -->
+                        <div class="row">
+                            <!-- คอลัมน์แรก -->
+                            <div class="col-4">
+                                <li><a class="nav-link textHead">By Feature</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 3 && $da->resolution == 1)
+                                        <li><a class="nav-link"
+                                                href="{{ url('displays', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <!-- คอลัมน์ที่สอง -->
+                            <div class="col-4">
+                                <li><a class="nav-link textHead">By Diagonal Size</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 3 && $da->resolution == 2)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <!-- คอลัมน์ที่สอง -->
+                            <div class="col-4">
+                                <li><a class="nav-link textHead" href="#">By Manufacturer</a></li>
+                                @foreach ($data as $da)
+                                    <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                                    @if ($da->use == 3 && $da->resolution == 3)
+                                        <li><a class="nav-link"
+                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown @if (Request::is('pages/*')) active @endif">
+                    <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        AV Solutions
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <li><a class="nav-link textHead">Sound System</a></li>
+                        @foreach ($data as $da)
+                            <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                            @if ($da->use == 3 && $da->resolution == 1)
+                                <li><a class="nav-link"
+                                        href="{{ url('AVSolutions', $da->use) }}">{{ $da->feature }}</a>
+                                </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item dropdown @if (Request::is('pages/*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        PAGES
+                        Accessories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <li><a class="nav-link" href="{{ url('pages/privacy') }}">Privacy Policy</a></li>
-                        <li><a class="nav-link" href="{{ url('pages/terms') }}">Terms of Service</a></li>
-                        <li><a class="nav-link" href="{{ url('pages/cookie') }}">Cookie Policy</a></li>
+                        <li><a class="nav-link textHead">HDMI Cable</a></li>
+                        @foreach ($data as $da)
+                            <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
+                            @if ($da->use == 3 && $da->resolution == 1)
+                                <li><a class="nav-link"
+                                        href="{{ url('Accessories', $da->use) }}">{{ $da->feature }}</a>
+                                </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item dropdown @if (Request::is('services/*')) active @endif">
