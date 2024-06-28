@@ -4,8 +4,9 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
             <a href="{{ url('/home') }}" class="logo">
-                <img src="{{ asset('assetsAdmin/img/kaiadmin/logo_light.svg') }}" alt="navbar brand" class="navbar-brand"
-                    height="20" />
+                <img src="{{ URL::asset('assets/images/cover/1.jpg') }}" alt="navbar brand" class="navbar-brand"
+                    height="40" />
+
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
