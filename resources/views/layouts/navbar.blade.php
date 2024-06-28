@@ -18,7 +18,7 @@
                 {{--    <li class="nav-item @if (Request::is('shop')) active @endif">
                     <a class="nav-link" href="{{ url('shop') }}">Shop</a>
                 </li> --}}
-                <li class="nav-item dropdown @if (Request::is('shop/*')) active @endif">
+                <li class="nav-item dropdown @if (Request::is('projector*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Projector
@@ -28,33 +28,71 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/privacy') }}">Privacy Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/terms') }}">Terms of Service</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/cookie') }}">Cookie Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/security') }}">Security Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/accessibility') }}">Accessibility</a>
+                                <li><a class="nav-link textHead" href="#">By Use</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/homeCinemaProjectors') }}">Home Cinema
+                                        Projectors</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/officeProjectors') }}">Office Projectors
+                                    </a></li>
+                                <li><a class="nav-link" href="{{ url('projector/largeVenueProjectors') }}">Large Venue
+                                        Projectors</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/golfSimulationProjectors') }}">Golf
+                                        Simulation Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/gamingProjectors') }}">Gaming
+                                        Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/outdoorProjectors') }}">Outdoor
+                                        Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/pubandBarProjectors') }}">Pub and Bar
+                                        Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/placeofWorshipProjectors') }}">GPlace
+                                        of Worship Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/cameraClubProjectors') }}">Camera
+                                        Club Projectors</a>
                                 </li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link textHead" href="#">By Feature</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/4KProjectors') }}">4K Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/1080pProjectors') }}">1080p
+                                        Projectors</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/shortThrow') }}">Short Throw</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/ultraShortThrow') }}">Ultra Short
+                                        Throw</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/laserProjectors') }}">Laser
+                                        Projectors</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/LEDProjectors') }}">LED Projectors</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/DLPProjectors') }}">DLP Projectors</a>
+                                </li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link textHead" href="#">By Resolution</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('projector/43XGA1024x768') }}">4:3 XGA
+                                        (1024x768)
+                                    </a></li>
+                                <li><a class="nav-link" href="{{ url('projector/1610WXGA1280x800') }}">16:10 WXGA
+                                        (1280x800)</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/1610WUXGA1920x1200') }}">16:10 WUXGA
+                                        (1920x1200)</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/1691080P1920x1080') }}">16:9 1080P
+                                        (1920x1080)</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/1694KUHD3840x2160') }}">16:9 4K UHD
+                                        (3840x2160)</a></li>
+                                <li><a class="nav-link" href="{{ url('projector/1694KSXRD4096x2160') }}">16:9 4K SXRD
+                                        (4096x2160)</a></li>
                             </div>
                         </div>
                     </ul>
                 </li>
-                <li class="nav-item dropdown @if (Request::is('shop/*')) active @endif">
+                <li class="nav-item dropdown @if (Request::is('screen*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         screen
@@ -64,28 +102,28 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/privacy') }}">Privacy Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/terms') }}">Terms of Service</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/cookie') }}">Cookie Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/security') }}">Security Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/accessibility') }}">Accessibility</a>
+                                <li><a class="nav-link" href="{{ url('screen/privacy') }}">By Type</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/terms') }}">Terms of Service</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/cookie') }}">Cookie Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/security') }}">Security Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/accessibility') }}">Accessibility</a>
                                 </li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/returns') }}">Returns Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/shipping') }}">Shipping Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/support') }}">Support</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/contact') }}">Contact Us</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/faq') }}">FAQ</a></li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('shop/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('shop/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/returns') }}">Returns Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/shipping') }}">Shipping Policy</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/support') }}">Support</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/contact') }}">Contact Us</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/faq') }}">FAQ</a></li>
                             </div>
                         </div>
                     </ul>

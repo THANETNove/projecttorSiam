@@ -1094,3 +1094,9 @@ textarea {
   height: auto;
   max-width: 300px;
 }
+
+.textHead {
+
+  font-size: 16px !important;
+  font-weight: 900 !important;
+}
