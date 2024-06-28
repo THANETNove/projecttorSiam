@@ -62,9 +62,9 @@
                                     <span class="sub-item">Picture Slide Home</span>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('components/buttons') ? 'active' : '' }}">
-                                <a href="{{ url('components/buttons') }}">
-                                    <span class="sub-item">Buttons</span>
+                            <li class="{{ Request::is('components/manuBar*') ? 'active' : '' }}">
+                                <a href="{{ url('components/manuBar') }}">
+                                    <span class="sub-item">Manu Bar</span>
                                 </a>
                             </li>
                             <li class="{{ Request::is('components/gridsystem') ? 'active' : '' }}">

@@ -1,0 +1,79 @@
+@extends('layouts.appAdmin')
+
+@section('content')
+    <div class="page-inner mt-64">
+        <div class="card">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-lg-6">
+                    <div class="card-header">
+                        <div class="card-title">Manu Bar</div>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('account_manuBar') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="use">หัวข้อ</label>
+                                <input type="text" class="form-control  @error('use') is-invalid @enderror"
+                                    id="use" name="use" placeholder="Enter Bank Name" value="{{ $id }}">
+                                @error('bank_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+                            <div class="form-group">
+                                <label for="feature">ชื่อ manu</label>
+                                <input type="text" class="form-control  @error('feature') is-invalid @enderror"
+                                    id="feature" name="feature" placeholder="Enter Account Name">
+                                @error('feature')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="account_number">เลือก</label>
+
+                                <select class="form-select form-select-lg mb-3" name="resolution"
+                                    aria-label="Large select example" required>
+                                    @if ($id == 1)
+                                        <option value="1">By Use</option>
+                                        <option value="2">By Feature</option>
+                                        <option value="3">By Resolution</option>
+                                    @elseif ($id == 2)
+                                        <option value="1">By Type</option>
+                                        <option value="2">By Format</option>
+                                        <option value="3">By Diagonal Size</option>
+                                    @elseif ($id == 3)
+                                        <option value="1">By Feature</option>
+                                        <option value="2">By Diagonal Size</option>
+                                        <option value="3">By Manufacturer</option>
+                                    @elseif ($id == 4)
+                                        <option value="1">Sound System</option>
+                                    @else
+                                        <option value="1">HDMI Cable</option>
+                                    @endif
+                                </select>
+                                @error('account_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <br>
+                            <div class="row mb-0">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('บันทึก') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

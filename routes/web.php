@@ -7,7 +7,8 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ServicesFrontEndController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\SlideHomeController;
-use DB;
+use App\Http\Controllers\ManuBarController;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
 
@@ -44,4 +45,11 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('components/slide/create', [SlideHomeController::class, 'create'])->name('components/slide/create');
     Route::post('imageSlide', [SlideHomeController::class, 'store'])->name('imageSlide');
     Route::get('components/slideHome/destroy/{id}', [SlideHomeController::class, 'destroy'])->name('components/slideHome/destroy');
+    
+    //ManuBarController
+    Route::get('components/manuBar', [ManuBarController::class, 'index'])->name('components/manuBar');
+    Route::get('components/manuBar/create/{id}', [ManuBarController::class, 'create'])->name('components/manuBar/create');
+    Route::post('account_manuBar', [ManuBarController::class, 'store'])->name('account_manuBar');
+    Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
+    Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
 });

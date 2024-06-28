@@ -102,28 +102,51 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('screen/privacy') }}">By Type</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/terms') }}">Terms of Service</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/cookie') }}">Cookie Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/security') }}">Security Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/accessibility') }}">Accessibility</a>
+                                <li><a class="nav-link textHead" href="#">By Type</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/ElectricProjectorScreens') }}">Electric
+                                        Projector Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/PullDownProjectorScreens') }}">Pull Down
+                                        Projector Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/FixedFrameProjectorScreens') }}">Fixed
+                                        Frame Projector Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/PortableProjectorScreens') }}">Portable
+                                        Projector Screens</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('screen/PortableProjectorScreens') }}">Portable
+                                        Projector Screens</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('screen/4KProjectorScreens') }}">Portable
+                                        4K Projector Screens</a>
                                 </li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('screen/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link textHead" href="#">By Format</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/169ProjectorScreens') }}">16:9 Projector
+                                        Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/1610ProjectorScreens') }}">16:10
+                                        Projector Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/43ProjectorScreens') }}">4:3 Projector
+                                        Screens</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/2351ProjectorScreens') }}">2.35:1
+                                        Projector Screens</a></li>
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link" href="{{ url('screen/returns') }}">Returns Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/shipping') }}">Shipping Policy</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/support') }}">Support</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/contact') }}">Contact Us</a></li>
-                                <li><a class="nav-link" href="{{ url('screen/faq') }}">FAQ</a></li>
+                                <li><a class="nav-link textHead" href="#">By Diagonal Size</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/under100inch') }}">under 100 inch</a>
+                                </li>
+                                <li><a class="nav-link" href="{{ url('screen/110inch') }}">110 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/120inch') }}">120 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/130inch') }}">130 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/140inch') }}">140 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/150inch') }}">150 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/180inch') }}">180 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/200inch') }}">200 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/240inch') }}">240 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/250inch') }}">250 inch</a></li>
+                                <li><a class="nav-link" href="{{ url('screen/LargeProjectorScreens') }}">Large
+                                        Projector Screens</a></li>
                             </div>
                         </div>
                     </ul>
