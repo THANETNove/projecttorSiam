@@ -3,23 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Bank;
+use App\Models\SlideHome;
 use Illuminate\Support\Facades\File;
-
 use DB;
 
-class BankController extends Controller
+class SlideHomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = DB::table('banks')
+        $data = DB::table('slide_homes')
         ->get();
 
-
-        return view('admin.bank.index',['data' => $data]);
+        
+        return view('admin.slideHome.index',['data' => $data]);
     }
 
     /**
@@ -27,7 +26,7 @@ class BankController extends Controller
      */
     public function create()
     {
-        return view('admin.bank.create');
+        return view('admin.slideHome.create');
     }
 
     /**
@@ -35,41 +34,34 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
-            'bank_name' => ['required', 'string', 'max:255'],
-          
-            'account_number' => ['required', 'string', 'max:255'],
-            'bank_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate as an image
+            'slide_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate as an image
         ]);
     
         // Initialize a variable to hold the image path
         $imagePath = '';
     
         // Check if an image file is uploaded
-        if ($request->hasFile('bank_image')) {
-            $image = $request->file('bank_image');
+        if ($request->hasFile('slide_image')) {
+            $image = $request->file('slide_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension(); // Get the original extension
     
             // Move the file to the specified directory (e.g., 'public/assets/images/bank')
-            $image->move(public_path('assets/images/bank'), $imageName);
+            $image->move(public_path('assets/images/slideHome'), $imageName);
     
             // Prepare the path to be saved in the database
-            $imagePath = "assets/images/bank/" . $imageName; // Note the use of '.' for concatenation and '/' for path
+            $imagePath = "assets/images/slideHome/" . $imageName; // Note the use of '.' for concatenation and '/' for path
         }
     
         // Save the data to the database
-        $data = new Bank;
-        $data->bank_name = $request->input('bank_name');
-        $data->account_name = $request->input('account_name');
-        $data->account_number = $request->input('account_number');
-        $data->bank_image = $imagePath; // Save the path to the image in the database
+        $data = new SlideHome;
+        $data->slide_image = $imagePath; // Save the path to the image in the database
         $data->save();
 
               
 
 
-        return redirect('components/bank')->with('message', "บันทึกสำเร็จ");
+        return redirect('components/slide')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -101,12 +93,12 @@ class BankController extends Controller
      */
     public function destroy(string $id)
     {
-
-        $user = Bank::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+      
+        $user = SlideHome::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
 
 
        
-        $imagePath = $user->bank_image;
+        $imagePath = $user->slide_image;
 
         // ตรวจสอบว่าภาพนั้นมีอยู่ในระบบไฟล์หรือไม่
         if (File::exists(public_path($imagePath))) {
@@ -116,8 +108,10 @@ class BankController extends Controller
             // หากภาพไม่พบในระบบไฟล์
            
         }
+
+
             $user->delete(); // ลบผู้ใช้นั้น
   
-        return redirect('components/bank')->with('message', "ลบสำเร็จ");
+       return redirect('components/slide')->with('message', "ลบสำเร็จ");
     }
 }
