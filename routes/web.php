@@ -7,13 +7,18 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ServicesFrontEndController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\SlideHomeController;
+use DB;
 
 Route::get('/', function () {
 
     if (auth()->check() && auth()->user()->status == 1) {
         return view('home');
     } else {
-        return view('welcome');
+
+        $imgSlide = DB::table('slide_homes')
+        ->get();
+
+        return view('welcome',['imgSlide' =>  $imgSlide]);
     }
     
  
