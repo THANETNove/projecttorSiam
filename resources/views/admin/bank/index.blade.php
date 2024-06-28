@@ -54,6 +54,12 @@
                                                     <img src="{{ URL::asset($da->bank_image) }}" alt="Bank Image"
                                                         style="width: 50px; height: auto;">
                                                 </td>
+                                                <td>
+
+                                                    <a href="{{ url('components/bank/destroy', $da->id) }}"
+                                                        class="btn btn-danger">ลบ</a>
+
+                                                </td>
                                             </tr>
                                         @endforeach
 

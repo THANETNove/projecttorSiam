@@ -29,6 +29,6 @@ Route::get('/policy', [ServicesFrontEndController::class, 'productPolicy'])->nam
 Route::group(['middleware' => ['is_admin']], function () {
     Route::get('/components/bank', [BankController::class, 'index'])->name('components/bank');
     Route::get('/components/bank/create', [BankController::class, 'create'])->name('components/bank/create');
-
     Route::post('account_bank', [BankController::class, 'store'])->name('account_bank');
+    Route::get('components/bank/destroy/{id}', [BankController::class, 'destroy'])->name('components/bank/destroy');
 });

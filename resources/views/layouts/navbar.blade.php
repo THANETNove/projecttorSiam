@@ -135,11 +135,13 @@
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                         @if (auth()->check() && auth()->user())
                             <li><a class="nav-link" href="#"> {{ Auth::user()->fname }}</a></li>
+                        @else
+                            <li> <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li> <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @endif
 
-                        <li><a class="nav-link" href="{{ url('settings') }}">Settings</a></li>
-                        <li> <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        <li> <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+
+
                         @if (auth()->check() && auth()->user())
                             <li>
                                 <a class="nav-link" href="{{ route('logout') }}"
@@ -157,12 +159,12 @@
                     </ul>
                 </li>
 
-
+                {{-- 
                 <li><a class="nav-link" href="#"><img src="{{ URL::asset('/assets/images/cart.svg') }}">
                         <span class="cartUser">5</span>
                     </a>
 
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

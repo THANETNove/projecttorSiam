@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bank;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 use DB;
 
 class BankController extends Controller
@@ -99,6 +102,23 @@ class BankController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $user = Bank::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+
+       
+        $imagePath = $user->bank_image;
+
+        // ตรวจสอบว่าภาพนั้นมีอยู่ในระบบไฟล์หรือไม่
+        if (File::exists(public_path($imagePath))) {
+         
+            File::delete(public_path($imagePath));
+        } else {
+            // หากภาพไม่พบในระบบไฟล์
+           
+        }
+            $user->delete(); // ลบผู้ใช้นั้น
+  
+        return redirect('components/bank')->with('message', "ลบสำเร็จ");
     }
 }

@@ -56,9 +56,9 @@
                                     <span class="sub-item">บัญชีธนาคาร</span>
                                 </a>
                             </li>
-                            <li class=<li class="{{ Request::is('components/avatars') ? 'active' : '' }}">
-                                <a href="{{ url('components/avatars') }}">
-                                    <span class="sub-item">Avatars</span>
+                            <li class=<li class="{{ Request::is('components/slide') ? 'active' : '' }}">
+                                <a href="{{ url('components/slide') }}">
+                                    <span class="sub-item">Picture Slide Home</span>
                                 </a>
                             </li>
                             <li class="{{ Request::is('components/buttons') ? 'active' : '' }}">
