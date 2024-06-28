@@ -27,6 +27,7 @@ a {
   transition: .3s all ease;
   color: #2f2f2f;
   text-decoration: underline;
+
 }
 
 a:hover {
@@ -39,7 +40,7 @@ a.more {
 }
 
 .custom-navbar {
-  background: #3b5d50 !important;
+  background: #ffffff !important;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -47,10 +48,11 @@ a.more {
 .custom-navbar .navbar-brand {
   font-size: 32px;
   font-weight: 600;
+  color: #343A40 !important;
 }
 
 .custom-navbar .navbar-brand>span {
-  opacity: .4;
+  opacity: 1;
 }
 
 .custom-navbar .navbar-toggler {
@@ -73,7 +75,7 @@ a.more {
 
 .custom-navbar .custom-navbar-nav li a {
   font-weight: 500;
-  color: #ffffff !important;
+  color: #343A40 !important;
   opacity: .5;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
@@ -339,7 +341,7 @@ a.more {
   width: 35px;
   height: 35px;
   display: inline-block;
-  background: #2f2f2f;
+  background: #FF6600;
   bottom: 15px;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -598,7 +600,7 @@ a.more {
 }
 
 .testimonial-slider-wrap .tns-inner {
-  padding-top: 30px;
+  padding-top: 0;
 }
 
 .testimonial-slider-wrap .item .testimonial-block blockquote {
@@ -630,7 +632,7 @@ a.more {
 
 .testimonial-slider-wrap #testimonial-nav {
   position: absolute;
-  top: 50%;
+  top: 40%;
   z-index: 99;
   width: 100%;
   display: none;
@@ -657,7 +659,7 @@ a.more {
 }
 
 .testimonial-slider-wrap #testimonial-nav>span:hover {
-  background: #3b5d50;
+  background: #FF6600;
   color: #ffffff;
 }
 
@@ -714,7 +716,7 @@ a.more {
 
 .testimonial-slider-wrap .tns-nav button:hover:before,
 .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
-  background-color: #3b5d50;
+  background-color: #FF6600;
 }
 
 .before-footer-section {
@@ -1071,7 +1073,24 @@ textarea {
   z-index: 0;
 }
 
+.hero2 {
+  background-color: #f9bf29;
+
+}
+
 .bannerImage {
-  width: 80%;
-  margin-top: -100px;
+
+
+  background-size: cover;
+  /* ทำให้ภาพครอบคลุมพื้นที่ทั้งหมด */
+  background-position: center;
+  /* จัดภาพให้อยู่ตรงกลาง */
+  width: 100%;
+  height: auto;
+}
+
+.imageLogo {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
 }
