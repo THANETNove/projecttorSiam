@@ -53,3 +53,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
 });
+
+Route::fallback(function() {
+    return view('404'); 
+});
