@@ -23,28 +23,93 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="account_name">ชื่อบัญชี</label>
-                                <input type="text" class="form-control  @error('account_name') is-invalid @enderror"
-                                    id="account_name" name="account_name" placeholder="Enter Account Name">
-                                @error('account_name')
+                                <label for="price">ราคา</label>
+                                <input type="text" class="form-control  @error('price') is-invalid @enderror"
+                                    id="price" name="price" placeholder="Enter Account Name">
+                                @error('price')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="account_number">เลขที่บัญชี</label>
-                                {{-- <input type="text" class="form-control @error('account_number') is-invalid @enderror"
-                                    id="account_number" name="account_number" placeholder="Enter Account Number"> --}}
-                                <textarea name="editor1" id="editor1" rows="10" cols="80">
-                                        
-                                    </textarea>
-                                @error('account_number')
+                                <label for="price">สถานะ</label>
+                                <input type="text" class="form-control  @error('availability') is-invalid @enderror"
+                                    id="availability" name="availability" placeholder="Enter Account Name">
+                                @error('availability')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label for="brand">ยี่ห่อ</label>
+                                <input type="text" class="form-control  @error('brand') is-invalid @enderror"
+                                    id="brand" name="brand" placeholder="Enter Account Name">
+                                @error('brand')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="catalog">ไฟล์ Catalog</label>
+                                <input type="text" class="form-control  @error('catalog') is-invalid @enderror"
+                                    id="catalog" name="catalog" placeholder="Enter Account Name">
+                                @error('catalog')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="catalog">DESCRIPTION</label>
+                                <textarea name="editor1" id="editor1" rows="10" cols="80">
+                                </textarea>
+                                @error('catalog')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="catalog">SPECIFICATION</label>
+                                <textarea name="editor1" id="editor2" rows="10" cols="80">
+                                </textarea>
+                                @error('catalog')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <br>
+                            <h4>SCREEN SIZE CALCULATOR</h4>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="brand">throw ratio min</label>
+                                    <input type="text" class="form-control  @error('brand') is-invalid @enderror"
+                                        id="brand" name="brand" placeholder="Enter Account Name">
+                                    @error('brand')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">throw ratio max</label>
+                                    <input type="text" class="form-control  @error('brand') is-invalid @enderror"
+                                        id="brand" name="brand" placeholder="Enter Account Name">
+                                    @error('brand')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+
                             <div class="form-group">
                                 <label for="bank_image">รูปภาพ</label>
                                 <input type="file" class="form-control @error('bank_image') is-invalid @enderror"

@@ -431,3 +431,16 @@ function countCharacters(event) {
 document.addEventListener("DOMContentLoaded", function () {
 	CKEDITOR.instances.editor1.on('change', countCharacters);
 });
+CKEDITOR.replace('editor2');
+
+function countCharacters(event) {
+	var content = CKEDITOR.instances.editor2.getData();
+	var maxLength = 1000; // กำหนดจำนวนตัวอักษรสูงสุดที่ต้องการ
+	/* if (content.length > maxLength) {
+		alert('คุณไม่สามารถใส่ตัวอักษรเกิน ' + maxLength + ' ตัว');
+		event.cancel();
+	} */
+}
+document.addEventListener("DOMContentLoaded", function () {
+	CKEDITOR.instances.editor2.on('change', countCharacters);
+});
