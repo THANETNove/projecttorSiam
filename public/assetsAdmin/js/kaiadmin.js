@@ -417,3 +417,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+CKEDITOR.replace('editor1');
+
+function countCharacters(event) {
+	var content = CKEDITOR.instances.editor1.getData();
+	var maxLength = 1000; // กำหนดจำนวนตัวอักษรสูงสุดที่ต้องการ
+	/* if (content.length > maxLength) {
+		alert('คุณไม่สามารถใส่ตัวอักษรเกิน ' + maxLength + ' ตัว');
+		event.cancel();
+	} */
+}
+document.addEventListener("DOMContentLoaded", function () {
+	CKEDITOR.instances.editor1.on('change', countCharacters);
+});

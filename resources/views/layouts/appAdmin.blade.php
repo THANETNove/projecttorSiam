@@ -7,6 +7,7 @@
 
     <!-- Fonts and icons -->
     <script src="{{ URL::asset('/assetsAdmin/js/plugin/webfont/webfont.min.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <script>
         WebFont.load({
             google: {

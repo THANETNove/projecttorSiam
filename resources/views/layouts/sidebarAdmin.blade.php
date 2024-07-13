@@ -71,30 +71,21 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item {{ Request::is('shop/*') ? 'active' : '' }}">
-                    <a data-bs-toggle="collapse" href="#shop" class="{{ Request::is('shop/*') ? '' : 'collapsed' }}">
+                <li class="nav-item {{ Request::is('product/*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#product"
+                        class="{{ Request::is('product/*') ? '' : 'collapsed' }}">
                         <i class="fas fa-store"></i>
-                        <p>Shop</p>
+                        <p>Product</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse {{ Request::is('shop/*') ? 'show' : '' }}" id="shop">
+                    <div class="collapse {{ Request::is('product/*') ? 'show' : '' }}" id="product">
                         <ul class="nav nav-collapse">
-                            <li class="{{ Request::is('shop/bank*') ? 'active' : '' }}">
-                                <a href="{{ url('shop/bank') }}">
-                                    <span class="sub-item">บัญชีธนาคาร</span>
+                            <li class="{{ Request::is('product/*') ? 'active' : '' }}">
+                                <a href="{{ url('product/product_all') }}">
+                                    <span class="sub-item">Product</span>
                                 </a>
                             </li>
 
-                            <li class="{{ Request::is('shop/slide*') ? 'active' : '' }}">
-                                <a href="{{ url('shop/slide') }}">
-                                    <span class="sub-item">Picture Slide Home</span>
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('shop/manuBar*') ? 'active' : '' }}">
-                                <a href="{{ url('shop/manuBar') }}">
-                                    <span class="sub-item">Manu Bar</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </li>

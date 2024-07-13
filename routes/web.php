@@ -8,6 +8,7 @@ use App\Http\Controllers\ServicesFrontEndController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\SlideHomeController;
 use App\Http\Controllers\ManuBarController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
@@ -52,6 +53,11 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::post('account_manuBar', [ManuBarController::class, 'store'])->name('account_manuBar');
     Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
+
+
+
+    Route::get('product/product_all', [ProductController::class, 'index'])->name('product/product_all');
+    Route::get('product/product_all/create', [ProductController::class, 'create'])->name('product/product_all/create');
 });
 
 Route::fallback(function() {
