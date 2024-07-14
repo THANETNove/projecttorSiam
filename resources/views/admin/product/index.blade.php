@@ -67,8 +67,8 @@
                                                 </td>
                                                 <td>
 
-                                                    <a href="{{ url('components/bank/destroy', $da->id) }}"
-                                                        style="width: 80px" class="btn btn-warning">เเก้ไข</a>
+                                                    <a href="{{ url('product/edit', $da->id) }}" style="width: 80px"
+                                                        class="btn btn-warning">เเก้ไข</a>
 
                                                 </td>
                                                 <td>

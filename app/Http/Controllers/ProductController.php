@@ -56,10 +56,10 @@ class ProductController extends Controller
 
 
         $request->validate([
-          /*   'product_name' => 'required',
+            'product_name' => 'required',
             'price' => 'required',
             'image' => 'required',
-            'check_manu' => 'required', */
+            'check_manu' => 'required',
             'link_lazada' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
             'link_shopee' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
             'other_links' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
@@ -91,10 +91,6 @@ class ProductController extends Controller
         $data = new Product;
         $data->product_name = $request['product_name'];
         $data->price = $request['price'];
-       /*  $data->display = $request['display'];
-        $data->contrast_ratio = $request['contrast_ratio'];
-        $data->resolution = $request['resolution'];
-        $data->brightness = $request['brightness']; */
         $data->availability = $request['availability'];
         $data->description = $request['description'];
         $data->specification = $request['specification'];
