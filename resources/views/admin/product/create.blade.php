@@ -9,7 +9,7 @@
                         <div class="card-title">เพิ่มสินค้า</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('product/store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('product/update') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
