@@ -13,7 +13,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.index');
+        $data = DB::table('products')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+        return view('admin.product.index',['data' =>  $data]);
     }
 
     /**
@@ -74,10 +78,10 @@ class ProductController extends Controller
                 $imageName = time() . '_' . $image->getClientOriginalName();
 
                 // Move the image to the specified directory
-                $image->move(public_path('assetsAdmin/img/product'), $imageName);
+                $image->move(public_path('assets/images/product'), $imageName);
 
                 // Store or use $imageName as needed
-                $imagePaths[] = 'assetsAdmin/img/product' . $imageName; // Store paths to use or save in database
+                $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
             }
 
             // $imagePaths now contains paths to all uploaded images

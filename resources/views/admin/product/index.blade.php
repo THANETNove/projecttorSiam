@@ -31,7 +31,7 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">ลำดับ</th>
-                                            <th scope="col">ธนาคาร</th>
+                                            <th scope="col">ชื่อ</th>
                                             <th scope="col">ชื่อบัญชี</th>
                                             <th scope="col">เลขที่บัญชี</th>
                                             <th scope="col">ภาพ</th>
@@ -43,13 +43,34 @@
                                             $i = 1;
                                         @endphp
 
-                                        {{--  @foreach ($data as $da)
+                                        @foreach ($data as $da)
                                             <tr>
                                                 <th scope="row">
                                                     {{ $i++ }}
                                                 </th>
-                                                <td>{{ $da->bank_name }}</td>
-                                                <td>{{ $da->account_name }}</td>
+                                                <td>{{ $da->product_name }}</td>
+                                                <td>
+                                                    {{--  @foreach (json_decode($da->image) as $imageUrl)
+                                                        <img src="{{ URL::asset($imageUrl) }}" alt="Bank Image"
+                                                            style="width: 50px; height: auto;" class="image-clickable">
+                                                    @endforeach --}}
+                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-1.jpg') }}"
+                                                        alt="Image 1" style="width: 50px; height: auto;"
+                                                        class="image-clickable">
+                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-2.jpg') }}"
+                                                        alt="Image 2" style="width: 50px; height: auto;"
+                                                        class="image-clickable">
+                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-3.jpg') }}"
+                                                        alt="Image 3" style="width: 50px; height: auto;"
+                                                        class="image-clickable">
+                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-4.jpg') }}"
+                                                        alt="Image 4" style="width: 50px; height: auto;"
+                                                        class="image-clickable">
+
+
+
+                                                </td>
+                                                {{--      <td>{{ $da->account_name }}</td>
                                                 <td>{{ $da->account_number }}</td>
                                                 <td>
                                                     <img src="{{ URL::asset($da->bank_image) }}" alt="Bank Image"
@@ -60,9 +81,9 @@
                                                     <a href="{{ url('components/bank/destroy', $da->id) }}"
                                                         class="btn btn-danger">ลบ</a>
 
-                                                </td>
+                                                </td> --}}
                                             </tr>
-                                        @endforeach --}}
+                                        @endforeach
 
                                     </tbody>
                                 </table>
