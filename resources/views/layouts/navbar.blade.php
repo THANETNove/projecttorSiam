@@ -29,7 +29,9 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead">By Use</a></li>
+                                <li>
+                                    <p class="textHead">By Use</p>
+                                </li>
 
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
@@ -44,7 +46,9 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Feature</a></li>
+                                <li>
+                                    <p class="textHead">By Feature</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 1 && $da->resolution == 2)
@@ -56,7 +60,8 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Resolution</a>
+                                <li>
+                                    <p class="textHead">By Resolution</p>
                                 </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
@@ -81,7 +86,9 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Type</a></li>
+                                <li>
+                                    <p class="textHead">By Type</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 1)
@@ -93,7 +100,9 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Format</a></li>
+                                <li>
+                                    <p class="textHead">By Format</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 2)
@@ -105,7 +114,9 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Diagonal Size</a></li>
+                                <li>
+                                    <p class="textHead">By Diagonal Size</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 3)
@@ -129,7 +140,9 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead">By Feature</a></li>
+                                <li>
+                                    <p class="textHead">By Feature</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 1)
@@ -141,7 +154,9 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead">By Diagonal Size</a></li>
+                                <li>
+                                    <p class="textHead">By Diagonal Size</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 2)
@@ -153,7 +168,9 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                                <li><a class="nav-link textHead" href="#">By Manufacturer</a></li>
+                                <li>
+                                    <p class="textHead">By Manufacturer</p>
+                                </li>
                                 @foreach ($data as $da)
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 3)
@@ -173,10 +190,12 @@
                         AV Solutions
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <li><a class="nav-link textHead">Sound System</a></li>
+                        <li>
+                            <p class="textHead">Sound System</p>
+                        </li>
                         @foreach ($data as $da)
                             <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
-                            @if ($da->use == 3 && $da->resolution == 1)
+                            @if ($da->use == 4 && $da->resolution == 1)
                                 <li><a class="nav-link"
                                         href="{{ url('AVSolutions', $da->use) }}">{{ $da->feature }}</a>
                                 </li>
@@ -190,10 +209,12 @@
                         Accessories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <li><a class="nav-link textHead">HDMI Cable</a></li>
+                        <li>
+                            <p class="textHead">HDMI Cable</p>
+                        </li>
                         @foreach ($data as $da)
                             <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
-                            @if ($da->use == 3 && $da->resolution == 1)
+                            @if ($da->use == 5 && $da->resolution == 1)
                                 <li><a class="nav-link"
                                         href="{{ url('Accessories', $da->use) }}">{{ $da->feature }}</a>
                                 </li>
