@@ -456,4 +456,8 @@ body[data-background-color="dark"] .demo-icon .icon-class {
   display: none !important;
 }
 
+.required-click {
+  color: red !important;
+}
+
 /*# sourceMappingURL=demo.css.map */

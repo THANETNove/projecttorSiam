@@ -44,3 +44,38 @@ function manuBarApi(id) {
         }
     });
 }
+
+// check-input  n
+function getCheckedValues() {
+    var checkedValues = [];
+    // วนลูปผ่าน checkboxes ทั้งหมดที่มี class form-check-input
+    var checkboxes = document.querySelectorAll('.form-check-input');
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            checkedValues.push(checkbox.value);
+        }
+    });
+    console.log('Checked values:', checkedValues);
+    // ส่งค่าไปที่ backend หรือทำการประมวลผลต่อไป
+}
+// ตัวอย่างภาพ
+function previewImages(event) {
+    var preview = document.getElementById('imagePreview');
+    preview.innerHTML = '';
+    var files = event.target.files;
+
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100px'; // ปรับขนาดภาพตัวอย่างตามที่ต้องการ
+            img.style.marginRight = '10px'; // ใส่ margin เพื่อแยกภาพตัวอย่าง
+            preview.appendChild(img);
+        };
+
+        reader.readAsDataURL(file);
+    }
+}

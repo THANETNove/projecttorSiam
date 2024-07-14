@@ -20,7 +20,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+
+        $data = DB::table('menu_bars')
+        ->leftJoin('navbar_manu_mains', 'navbar_manu_mains.id', '=', 'menu_bars.use')
+        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id')
+        ->orderBy('menu_bars.use')
+        ->orderBy('menu_bars.resolution')
+        ->get();
+
+        
+        return view('admin.product.create', ['data' =>  $data]);
     }
     
     public function manuBarApi($id)
@@ -39,7 +48,60 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_name' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+            'check_manu' => 'required',
+            'link_lazada' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
+            'link_shopee' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
+            'other_links' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'],
+        ], [
+            'link_lazada.url' => 'The link Lazada must be a valid URL.',
+            'link_shopee.url' => 'The link Shopee must be a valid URL.',
+            'other_links.url' => 'The link Other_links must be a valid URL.',
+        ]);
+
+        // Check if images are uploaded
+        if ($request->hasFile('image')) {
+            $images = $request->file('image');
+
+            foreach ($images as $image) {
+                // Generate unique filename
+                $imageName = time() . '_' . $image->getClientOriginalName();
+
+                // Move the image to the specified directory
+                $image->move(public_path('assetsAdmin/img/product'), $imageName);
+
+                // Store or use $imageName as needed
+                $imagePaths[] = 'assetsAdmin/img/product' . $imageName; // Store paths to use or save in database
+            }
+
+            // $imagePaths now contains paths to all uploaded images
+        }
+
+        
+        $data = MenuBar::find($id);
+        $data->product_name = $request['product_name'];
+        $data->price = $request['price'];
+        $data->display = $request['display'];
+        $data->contrast_ratio = $request['contrast_ratio'];
+        $data->resolution = $request['resolution'];
+        $data->brightness = $request['brightness'];
+        $data->availability = $request['availability'];
+        $data->description = $request['description'];
+        $data->specification = $request['specification'];
+        $data->ratio_screen = $request['ratio_screen'];
+        $data->throw_ratio_min = $request['throw_ratio_min'];
+        $data->throw_ratio_max = $request['throw_ratio_max'];
+        $data->link_lazada = $request['link_lazada'];
+        $data->link_shopee = $request['link_shopee'];
+        $data->other_links = $request['other_links'];
+        $data->check_manu = json_encode($request->check_manu);
+        $data->image = json_encode($imagePaths);
+        $data->status_sell = "on";
+        $data->save();
+
     }
    /* Í */
 
