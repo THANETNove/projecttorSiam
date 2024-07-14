@@ -54,18 +54,10 @@
                                                         <img src="{{ URL::asset($imageUrl) }}" alt="Bank Image"
                                                             style="width: 50px; height: auto;" class="image-clickable">
                                                     @endforeach --}}
-                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-1.jpg') }}"
-                                                        alt="Image 1" style="width: 50px; height: auto;"
-                                                        class="image-clickable">
-                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-2.jpg') }}"
-                                                        alt="Image 2" style="width: 50px; height: auto;"
-                                                        class="image-clickable">
-                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-3.jpg') }}"
-                                                        alt="Image 3" style="width: 50px; height: auto;"
-                                                        class="image-clickable">
-                                                    <img src="{{ URL::asset('assets/images/product1720952433_i-4.jpg') }}"
-                                                        alt="Image 4" style="width: 50px; height: auto;"
-                                                        class="image-clickable">
+                                                    @foreach (json_decode($da->image) as $imageUrl)
+                                                        <img src="{{ asset($imageUrl) }}" alt="Product Image"
+                                                            style="width: 50px; height: auto;" class="image-clickable">
+                                                    @endforeach
 
 
 

@@ -78,7 +78,7 @@ class ProductController extends Controller
                 $imageName = time() . '_' . $image->getClientOriginalName();
 
                 // Move the image to the specified directory
-                $image->move(public_path('assets/images/product'), $imageName);
+           /*      $image->move(public_path('assets/images/product'), $imageName); */
 
                 // Store or use $imageName as needed
                 $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
