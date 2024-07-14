@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('account_manuBar') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 <label for="use">หัวข้อ</label>
                                 <input type="text" class="form-control  @error('use') is-invalid @enderror"
                                     id="use" name="use" placeholder="Enter Bank Name" value="{{ $id }}">
@@ -20,6 +20,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="use">หัวข้อ</label>
+                                <input type="text" class="form-control" id="use" placeholder="Enter Bank Name"
+                                    value="{{ $data[0]->name_manu }}">
+
 
                             </div>
                             <div class="form-group">

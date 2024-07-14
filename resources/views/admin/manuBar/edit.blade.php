@@ -12,7 +12,7 @@
                         <form method="POST" action="{{ route('update_manuBar', $manu->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 <label for="use">หัวข้อ</label>
                                 <input type="text" class="form-control  @error('use') is-invalid @enderror"
                                     id="use" name="use" placeholder="Enter Bank Name" value="{{ $manu->use }}">
@@ -21,6 +21,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="use">หัวข้อ</label>
+                                <input type="text" class="form-control" id="use" placeholder="Enter Bank Name"
+                                    value="{{ $data[0]->name_manu }}">
+
 
                             </div>
                             <div class="form-group">
