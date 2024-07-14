@@ -55,7 +55,7 @@
                                                             style="width: 50px; height: auto;" class="image-clickable">
                                                     @endforeach --}}
                                                     @foreach (json_decode($da->image) as $imageUrl)
-                                                        <img src="{{ asset($imageUrl) }}" alt="Product Image"
+                                                        <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
                                                             style="width: 50px; height: auto;" class="image-clickable">
                                                     @endforeach
 

@@ -56,10 +56,10 @@ class ProductController extends Controller
 
 
         $request->validate([
-            'product_name' => 'required',
+          /*   'product_name' => 'required',
             'price' => 'required',
             'image' => 'required',
-            'check_manu' => 'required',
+            'check_manu' => 'required', */
             'link_lazada' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
             'link_shopee' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
             'other_links' => ['nullable', 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/'],
