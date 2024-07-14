@@ -295,8 +295,9 @@
                                             <div class="form-check">
                                                 <input class="form-check-input @error('check_manu') is-invalid @enderror"
                                                     name="check_manu[]" type="checkbox" value="{{ $detail->feature }}"
-                                                    id="flexCheckDefault"
-                                                    @if (is_array(old('check_manu')) && in_array($detail->feature, old('check_manu'))) checked @endif>
+                                                    id="check_manu_{{ $detail->id }}"
+                                                    @if (is_array(old('check_manu')) && in_array($detail->feature, old('check_manu'))) checked @endif
+                                                    @if ($detail->feature  && in_array($detail->feature, $detail->feature)) checked @endif>
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     {{ $detail->feature }}
                                                 </label>
