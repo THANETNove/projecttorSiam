@@ -1,6 +1,8 @@
 
 CKEDITOR.replace('editor1');
 
+
+
 function countCharacters(event) {
     var content = CKEDITOR.instances.editor1.getData();
     var maxLength = 1000; // กำหนดจำนวนตัวอักษรสูงสุดที่ต้องการ
