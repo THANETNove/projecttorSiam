@@ -44,7 +44,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="price_sale"> ราคา Sale <span class="required-click">*</span></label>
-                                        <input type="text" class="form-control @error('price_sale') is-invalid @enderror"
+                                        <input type="number" class="form-control @error('price_sale') is-invalid @enderror"
                                             value="{{ old('price_sale') }}" id="price_sale" name="price_sale"
                                             placeholder="Enter ราคา Sale">
                                         @error('price_sale')
