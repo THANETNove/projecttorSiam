@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -48,7 +49,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-dd($request->all());
+
 
         $request->validate([
             'product_name' => 'required',
@@ -83,7 +84,7 @@ dd($request->all());
         }
 
         
-        $data = MenuBar::find($id);
+        $data = new Product;
         $data->product_name = $request['product_name'];
         $data->price = $request['price'];
         $data->display = $request['display'];
@@ -103,11 +104,11 @@ dd($request->all());
         $data->image = json_encode($imagePaths);
         $data->price_sale = $request['price_sale'];
         $data->product_code = $request['product_code'];
-        $data->status_sale =$request['status_sale'];
-        $data->status_sell = $request['status_sell'];
-
+        $data->status_sale = $request->input('status_sale', 'off');
+        $data->status_sell = $request->input('status_sell', 'off');
+        
         $data->save();
-
+        return redirect('components/manuBar')->with('message', "บันทึกสำเร็จ");
     }
    /* Í */
 
