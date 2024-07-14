@@ -26,6 +26,9 @@ class Product extends Model
         'other_links',
         'check_manu',
         'image',
-        'status_sell'
+        'price_sale',
+        'status_sale',
+        'status_sell',
+        'product_code'
     ];
 }
