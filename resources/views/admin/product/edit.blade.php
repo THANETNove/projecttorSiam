@@ -9,7 +9,7 @@
                         <div class="card-title">เพิ่มสินค้า</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('product/store', $product['id']) }}"
+                        <form method="POST" action="{{ route('product/update', $product['id']) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -122,7 +122,7 @@
                                         <input type="text"
                                             class="form-control  @error('product_code') is-invalid @enderror"
                                             id="product_code" name="product_code" placeholder="Product Code"
-                                            value="{{ old('product_code') }}">
+                                            value="{{ $product['product_code'] }}">
                                         @error('product_code')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -135,6 +135,7 @@
                                 <label for="catalog">ไฟล์ Catalog</label>
                                 <input type="file" class="form-control @error('catalog') is-invalid @enderror"
                                     id="catalog" name="catalog" placeholder="Enter file Catalog" accept=".pdf">
+
                                 @error('catalog')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -144,7 +145,7 @@
                             <div class="form-group">
                                 <label for="description">DESCRIPTION</label>
                                 <textarea name="description" id="editor1" placeholder="Enter Description">
-                                    {{ old('description') }}
+                                    {{ $product['description'] }}
                                 </textarea>
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -155,7 +156,7 @@
                             <div class="form-group">
                                 <label for="specification">SPECIFICATION</label>
                                 <textarea name="specification" id="editor2" placeholder="Enter Specification">
-                                    {{ old('specification') }}
+                                    {{ $product['specification'] }}
                                 </textarea>
                                 @error('specification')
                                     <span class="invalid-feedback" role="alert">
@@ -172,7 +173,7 @@
                                         <input type="text"
                                             class="form-control  @error('ratio_screen') is-invalid @enderror"
                                             id="ratio_screen" name="ratio_screen" placeholder="Enter Ratio screen 16:9"
-                                            value="{{ old('ratio_screen') }}">
+                                            value="{{ $product['ratio_screen'] }}">
                                         @error('ratio_screen')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -186,7 +187,8 @@
                                         <input type="text"
                                             class="form-control  @error('throw_ratio_min') is-invalid @enderror"
                                             id="throw_ratio_min" name="throw_ratio_min"
-                                            value="{{ old('throw_ratio_min') }}" placeholder="Enter Throw ratio min">
+                                            value="{{ $product['throw_ratio_min'] }}"
+                                            placeholder="Enter Throw ratio min">
                                         @error('throw_ratio_min')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -200,7 +202,7 @@
                                         <input type="text"
                                             class="form-control  @error('throw_ratio_max') is-invalid @enderror"
                                             id="throw_ratio_max" name="throw_ratio_max"
-                                            value="{{ old('throw_ratio_max') }}"
+                                            value="{{ $product['throw_ratio_max'] }}"
                                             placeholder="Enter Product Throw ratio max">
                                         @error('throw_ratio_max')
                                             <span class="invalid-feedback" role="alert">
@@ -216,7 +218,7 @@
                                     <input type="text"
                                         class="form-control  @error('link_lazada') is-invalid @enderror" id="link_lazada"
                                         name="link_lazada" placeholder="Enter link Lazada"
-                                        value="{{ old('link_lazada') }}">
+                                        value="{{ $product['link_lazada'] }}">
                                     @error('link_lazada')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -230,7 +232,7 @@
                                     <input type="text"
                                         class="form-control  @error('link_shopee') is-invalid @enderror" id="link_shopee"
                                         name="link_shopee" placeholder="Enter link shopee"
-                                        value="{{ old('link_shopee') }}">
+                                        value="{{ $product['link_shopee'] }}">
                                     @error('link_shopee')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -244,7 +246,7 @@
                                     <input type="text"
                                         class="form-control  @error('other_links') is-invalid @enderror" id="other_links"
                                         name="other_links" placeholder="Enter Other links"
-                                        value="{{ old('other_links') }}">
+                                        value="{{ $product['other_links'] }}">
                                     @error('other_links')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -266,10 +268,17 @@
                             </span>
                         @enderror
 
-
                     </div>
                     <div class="form-group">
                         <label for="image">ตัวย่างภาพ</label>
+                        <br>
+                        <div id="image-edit">
+                            @foreach (json_decode($product['image']) as $imageUrl)
+                                <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
+                                    style="width: 100px; height: auto;" class="image-clickable">
+                            @endforeach
+                        </div>
+
                         <div id="imagePreview"></div>
 
 

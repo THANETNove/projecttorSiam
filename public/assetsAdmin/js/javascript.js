@@ -68,14 +68,18 @@ function previewImages(event) {
         var file = files[i];
         var reader = new FileReader();
 
-        reader.onload = function (e) {
+        reader.onload = function (event) {
             var img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '100px'; // ปรับขนาดภาพตัวอย่างตามที่ต้องการ
-            img.style.marginRight = '10px'; // ใส่ margin เพื่อแยกภาพตัวอย่าง
+            img.setAttribute('src', event.target.result);
+            img.setAttribute('style', 'max-width:100px; max-height:100px; margin: 10px;');
             preview.appendChild(img);
-        };
+        }
+
 
         reader.readAsDataURL(file);
+    }
+    var imageEditElement = document.getElementById('image-edit');
+    if (imageEditElement) {
+        imageEditElement.style.display = 'none';
     }
 }

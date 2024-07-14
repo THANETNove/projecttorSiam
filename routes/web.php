@@ -60,7 +60,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('product/product_all/create', [ProductController::class, 'create'])->name('product/product_all/create');
     Route::post('product/store', [ProductController::class, 'store'])->name('product/store');
     Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product/edit');
-    Route::put('product/update', [ProductController::class, 'update'])->name('product/update');
+    Route::put('product/update/{id}', [ProductController::class, 'update'])->name('product/update');
 });
 
 Route::fallback(function() {

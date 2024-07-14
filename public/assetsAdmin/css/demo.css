@@ -460,4 +460,9 @@ body[data-background-color="dark"] .demo-icon .icon-class {
   color: red !important;
 }
 
+img {
+  cursor: pointer;
+
+}
+
 /*# sourceMappingURL=demo.css.map */
