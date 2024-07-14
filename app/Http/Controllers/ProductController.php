@@ -48,6 +48,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+dd($request->all());
+
         $request->validate([
             'product_name' => 'required',
             'price' => 'required',
@@ -99,7 +101,11 @@ class ProductController extends Controller
         $data->other_links = $request['other_links'];
         $data->check_manu = json_encode($request->check_manu);
         $data->image = json_encode($imagePaths);
-        $data->status_sell = "on";
+        $data->price_sale = $request['price_sale'];
+        $data->product_code = $request['product_code'];
+        $data->status_sale =$request['status_sale'];
+        $data->status_sell = $request['status_sell'];
+
         $data->save();
 
     }

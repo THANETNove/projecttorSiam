@@ -31,8 +31,8 @@ return new class extends Migration
             $table->text('check_manu')->nullable();
             $table->text('image')->nullable();
             $table->string('price_sale')->nullable();
-            $table->string('status_sale')->nullable();
-            $table->string('status_sell')->nullable();
+            $table->string('status_sale')->default('off');
+            $table->string('status_sell')->default('on');
             $table->text('product_code')->nullable();
             $table->timestamps();
         });

@@ -54,19 +54,53 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="sale">สถานะ Sale</label>
                                         <div class="form-check">
                                             <input class="form-check-input" name="status_sale" type="checkbox"
-                                                @if (old('status_sale')) checked @endif value="on"
-                                                id="flexCheckChecked">
+                                                @if (old('status_sale') == 'on') checked @endif id="flexCheckChecked">
                                             <label class="form-check-label" for="flexCheckChecked">
-                                                ON
+                                                on
                                             </label>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="status_sell">กำลังขาย</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="status_sell" type="checkbox"
+                                                @if (old('status_sell') == 'on') checked @endif id="flexCheckChecked"
+                                                checked>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                on
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{--  <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="sale">สถานะ Sale</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="status_sale" type="checkbox"
+                                                @if (old('status_sale') == 'on') checked @endif
+                                                value="@if (old('status_sale') == 'on') on
+                                            @else
+                                                off @endif"
+                                                id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                {{ isset($checked) }}
+                                                  @if (isset($request->status_sale))
+                                                    on
+                                                @else
+                                                    off
+                                                @endif
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -106,7 +140,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="brand">Product Code</label>
+                                        <label for="product_code">Product Code</label>
                                         <input type="text"
                                             class="form-control  @error('product_code') is-invalid @enderror"
                                             id="product_code" name="product_code" placeholder="Product Code"
@@ -137,8 +171,8 @@
                                     <div class="form-group">
                                         <label for="brightness">Brightness</label>
                                         <input type="text"
-                                            class="form-control @error('brightness') is-invalid @enderror" id="brightness"
-                                            name="brightness" placeholder="Enter Brightness"
+                                            class="form-control @error('brightness') is-invalid @enderror"
+                                            id="brightness" name="brightness" placeholder="Enter Brightness"
                                             value="{{ old('brightness') }}">
                                         @error('brightness')
                                             <span class="invalid-feedback" role="alert">
