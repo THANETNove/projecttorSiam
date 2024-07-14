@@ -58,6 +58,7 @@ Route::group(['middleware' => ['is_admin']], function () {
 
     Route::get('product/product_all', [ProductController::class, 'index'])->name('product/product_all');
     Route::get('product/product_all/create', [ProductController::class, 'create'])->name('product/product_all/create');
+    Route::get('product/manuBarApi', [ProductController::class, 'manuBarApi'])->name('product/manuBarApi');
 });
 
 Route::fallback(function() {

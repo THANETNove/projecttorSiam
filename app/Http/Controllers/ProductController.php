@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ProductController extends Controller
 {
@@ -21,6 +22,17 @@ class ProductController extends Controller
     {
         return view('admin.product.create');
     }
+    
+    public function manuBarApi($id)
+    {
+        $data = DB::table('menu_bars')
+        ->orderBy('use')
+        ->orderBy('resolution')
+        ->get();
+
+    return response()->json($data);
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -29,6 +41,7 @@ class ProductController extends Controller
     {
         //
     }
+   /* Í */
 
     /**
      * Display the specified resource.

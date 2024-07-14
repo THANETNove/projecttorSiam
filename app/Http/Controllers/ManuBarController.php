@@ -14,11 +14,13 @@ class ManuBarController extends Controller
      */
     public function index()
     {
-        
         $data = DB::table('menu_bars')
-        ->orderBy('use')
-        ->orderBy('resolution')
+        ->leftJoin('navbar_manu_mains', 'navbar_manu_mains.id', '=', 'menu_bars.use')
+        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id')
+        ->orderBy('menu_bars.use')
+        ->orderBy('menu_bars.resolution')
         ->get();
+    
 
         return view('admin.manuBar.index',['data' =>  $data]);
     }

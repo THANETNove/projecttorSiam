@@ -5,40 +5,57 @@
         <div class="page-inner">
             <div class="row">
 
-                <div class="col-sm-6 col-md-3">
-                    <a href="{{ url('components/manuBar/create', '1') }}">
-                        <div class="card card-stats card-round">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-icon">
-                                        <div class="icon-big text-center icon-primary bubble-shadow-small">
-                                            <i class="fas fa-plus"></i>
+                @php
+                    // กรอง id ที่ไม่ซ้ำกัน
+                    $uniqueData = $data->unique('id');
+                @endphp
+                @foreach ($uniqueData as $item)
+                    @php
+                        // กรองรายการที่ use เท่ากับค่าของ $item->use
+                        $useCount = $data
+                            ->filter(function ($entry) use ($item) {
+                                return $entry->use == $item->use;
+                            })
+                            ->count();
+                    @endphp
+
+                    <div class="col-sm-6 col-md-3">
+                        <a href="{{ url('components/manuBar/create', $item->id) }}">
+                            <div class="card card-stats card-round">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-icon">
+                                            <div
+                                                class="icon-big text-center bubble-shadow-small -mt-2
+                                                @if ($item->id == 1) icon-primary
+                                                @elseif ($item->id == 2)
+                                                    icon-info
+                                                @elseif ($item->id == 3)
+                                                    icon-success
+                                                @elseif ($item->id == 4)
+                                                    icon-secondary
+                                                @else
+                                                    icon-warning @endif
+                                                ">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col col-stats ms-3 ms-sm-0">
-                                        <div class="numbers">
-                                            <p class="card-category">Projectors</p>
-                                            <h4 class="card-title">
-                                                @php
-                                                    // กรองรายการที่ use == 1
-                                                    $useCount = $data
-                                                        ->filter(function ($item) {
-                                                            return $item->use == 1;
-                                                        })
-                                                        ->count();
-                                                @endphp
-                                                {{ $useCount }}
-                                            </h4>
+                                        <div class="col col-stats ms-3 ms-sm-0">
+                                            <div class="numbers">
+                                                <p class="card-category">{{ $item->name_manu }}</p>
+                                                <h4 class="card-title">
+                                                    {{ $useCount }}
+                                                </h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
 
-
-                <div class="col-sm-6 col-md-3">
+                {{--   <div class="col-sm-6 col-md-3">
                     <a href="{{ url('components/manuBar/create', '2') }}">
                         <div class="card card-stats card-round">
                             <div class="card-body">
@@ -167,7 +184,7 @@
                         </div>
                     </a>
                 </div>
-
+ --}}
             </div>
 
 

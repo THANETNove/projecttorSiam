@@ -39,6 +39,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <!-- Lightbox JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
@@ -125,6 +126,9 @@
 
     <!-- Kaiadmin JS -->
     <script src="{{ URL::asset('/assetsAdmin/js/kaiadmin.js') }}"></script>
+
+    <!-- javascript JS -->
+    <script src="{{ URL::asset('/assetsAdmin/js/javascript.js') }}"></script>
 
 
 
