@@ -32,9 +32,12 @@
                                         <tr>
                                             <th scope="col">ลำดับ</th>
                                             <th scope="col">ชื่อ</th>
-                                            <th scope="col">ชื่อบัญชี</th>
-                                            <th scope="col">เลขที่บัญชี</th>
+                                            <th scope="col">ราคา</th>
+                                            <th scope="col">ราคา sale</th>
+                                            <th scope="col">ลดราคา</th>
+                                            <th scope="col">กำลังขาย</th>
                                             <th scope="col">ภาพ</th>
+                                            <th scope="col">เเก้ไข</th>
                                             <th scope="col">ลบ</th>
                                         </tr>
                                     </thead>
@@ -49,11 +52,11 @@
                                                     {{ $i++ }}
                                                 </th>
                                                 <td>{{ $da->product_name }}</td>
+                                                <td>{{ number_format($da->price) }}</td>
+                                                <td>{{ number_format($da->price_sale) }}</td>
+                                                <td>{{ $da->status_sale }}</td>
+                                                <td>{{ $da->status_sell }}</td>
                                                 <td>
-                                                    {{--  @foreach (json_decode($da->image) as $imageUrl)
-                                                        <img src="{{ URL::asset($imageUrl) }}" alt="Bank Image"
-                                                            style="width: 50px; height: auto;" class="image-clickable">
-                                                    @endforeach --}}
                                                     @foreach (json_decode($da->image) as $imageUrl)
                                                         <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
                                                             style="width: 50px; height: auto;" class="image-clickable">
@@ -62,18 +65,18 @@
 
 
                                                 </td>
-                                                {{--      <td>{{ $da->account_name }}</td>
-                                                <td>{{ $da->account_number }}</td>
                                                 <td>
-                                                    <img src="{{ URL::asset($da->bank_image) }}" alt="Bank Image"
-                                                        style="width: 50px; height: auto;" class="image-clickable">
+
+                                                    <a href="{{ url('components/bank/destroy', $da->id) }}"
+                                                        style="width: 80px" class="btn btn-warning">เเก้ไข</a>
+
                                                 </td>
                                                 <td>
 
                                                     <a href="{{ url('components/bank/destroy', $da->id) }}"
                                                         class="btn btn-danger">ลบ</a>
 
-                                                </td> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
 
