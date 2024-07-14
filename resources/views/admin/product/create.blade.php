@@ -43,11 +43,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="display">Display</label>
-                                        <input type="text" class="form-control @error('display') is-invalid @enderror"
-                                            value="{{ old('display') }}" id="display" name="display"
-                                            placeholder="Enter Display">
-                                        @error('display')
+                                        <label for="price_sale"> ราคา Sale <span class="required-click">*</span></label>
+                                        <input type="text" class="form-control @error('price_sale') is-invalid @enderror"
+                                            value="{{ old('price_sale') }}" id="price_sale" name="price_sale"
+                                            placeholder="Enter ราคา Sale">
+                                        @error('price_sale')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -56,44 +56,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="contrast_ratio">Contrast Ratio</label>
-                                        <input type="text"
-                                            class="form-control @error('contrast_ratio') is-invalid @enderror"
-                                            value="{{ old('contrast_ratio') }}" id="contrast_ratio" name="contrast_ratio"
-                                            placeholder="Enter Contrast Ratio">
-                                        @error('contrast_ratio')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="resolution">Resolution</label>
-                                        <input type="text" class="form-control @error('resolution') is-invalid @enderror"
-                                            value="{{ old('resolution') }}" id="resolution" name="resolution"
-                                            placeholder="Enter Resolution">
-                                        @error('resolution')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="brightness">Brightness</label>
-                                        <input type="text" class="form-control @error('brightness') is-invalid @enderror"
-                                            id="brightness" name="brightness" placeholder="Enter Brightness"
-                                            value="{{ old('brightness') }}">
-                                        @error('brightness')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="sale">สถานะ Sale</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="status_sale" type="checkbox"
+                                                @if (old('status_sale')) checked @endif value="on"
+                                                id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                ON
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -132,6 +103,84 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="brand">Product Code</label>
+                                        <input type="text"
+                                            class="form-control  @error('product_code') is-invalid @enderror"
+                                            id="product_code" name="product_code" placeholder="Product Code"
+                                            value="{{ old('product_code') }}">
+                                        @error('product_code')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="display">Display</label>
+                                        <input type="text" class="form-control @error('display') is-invalid @enderror"
+                                            value="{{ old('display') }}" id="display" name="display"
+                                            placeholder="Enter Display">
+                                        @error('display')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="brightness">Brightness</label>
+                                        <input type="text"
+                                            class="form-control @error('brightness') is-invalid @enderror" id="brightness"
+                                            name="brightness" placeholder="Enter Brightness"
+                                            value="{{ old('brightness') }}">
+                                        @error('brightness')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="contrast_ratio">Contrast Ratio</label>
+                                        <input type="text"
+                                            class="form-control @error('contrast_ratio') is-invalid @enderror"
+                                            value="{{ old('contrast_ratio') }}" id="contrast_ratio"
+                                            name="contrast_ratio" placeholder="Enter Contrast Ratio">
+                                        @error('contrast_ratio')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="resolution">Resolution</label>
+                                        <input type="text"
+                                            class="form-control @error('resolution') is-invalid @enderror"
+                                            value="{{ old('resolution') }}" id="resolution" name="resolution"
+                                            placeholder="Enter Resolution">
+                                        @error('resolution')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <div class="form-group">
                                 <label for="catalog">ไฟล์ Catalog</label>
                                 <input type="file" class="form-control @error('catalog') is-invalid @enderror"
