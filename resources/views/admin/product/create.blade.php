@@ -80,27 +80,6 @@
                                     </div>
                                 </div>
 
-                                {{--  <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="sale">สถานะ Sale</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="status_sale" type="checkbox"
-                                                @if (old('status_sale') == 'on') checked @endif
-                                                value="@if (old('status_sale') == 'on') on
-                                            @else
-                                                off @endif"
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                {{ isset($checked) }}
-                                                  @if (isset($request->status_sale))
-                                                    on
-                                                @else
-                                                    off
-                                                @endif
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -153,7 +132,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            {{--                  <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="display">Display</label>
@@ -182,8 +161,8 @@
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="row">
+                            </div> --}}
+                            {{-- <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="contrast_ratio">Contrast Ratio</label>
@@ -213,7 +192,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="catalog">ไฟล์ Catalog</label>

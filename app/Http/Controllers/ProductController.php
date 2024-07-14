@@ -87,10 +87,10 @@ class ProductController extends Controller
         $data = new Product;
         $data->product_name = $request['product_name'];
         $data->price = $request['price'];
-        $data->display = $request['display'];
+       /*  $data->display = $request['display'];
         $data->contrast_ratio = $request['contrast_ratio'];
         $data->resolution = $request['resolution'];
-        $data->brightness = $request['brightness'];
+        $data->brightness = $request['brightness']; */
         $data->availability = $request['availability'];
         $data->description = $request['description'];
         $data->specification = $request['specification'];
@@ -108,7 +108,7 @@ class ProductController extends Controller
         $data->status_sell = $request->input('status_sell', 'off');
         
         $data->save();
-        return redirect('components/manuBar')->with('message', "บันทึกสำเร็จ");
+        return redirect('/product/product_all')->with('message', "บันทึกสำเร็จ");
     }
    /* Í */
 
