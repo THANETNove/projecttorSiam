@@ -9,15 +9,17 @@
                         <div class="card-title">เพิ่มสินค้า</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('product/store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('product/store', $product['id']) }}"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="product_name">ชื่อสินค้า <span class="required-click">*</span></label>
                                         <input type="text"
                                             class="form-control @error('product_name') is-invalid @enderror"
-                                            value="{{ old('product_name') }}" id="product_name" name="product_name"
+                                            value="{{ $product['product_name'] }}" id="product_name" name="product_name"
                                             placeholder="Enter Product Name">
                                         @error('product_name')
                                             <span class="invalid-feedback" role="alert">
@@ -30,7 +32,7 @@
                                     <div class="form-group">
                                         <label for="price">ราคา <span class="required-click">*</span></label>
                                         <input type="number" class="form-control @error('price') is-invalid @enderror"
-                                            value="{{ old('price') }}" id="price" name="price"
+                                            value="{{ $product['price'] }}" id="price" name="price"
                                             placeholder="Enter Price">
                                         @error('price')
                                             <span class="invalid-feedback" role="alert">
@@ -45,7 +47,7 @@
                                     <div class="form-group">
                                         <label for="price_sale"> ราคา Sale <span class="required-click">*</span></label>
                                         <input type="number" class="form-control @error('price_sale') is-invalid @enderror"
-                                            value="{{ old('price_sale') }}" id="price_sale" name="price_sale"
+                                            value="{{ $product['price_sale'] }}" id="price_sale" name="price_sale"
                                             placeholder="Enter ราคา Sale">
                                         @error('price_sale')
                                             <span class="invalid-feedback" role="alert">
@@ -59,7 +61,7 @@
                                         <label for="sale">สถานะ Sale</label>
                                         <div class="form-check">
                                             <input class="form-check-input" name="status_sale" type="checkbox"
-                                                @if (old('status_sale') == 'on') checked @endif id="flexCheckChecked">
+                                                @if ($product['status_sale'] == 'on') checked @endif id="flexCheckChecked">
                                             <label class="form-check-label" for="flexCheckChecked">
                                                 on
                                             </label>
@@ -71,7 +73,7 @@
                                         <label for="status_sell">กำลังขาย</label>
                                         <div class="form-check">
                                             <input class="form-check-input" name="status_sell" type="checkbox"
-                                                @if (old('status_sell') == 'on') checked @endif id="flexCheckChecked"
+                                                @if ($product['status_sell'] == 'on') checked @endif id="flexCheckChecked"
                                                 checked>
                                             <label class="form-check-label" for="flexCheckChecked">
                                                 on
@@ -87,9 +89,9 @@
                                         <label for="price">สถานะ</label>
                                         <select class="form-select" name="availability" aria-label="Default select example">
 
-                                            <option value="In Stock" @if (old('availability') == 'In Stock') selected @endif>In
+                                            <option value="In Stock" @if ($product['availability'] == 'In Stock') selected @endif>In
                                                 Stock</option>
-                                            <option value="Out of stock" @if (old('availability') == 'Out of stock') selected @endif>
+                                            <option value="Out of stock" @if ($product['availability'] == 'Out of stock') selected @endif>
                                                 Out of stock</option>
                                         </select>
                                         @error('availability')
@@ -104,7 +106,7 @@
                                         <label for="brand">Brand</label>
                                         <input type="text" class="form-control  @error('brand') is-invalid @enderror"
                                             id="brand" name="brand" placeholder="Enter Brand"
-                                            value="{{ old('brand') }}">
+                                            value="{{ $product['brand'] }}">
                                         @error('brand')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

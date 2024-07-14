@@ -103,6 +103,7 @@ class ProductController extends Controller
         $data->check_manu = json_encode($request->check_manu);
         $data->image = json_encode($imagePaths);
         $data->price_sale = $request['price_sale'];
+        $data->brand = $request['brand'];
         $data->product_code = $request['product_code'];
         $data->status_sale = $request->input('status_sale', 'off');
         $data->status_sell = $request->input('status_sell', 'off');
@@ -125,7 +126,17 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = DB::table('menu_bars')
+        ->leftJoin('navbar_manu_mains', 'navbar_manu_mains.id', '=', 'menu_bars.use')
+        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id')
+        ->orderBy('menu_bars.use')
+        ->orderBy('menu_bars.resolution')
+        ->get();
+        $product = Product::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+                
+        return view('admin.product.edit', ['data' =>  $data,'product' => $product]);
+
     }
 
     /**

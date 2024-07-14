@@ -25,6 +25,7 @@ class Product extends Model
         'link_shopee',
         'other_links',
         'check_manu',
+        'brand',
         'image',
         'price_sale',
         'status_sale',

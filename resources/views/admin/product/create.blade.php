@@ -9,7 +9,7 @@
                         <div class="card-title">เพิ่มสินค้า</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('product/update') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('product/store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -181,10 +181,11 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="throw_ratio_min">throw ratio min</label>
-                                        <input type="text"
+                                        <input type="number"
                                             class="form-control  @error('throw_ratio_min') is-invalid @enderror"
                                             id="throw_ratio_min" name="throw_ratio_min"
-                                            value="{{ old('throw_ratio_min') }}" placeholder="Enter Throw ratio min">
+                                            value="{{ old('throw_ratio_min') }}" placeholder="Enter Throw ratio min"
+                                            step="any">
                                         @error('throw_ratio_min')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -195,11 +196,11 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="throw_ratio_max">throw ratio max</label>
-                                        <input type="text"
+                                        <input type="number"
                                             class="form-control  @error('throw_ratio_max') is-invalid @enderror"
                                             id="throw_ratio_max" name="throw_ratio_max"
                                             value="{{ old('throw_ratio_max') }}"
-                                            placeholder="Enter Product Throw ratio max">
+                                            placeholder="Enter Product Throw ratio max" step="any">
                                         @error('throw_ratio_max')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
