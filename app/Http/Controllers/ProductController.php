@@ -55,7 +55,7 @@ class ProductController extends Controller
     {
 
 
-   /*      $request->validate([
+        $request->validate([
             'product_name' => 'required',
             'price' => 'required',
             'image' => 'required',
@@ -67,7 +67,7 @@ class ProductController extends Controller
             'link_lazada.url' => 'The link Lazada must be a valid URL.',
             'link_shopee.url' => 'The link Shopee must be a valid URL.',
             'other_links.url' => 'The link Other_links must be a valid URL.',
-        ]); */
+        ]);
 
 
                 
