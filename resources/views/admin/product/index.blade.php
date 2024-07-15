@@ -52,7 +52,6 @@
                                                     {{ $i++ }}
                                                 </th>
                                                 <td>{{ $da->product_name }}</td>
-
                                                 <td>{{ number_format($da->price) }}</td>
                                                 <td>{{ number_format($da->price_sale) }}</td>
                                                 <td>{{ $da->status_sale }}</td>
