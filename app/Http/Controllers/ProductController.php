@@ -152,14 +152,14 @@ class ProductController extends Controller
 
        if ($request->hasFile('image')) {
 
-        /* foreach ($desImage as $imagePath) {
+        foreach ($desImage as $imagePath) {
             // Assuming images are stored in public directory
             $imagePath = public_path($imagePath); // Adjust if stored differently
 
             if (file_exists($imagePath)) {
                 unlink($imagePath); // Delete the file from the server
             }
-        } */
+        }
 
         
         $images = $request->file('image');
