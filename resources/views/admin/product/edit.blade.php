@@ -285,7 +285,7 @@
                     </div>
 
 
-                    <div class="form-group">
+                    {{--        <div class="form-group">
                         <span class="required-click"> * (เลือกอย่างน้อย 1 อัน)</span></h5>
                         @foreach ($data->unique('use') as $item)
                             <h5>{{ $item->name_manu }}
@@ -297,7 +297,7 @@
                                                     name="check_manu[]" type="checkbox" value="{{ $detail->feature }}"
                                                     id="check_manu_{{ $detail->id }}"
                                                     @if (is_array(old('check_manu')) && in_array($detail->feature, old('check_manu'))) checked @endif
-                                                    @if ($detail->feature  && in_array($detail->feature, $detail->feature)) checked @endif>
+                                                    @if ($detail->feature == $product['check_manu']) checked @endif>
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     {{ $detail->feature }}
                                                 </label>
@@ -312,6 +312,37 @@
                                 </div>
                         @endforeach
                     </div>
+ --}}
+                    {{ $product['check_manu'] }}
+                    @php
+                        $checkedManus = json_decode($product['check_manu']);
+                    @endphp
+                    <div class="form-group">
+                        <span class="required-click"> * (เลือกอย่างน้อย 1 อัน)</span>
+                        @foreach ($data->unique('use') as $item)
+                            <h5>{{ $item->name_manu }}</h5>
+                            <div class="row">
+                                @foreach ($data->where('use', $item->use) as $detail)
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input @error('check_manu') is-invalid @enderror"
+                                                name="check_manu[]" type="checkbox" value="{{ $detail->feature }}"
+                                                id="check_manu_{{ $detail->id }}"
+                                                @if (is_array($checkedManus) && in_array($detail->feature, $checkedManus)) checked @endif>
+                                            {{ $detail->feature }}
+                                            </label>
+                                        </div>
+                                        @error('check_manu')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+
 
                     <br>
                     <div class="row mb-5">

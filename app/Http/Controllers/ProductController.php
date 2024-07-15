@@ -144,7 +144,65 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        dd($request->all());
+       /*  dd($request->all()); */
+
+       $data =  Product::find($id);
+
+       $desImage = json_decode($data->image);
+
+       if ($request->hasFile('image')) {
+
+        /* foreach ($desImage as $imagePath) {
+            // Assuming images are stored in public directory
+            $imagePath = public_path($imagePath); // Adjust if stored differently
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath); // Delete the file from the server
+            }
+        } */
+
+        
+        $images = $request->file('image');
+
+        
+
+        foreach ($images as $image) {
+            // Generate unique filename
+            $imageName = time() . '_' . $image->getClientOriginalName();
+
+            // Move the image to the specified directory
+            $image->move(public_path('assets/images/product'), $imageName);
+
+            // Store or use $imageName as needed
+            $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
+        }
+
+        // $imagePaths now contains paths to all uploaded images
+    }
+
+
+        $data =  Product::find($id);
+        $data->product_name = $request['product_name'];
+        $data->price = $request['price'];
+        $data->availability = $request['availability'];
+        $data->description = $request['description'];
+        $data->specification = $request['specification'];
+        $data->ratio_screen = $request['ratio_screen'];
+        $data->throw_ratio_min = $request['throw_ratio_min'];
+        $data->throw_ratio_max = $request['throw_ratio_max'];
+        $data->link_lazada = $request['link_lazada'];
+        $data->link_shopee = $request['link_shopee'];
+        $data->other_links = $request['other_links'];
+        $data->check_manu = json_encode($request->check_manu);
+        $data->image = json_encode($imagePaths);
+        $data->price_sale = $request['price_sale'];
+        $data->brand = $request['brand'];
+        $data->product_code = $request['product_code'];
+        $data->status_sale = $request->input('status_sale', 'off');
+        $data->status_sell = $request->input('status_sell', 'off');
+        
+        $data->save();
+        return redirect('/product/product_all')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
