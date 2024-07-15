@@ -78,7 +78,7 @@
                                                 </td>
                                                 <td>
 
-                                                    <a href="{{ url('components/bank/destroy', $da->id) }}"
+                                                    <a href="{{ url('product/destroy', $da->id) }}"
                                                         class="btn btn-danger">ลบ</a>
 
                                                 </td>
