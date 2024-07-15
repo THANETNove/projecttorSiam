@@ -57,7 +57,7 @@
                                                 <td>{{ number_format($da->price_sale) }}</td>
                                                 <td>{{ $da->status_sale }}</td>
                                                 <td>{{ $da->status_sell }}</td>
-                                                <td>{{ $da->status_sell }}</td>
+
                                                 <td>
                                                     @if ($da->image)
                                                         @foreach (json_decode($da->image) as $imageUrl)
