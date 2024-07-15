@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label for="slide_image">รูปภาพ</label>
                                 <input type="file" class="form-control @error('slide_image') is-invalid @enderror"
-                                    id="slide_image" name="slide_image">
+                                    id="slide_image" name="slide_image" accept="image/*">
                                 @error('slide_image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

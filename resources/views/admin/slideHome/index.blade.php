@@ -47,12 +47,12 @@
 
                                                 <td>
                                                     <img src="{{ URL::asset($da->slide_image) }}" alt="Bank Image"
-                                                        style="width: 150px; height: auto;"
-                                                        class="image-clickable">
+                                                        style="width: 150px; height: auto;" class="image-clickable">
                                                 </td>
                                                 <td>
 
-                                                    <a href="{{ url('components/slideHome/destroy', $da->id) }}"
+                                                    <a href="#"
+                                                        onclick="confirmDelete('{{ url('components/slideHome/destroy', $da->id) }}')"
                                                         class="btn btn-danger">ลบ</a>
 
                                                 </td>

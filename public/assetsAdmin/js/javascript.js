@@ -83,3 +83,9 @@ function previewImages(event) {
         imageEditElement.style.display = 'none';
     }
 }
+
+function confirmDelete(url) {
+    if (confirm('คุณแน่ใจหรือไม่ที่จะลบข้อมูลนี้?')) {
+        window.location.href = url;
+    }
+}

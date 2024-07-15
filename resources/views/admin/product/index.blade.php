@@ -77,7 +77,8 @@
                                                 </td>
                                                 <td>
 
-                                                    <a href="{{ url('product/destroy', $da->id) }}"
+                                                    <a href="#"
+                                                        onclick="confirmDelete('{{ url('product/destroy', $da->id) }}')"
                                                         class="btn btn-danger">ลบ</a>
 
                                                 </td>
