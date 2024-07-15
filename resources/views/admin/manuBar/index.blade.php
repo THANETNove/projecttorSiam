@@ -160,7 +160,7 @@
                                                 </td>
 
                                                 <td>
-                                                    {{ $da->itemId }}
+
                                                     <a href="{{ url('components/slideHome/edit', $da->itemId) }}"
                                                         class="btn btn-warning">เเก้ไข</a>
                                                 </td>
