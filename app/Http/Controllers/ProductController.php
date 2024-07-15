@@ -195,14 +195,19 @@ class ProductController extends Controller
             $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
         }
         $data->image = json_encode($imagePaths);
-        // $imagePaths now contains paths to all uploaded images 1721050821_Acer H6518STi.pdf
+        // $imagePaths now contains paths to all uploaded images 1721051708_Acer H6518STi.pdf
     }
 
     
     if ($request->hasFile('catalog')) {
         
             $catalogPath = public_path($data->catalog);
-            unlink($catalogPath);
+
+            if ($data->catalog) {
+                unlink($catalogPath);
+            }
+            
+           
 
          // Upload new pdf      
             $files = $request->file('catalog');

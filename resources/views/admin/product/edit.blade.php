@@ -143,7 +143,7 @@
                                 @enderror
                                 <label class="mt-3">ชื่อไฟล์เดิมไฟล์ </label>
                                 <?php
-                                $path = 'assets/images/pdf/1721050821_Acer H6518STi.pdf';
+                                $path = $product['catalog'];
                                 $filename = basename($path);
                                 ?>
                                 <a href="{{ asset($product['catalog']) }}" target="_blank">{{ $filename }}</a>
