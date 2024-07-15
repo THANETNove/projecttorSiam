@@ -204,7 +204,9 @@ class ProductController extends Controller
             $catalogPath = public_path($data->catalog);
 
             if ($data->catalog) {
-                unlink($catalogPath);
+                if (file_exists($catalogPath)) {
+                 unlink($catalogPath);
+                }
             }
             
            
