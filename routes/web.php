@@ -53,6 +53,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::post('account_manuBar', [ManuBarController::class, 'store'])->name('account_manuBar');
     Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
+    Route::get('components/slideHome/destroy/{id}', [ManuBarController::class, 'destroy'])->name('components/slideHome/destroy');
 
 
 

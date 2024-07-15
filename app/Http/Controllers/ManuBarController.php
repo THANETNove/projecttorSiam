@@ -16,7 +16,7 @@ class ManuBarController extends Controller
     {
         $data = DB::table('menu_bars')
         ->leftJoin('navbar_manu_mains', 'navbar_manu_mains.id', '=', 'menu_bars.use')
-        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id')
+        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id','menu_bars.id AS itemId')
         ->orderBy('menu_bars.use')
         ->orderBy('menu_bars.resolution')
         ->get();
@@ -114,6 +114,11 @@ class ManuBarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+        $date = MenuBar::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+        $date->delete(); // ลบผู้ใช้นั้น
+  
+        return redirect('/components/manuBar')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }

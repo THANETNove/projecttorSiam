@@ -112,6 +112,6 @@ class SlideHomeController extends Controller
 
             $user->delete(); // ลบผู้ใช้นั้น
   
-       return redirect('components/slide')->with('message', "ลบสำเร็จ");
+       return redirect('components/slide')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }

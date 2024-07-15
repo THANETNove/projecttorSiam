@@ -76,7 +76,10 @@
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">ลำดับ</th>
-                                            <th scope="col">ภาพ</th>
+                                            <th scope="col">หัวข้อเเถบ</th>
+                                            <th scope="col">หัวข้อเเถบย่อ</th>
+                                            <th scope="col">ชื่อ</th>
+                                            <th scope="col">เเก้ไข</th>
                                             <th scope="col">ลบ</th>
                                         </tr>
                                     </thead>
@@ -99,9 +102,6 @@
                                                     @else
                                                         Accessories
                                                     @endif
-                                                </td>
-                                                <td>
-                                                    {{ $da->feature }}
                                                 </td>
                                                 <td>
                                                     @php
@@ -156,8 +156,18 @@
                                                     {{ $label }}
                                                 </td>
                                                 <td>
-                                                    <a href="{{ url('components/slideHome/edit', $da->id) }}"
+                                                    {{ $da->feature }}
+                                                </td>
+
+                                                <td>
+                                                    {{ $da->itemId }}
+                                                    <a href="{{ url('components/slideHome/edit', $da->itemId) }}"
                                                         class="btn btn-warning">เเก้ไข</a>
+                                                </td>
+                                                <td>
+
+                                                    <a onclick="confirmDelete('{{ url('components/slideHome/destroy', $da->itemId) }}')"
+                                                        class="btn btn-danger">ลบ</a>
                                                 </td>
                                             </tr>
                                         @endforeach

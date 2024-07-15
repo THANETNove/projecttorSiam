@@ -118,6 +118,6 @@ class BankController extends Controller
         }
             $user->delete(); // ลบผู้ใช้นั้น
   
-        return redirect('components/bank')->with('message', "ลบสำเร็จ");
+        return redirect('components/bank')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }
