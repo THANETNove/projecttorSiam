@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('product_name')->nullable();
             $table->string('price')->nullable();
             $table->string('display')->nullable();
+            $table->string('catalog')->nullable();
             $table->string('contrast_ratio')->nullable();
             $table->string('resolution')->nullable();
             $table->string('brightness')->nullable();

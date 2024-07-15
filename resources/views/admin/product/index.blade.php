@@ -59,10 +59,13 @@
                                                 <td>{{ $da->status_sell }}</td>
                                                 <td>{{ $da->status_sell }}</td>
                                                 <td>
-                                                    @foreach (json_decode($da->image) as $imageUrl)
-                                                        <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
-                                                            style="width: 50px; height: auto;" class="image-clickable">
-                                                    @endforeach
+                                                    @if ($da->image)
+                                                        @foreach (json_decode($da->image) as $imageUrl)
+                                                            <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
+                                                                style="width: 50px; height: auto;" class="image-clickable">
+                                                        @endforeach
+                                                    @endif
+
 
 
 

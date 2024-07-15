@@ -21,6 +21,7 @@ class Product extends Model
         'ratio_screen',
         'throw_ratio_min',
         'throw_ratio_max',
+        'catalog',
         'link_lazada',
         'link_shopee',
         'other_links',

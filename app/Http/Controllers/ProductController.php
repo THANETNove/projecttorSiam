@@ -55,7 +55,7 @@ class ProductController extends Controller
     {
 
 
-        $request->validate([
+   /*      $request->validate([
             'product_name' => 'required',
             'price' => 'required',
             'image' => 'required',
@@ -67,8 +67,13 @@ class ProductController extends Controller
             'link_lazada.url' => 'The link Lazada must be a valid URL.',
             'link_shopee.url' => 'The link Shopee must be a valid URL.',
             'other_links.url' => 'The link Other_links must be a valid URL.',
-        ]);
+        ]); */
 
+
+                
+        $data = new Product;
+
+        
         // Check if images are uploaded
         if ($request->hasFile('image')) {
             $images = $request->file('image');
@@ -83,12 +88,25 @@ class ProductController extends Controller
                 // Store or use $imageName as needed
                 $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
             }
-
+            $data->image = json_encode($imagePaths);
             // $imagePaths now contains paths to all uploaded images
         }
 
+        if ($request->hasFile('catalog')) {
+            $files = $request->file('catalog');
+          
+
+                $fileName = time() . '_' . $files->getClientOriginalName();
+             
+                // Move the file to the specified directory
+                $files->move(public_path('assets/images/pdf'), $fileName);
         
-        $data = new Product;
+                // Store or use $fileName as needed
+                $filePaths = 'assets/images/pdf/' . $fileName; // Store paths to use or save in database
+            
+                 $data->catalog = $filePaths;
+        }
+
         $data->product_name = $request['product_name'];
         $data->price = $request['price'];
         $data->availability = $request['availability'];
@@ -101,9 +119,9 @@ class ProductController extends Controller
         $data->link_shopee = $request['link_shopee'];
         $data->other_links = $request['other_links'];
         $data->check_manu = json_encode($request->check_manu);
-        $data->image = json_encode($imagePaths);
         $data->price_sale = $request['price_sale'];
         $data->brand = $request['brand'];
+       
         $data->product_code = $request['product_code'];
         $data->status_sale = $request->input('status_sale', 'off');
         $data->status_sell = $request->input('status_sell', 'off');
@@ -160,8 +178,8 @@ class ProductController extends Controller
                 unlink($imagePath); // Delete the file from the server
             }
         }
-
         
+        // Upload new images        
         $images = $request->file('image');
 
         
@@ -176,12 +194,31 @@ class ProductController extends Controller
             // Store or use $imageName as needed
             $imagePaths[] = 'assets/images/product/' . $imageName; // Store paths to use or save in database
         }
-
-        // $imagePaths now contains paths to all uploaded images
+        $data->image = json_encode($imagePaths);
+        // $imagePaths now contains paths to all uploaded images 1721050821_Acer H6518STi.pdf
     }
 
+    
+    if ($request->hasFile('catalog')) {
+        
+            $catalogPath = public_path($data->catalog);
+            unlink($catalogPath);
 
-        $data =  Product::find($id);
+         // Upload new pdf      
+            $files = $request->file('catalog');
+    
+            $fileName = time() . '_' . $files->getClientOriginalName();
+         
+            // Move the file to the specified directory
+            $files->move(public_path('assets/images/pdf'), $fileName);
+    
+            // Store or use $fileName as needed
+            $filePaths = 'assets/images/pdf/' . $fileName; // Store paths to use or save in database
+        
+             $data->catalog = $filePaths;
+    }
+
+     
         $data->product_name = $request['product_name'];
         $data->price = $request['price'];
         $data->availability = $request['availability'];
@@ -194,7 +231,6 @@ class ProductController extends Controller
         $data->link_shopee = $request['link_shopee'];
         $data->other_links = $request['other_links'];
         $data->check_manu = json_encode($request->check_manu);
-        $data->image = json_encode($imagePaths);
         $data->price_sale = $request['price_sale'];
         $data->brand = $request['brand'];
         $data->product_code = $request['product_code'];

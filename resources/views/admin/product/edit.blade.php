@@ -141,6 +141,12 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <label class="mt-3">ชื่อไฟล์เดิมไฟล์ </label>
+                                <?php
+                                $path = 'assets/images/pdf/1721050821_Acer H6518STi.pdf';
+                                $filename = basename($path);
+                                ?>
+                                <a href="{{ asset($product['catalog']) }}" target="_blank">{{ $filename }}</a>
                             </div>
                             <div class="form-group">
                                 <label for="description">DESCRIPTION</label>
@@ -272,12 +278,15 @@
                     <div class="form-group">
                         <label for="image">ตัวย่างภาพ</label>
                         <br>
-                        <div id="image-edit">
-                            @foreach (json_decode($product['image']) as $imageUrl)
-                                <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
-                                    style="width: 100px; height: auto;" class="image-clickable">
-                            @endforeach
-                        </div>
+                        @if ($product['image'])
+                            <div id="image-edit">
+                                @foreach (json_decode($product['image']) as $imageUrl)
+                                    <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
+                                        style="width: 100px; height: auto;" class="image-clickable">
+                                @endforeach
+                            </div>
+                        @endif
+
 
                         <div id="imagePreview"></div>
 
