@@ -64,7 +64,8 @@
                             <i class="fa fa-search"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-search animated fadeIn" style="padding-left: 8px ;">
-                            <form action="">
+                            <form method="POST" action="{{ $formAction }}">
+                                @csrf
                                 <div class="row">
                                     <div class="col-9">
                                         <input type="text" placeholder="Search ..." class="form-control" />
