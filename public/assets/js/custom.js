@@ -73,3 +73,4 @@
 })()
 
 document.getElementById('no-results').classList.add('show');
+

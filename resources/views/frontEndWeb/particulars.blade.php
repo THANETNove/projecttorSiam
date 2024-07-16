@@ -3,12 +3,28 @@
 @section('content')
     <div class="why-choose-section">
         <div class="container">
-            <div class="row justify-content-between align-items-center">
+            <div class="row justify-content-between ">
+
+                @php
+                    $img = json_decode($data[0]->image);
+                @endphp
                 <div class="col-lg-5 ms-md-mb-3">
                     <div class="img-wrap">
-                        <img src="{{ URL::asset('/assets/images/why-choose-us-img.jpg') }}" alt="Image" class="img-fluid">
+                        <img src="{{ URL::asset($img[0]) }}" alt="Image" class="img-fluid" id="product-image">
                     </div>
+
+                    @if ($data[0]->image)
+                        <div style="margin-top: 24px; margin-bottom: 24px">
+                            @foreach ($img as $imageUrl)
+                                <img src="{{ URL::asset($imageUrl) }}" alt="Product Image"
+                                    class="cursor-pointer img-cursor product-image-sm" style="width: 100px; height: auto;">
+                            @endforeach
+                        </div>
+                    @endif
+
                 </div>
+
+
                 <div class="col-lg-6">
                     <h2 class="section-title-name">{{ $data[0]->product_name }}</h2>
 
@@ -29,9 +45,33 @@
                         @endif
 
                     </strong>
+                    <p>Inc. Tax :
+                        @if ($data[0]->status_sale == 'on')
+                            <span class="price">
+                                ${{ number_format($data[0]->price_sale) }}
+                            </span>
+                        @else
+                            <span class="price">
+                                ${{ number_format($data[0]->price) }}
+                            </span>
+                        @endif
+                    </p>
+                    <p>Availability: {{ $data[0]->availability }}</p>
+                    <p>Brand: {{ $data[0]->brand }}</p>
+                    <p>Product Code: {{ $data[0]->product_code }}</p>
+                    @if ($data[0]->catalog)
+                        <?php
+                        $path = $data[0]->catalog;
+                        $filename = basename($path);
+                        ?>
+                        <p>Download Catalog:
+                            <a href="{{ asset($path) }}" target="_blank" class="color-link">{{ $filename }}</a>
+                        </p>
+                    @endif
 
 
-                    <div class="row my-5">
+
+                    {{--  <div class="row my-5">
                         <div class="col-1 col-md-1">
                             <div class="feature">
                                 <div>
@@ -52,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
 

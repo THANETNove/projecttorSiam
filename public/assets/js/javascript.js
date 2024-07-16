@@ -35,3 +35,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return decodeURIComponent(escape(window.atob(input)));
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const smallImages = document.querySelectorAll('.product-image-sm');
+    const mainImage = document.getElementById('product-image');
+
+    console.log('JavaScript loaded and running'); // ตรวจสอบว่า JavaScript ถูกโหลด
+
+    smallImages.forEach(function (img) {
+        img.addEventListener('click', function () {
+            console.log('Image clicked:', img.src); // ตรวจสอบว่าภาพถูกคลิก
+            mainImage.src = img.src;
+            console.log('Main image src changed to:', mainImage
+                .src); // ตรวจสอบว่าภาพหลักถูกเปลี่ยน
+        });
+    });
+});

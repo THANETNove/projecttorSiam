@@ -1192,3 +1192,18 @@ textarea {
   align-items: center;
   border-radius: 50%;
 }
+
+.color-link {
+  color: #ef742d;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.img-cursor:hover {
+  transform: scale(1.5);
+  /* ขยายภาพ 1.5 เท่า */
+  transition: transform 0.5s ease;
+  /* เพิ่มเอฟเฟกต์การขยายให้ดูนุ่มนวล */
+}
