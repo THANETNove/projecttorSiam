@@ -19,7 +19,7 @@ class ManuBarController extends Controller
         ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id','menu_bars.id AS itemId')
         ->orderBy('menu_bars.use')
         ->orderBy('menu_bars.resolution')
-        ->get();
+        ->paginate(500);
     
 
         return view('admin.manuBar.index',['data' =>  $data]);
@@ -35,6 +35,27 @@ class ManuBarController extends Controller
         ->get();
         return view('admin.manuBar.create',['id' => $id,'data' => $data ]);
     }
+
+
+    public function search(Request $request)
+    {
+
+
+        $search = $request['search'];
+
+      
+        $data = DB::table('menu_bars')
+        ->leftJoin('navbar_manu_mains', 'navbar_manu_mains.id', '=', 'menu_bars.use')
+        ->select('menu_bars.use', 'menu_bars.feature', 'menu_bars.resolution', 'navbar_manu_mains.name_manu', 'navbar_manu_mains.id','menu_bars.id AS itemId')
+        ->where('feature', 'LIKE', "%$search%")
+        ->orderBy('menu_bars.use')
+        ->orderBy('menu_bars.resolution')
+        ->orderBy('menu_bars.id', 'DESC')
+        ->paginate(500)
+        ->appends(['search' => $search]);
+        return view('admin.manuBar.index',['data' =>  $data]);
+    }
+
 
     /**
      * Store a newly created resource in storage.

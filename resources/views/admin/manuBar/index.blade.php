@@ -174,6 +174,9 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="mt-5 ml-3">
+                                {!! $data->links() !!}
+                            </div>
                         </div>
                     </div>
                 </div>

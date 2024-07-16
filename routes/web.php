@@ -55,6 +55,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
     Route::get('components/slideHome/destroy/{id}', [ManuBarController::class, 'destroy'])->name('components/slideHome/destroy');
     Route::post('components/manuBar/search', [ManuBarController::class, 'search'])->name('components/manuBar/search');
+    Route::get('components/manuBar/search', [ManuBarController::class, 'search'])->name('components/manuBar/search');
 
 
     Route::get('product/product_all', [ProductController::class, 'index'])->name('product/product_all');
@@ -64,7 +65,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::put('product/update/{id}', [ProductController::class, 'update'])->name('product/update');
     Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product/destroy');
     Route::post('product/search', [ProductController::class, 'search'])->name('product/search');
-    Route::get('product/search', [ProductController::class, 'search'])->name('product.search');
+    Route::get('product/search', [ProductController::class, 'search'])->name('product/search');
 
 });
 
