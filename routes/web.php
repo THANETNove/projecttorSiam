@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
 
     if (auth()->check() && auth()->user()->status == 1) {
-        return view('home');
+        return redirect('product/product_all');
     } else {
 
         $imgSlide = DB::table('slide_homes')
@@ -54,7 +54,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
     Route::get('components/slideHome/destroy/{id}', [ManuBarController::class, 'destroy'])->name('components/slideHome/destroy');
-
+    Route::post('components/manuBar/search', [ManuBarController::class, 'search'])->name('components/manuBar/search');
 
 
     Route::get('product/product_all', [ProductController::class, 'index'])->name('product/product_all');
@@ -63,6 +63,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('product/edit');
     Route::put('product/update/{id}', [ProductController::class, 'update'])->name('product/update');
     Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product/destroy');
+    Route::post('product/search', [ProductController::class, 'search'])->name('product/search');
 });
 
 Route::fallback(function() {

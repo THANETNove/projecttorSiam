@@ -15,11 +15,11 @@ class ProductController extends Controller
     {
         $data = DB::table('products')
         ->orderBy('id', 'DESC')
-        ->get();
+        ->paginate(100);
 
         return view('admin.product.index',['data' =>  $data]);
     }
-
+   
     /**
      * Show the form for creating a new resource.
      */
@@ -36,6 +36,22 @@ class ProductController extends Controller
         
         return view('admin.product.create', ['data' =>  $data]);
     }
+    
+
+    public function search(Request $request)
+    {
+
+        $search = $request['search'];
+
+        dd( $search);
+        $data = DB::table('products')
+        ->where('category_id', 'LIKE', "%$search%")
+        ->orderBy('id', 'DESC')
+        ->paginate(100);
+
+        return view('admin.product.index',['data' =>  $data]);
+    }
+
     
     public function manuBarApi($id)
     {

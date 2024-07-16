@@ -26,8 +26,11 @@ class HomeController extends Controller
     {
 
         if ( Auth::user()->status == 1) {
-            return view('home');
+
+
+            return redirect('product/product_all');
         }else{
+           
             return redirect('/');
         }
        

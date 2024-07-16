@@ -24,14 +24,26 @@
     <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
         <div class="container-fluid">
             @php
-                $paths = ['product/product_all', 'components/manuBar'];
+                $paths = ['product/product_all', 'product/search', 'components/manuBar', 'components/manuBar/search'];
             @endphp
+            @php
+                $formAction = '';
+                if (Request::is('product/product_all')) {
+                    $formAction = route('product/search');
+                } elseif (Request::is('components/manuBar')) {
+                    $formAction = route('components/manuBar/search'); // สมมติว่ามี route ที่ชื่อว่า product_search
+                }
+            @endphp
+
+
 
             <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
                 @if (collect($paths)->contains(fn($path) => Request::is($path)))
-                    <form action="">
+                    <form method="POST" action="{{ $formAction }}">
+                        @csrf
+
                         <div class="input-group">
-                            <input type="text" placeholder="Search ..." class="form-control" />
+                            <input type="text" placeholder="Search ..." name="search" class="form-control" />
                             <div class="input-group-prepend">
                                 <button type="submit" class="btn" style="background-color: #1a2035 ">
                                     <i class="fa fa-search search-icon" style="color: #ffffff"></i>
