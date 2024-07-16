@@ -59,8 +59,11 @@
                             </a>
                         </div>
                     @endforeach
+
+                    <div class="mt-5 ml-3">
+                        {!! $data->links() !!}
+                    </div>
                 @else
-                    {{--  @include('404') --}}
                     <div id="no-results" class="no-results">
                         No results found.
                     </div>

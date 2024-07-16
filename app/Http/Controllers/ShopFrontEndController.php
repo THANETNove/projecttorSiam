@@ -19,7 +19,7 @@ class ShopFrontEndController extends Controller
         ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
         ->where('status_sell', "on")
         ->orderBy('id', 'DESC')
-        ->paginate(500)
+        ->paginate(2)
         ->appends(['name' => $name]);
  
 
