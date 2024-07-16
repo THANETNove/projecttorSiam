@@ -3,15 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ShopFrontEndController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($name)
     {
-        return view('frontEndWeb.shop');
+
+    
+
+        $data = DB::table('products')
+        ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
+        ->where('status_sell', "on")
+        ->orderBy('id', 'DESC')
+        ->paginate(500)
+        ->appends(['name' => $name]);
+ 
+
+        return view('frontEndWeb.shop' ,['data' => $data]);
     }
 
     /**

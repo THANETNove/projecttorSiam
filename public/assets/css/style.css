@@ -141,7 +141,7 @@ a.more {
 }
 
 .hero {
-  background: #3b5d50;
+  background: #ef742d;
   padding: calc(4rem - 30px) 0 0rem 0;
 }
 
@@ -1108,3 +1108,40 @@ textarea {
   }
 }
 
+.price {
+  color: #ef742d !important;
+}
+
+.sale-price {
+  margin-left: 8px;
+  text-decoration: line-through;
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-results {
+  display: none;
+  /* Hidden by default */
+  font-size: 4vw;
+  color: #3b5d50;
+  font-weight: bold;
+  /* Red color for visibility */
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.no-results.show {
+  display: block;
+}

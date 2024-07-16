@@ -37,7 +37,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 1 && $da->resolution == 1)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -53,7 +53,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 1 && $da->resolution == 2)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -67,7 +67,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 1 && $da->resolution == 3)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -93,7 +93,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 1)
                                         <li><a class="nav-link"
-                                                href="{{ url('screen', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -107,7 +107,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 2)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -121,7 +121,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 2 && $da->resolution == 3)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -147,7 +147,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 1)
                                         <li><a class="nav-link"
-                                                href="{{ url('displays', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -161,7 +161,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 2)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -175,7 +175,7 @@
                                     <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                                     @if ($da->use == 3 && $da->resolution == 3)
                                         <li><a class="nav-link"
-                                                href="{{ url('projector', $da->use) }}">{{ $da->feature }}</a>
+                                                href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -196,8 +196,7 @@
                         @foreach ($data as $da)
                             <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                             @if ($da->use == 4 && $da->resolution == 1)
-                                <li><a class="nav-link"
-                                        href="{{ url('AVSolutions', $da->use) }}">{{ $da->feature }}</a>
+                                <li><a class="nav-link" href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -216,7 +215,7 @@
                             <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                             @if ($da->use == 5 && $da->resolution == 1)
                                 <li><a class="nav-link"
-                                        href="{{ url('Accessories', $da->use) }}">{{ $da->feature }}</a>
+                                        href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -228,8 +227,8 @@
                         Services
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="nav-link" href="{{ url('services/aboutus') }}">About us</a></li>
-                        <li><a class="nav-link" href="{{ url('services/services') }}">Services</a></li>
+                        <li><a class="nav-link" href="{{ url('aboutus') }}">About us</a></li>
+                        <li><a class="nav-link" href="{{ url('services') }}">Services</a></li>
 
                     </ul>
                 </li>
