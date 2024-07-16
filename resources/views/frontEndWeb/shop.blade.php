@@ -32,7 +32,8 @@
                             /*   dd($img[0]); */
                         @endphp
                         <div class="col-12 col-md-4 col-lg-3 mb-5">
-                            <a class="product-item" href="#">
+                            <a class="product-item"
+                                href="{{ route('particulars', ['name' => $da->product_name, 'id' => $da->id]) }}">
                                 <img src="{{ URL::asset($img[0]) }}" class="img-fluid product-thumbnail">
                                 <h3 class="product-title">{{ $da->product_name }}</h3>
                                 <strong class="product-price">
