@@ -47,7 +47,32 @@ class ShopFrontEndController extends Controller
      */
     public function show(string $name, $id)
     {
-    dd( $name, $id);
+
+        $data = DB::table('products')
+        ->where('id', $id)
+        ->orderBy('id', 'DESC')
+        ->get();
+
+
+     // แปลงค่า check_manu จาก JSON string เป็น array
+    $check_manu_array = json_decode($data[0]->check_manu);
+
+    // เริ่มต้น query
+    $query = DB::table('products')
+        ->where('status_sell', "on")
+        ->orderBy('id', 'DESC');
+
+    // เพิ่มเงื่อนไขสำหรับแต่ละค่าใน array
+    foreach ($check_manu_array as $check_manu) {
+        $query->orWhereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($check_manu)]);
+    }
+
+    // จำกัดผลลัพธ์ให้เหลือ 3 รายการ
+    $dataSlid = $query->take(9)->get();
+
+    // แสดงผลข้อมูล
+   
+    return view('frontEndWeb.particulars' ,['data' => $data, 'dataSlid' => $dataSlid]);
     }
 
     /**

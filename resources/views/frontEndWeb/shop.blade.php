@@ -41,7 +41,7 @@
 
                                     @if ($da->status_sale == 'on')
                                         <span class="price">
-                                            {{ number_format($da->price_sale) }}
+                                            ${{ number_format($da->price_sale) }}
                                         </span>
                                         <span class="sale-price">
                                             ${{ number_format($da->price) }}
