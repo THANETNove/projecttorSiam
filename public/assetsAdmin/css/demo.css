@@ -465,4 +465,12 @@ img {
 
 }
 
+.pagination {
+  padding-left: 16px !important;
+}
+
+.pagination>.page-item {
+  margin-right: 4px;
+}
+
 /*# sourceMappingURL=demo.css.map */

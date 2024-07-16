@@ -43,7 +43,8 @@
                         @csrf
 
                         <div class="input-group">
-                            <input type="text" placeholder="Search ..." name="search" class="form-control" />
+                            <input type="text" placeholder="Search ..." name="search"
+                                value="{{ request('search') }}" class="form-control" />
                             <div class="input-group-prepend">
                                 <button type="submit" class="btn" style="background-color: #1a2035 ">
                                     <i class="fa fa-search search-icon" style="color: #ffffff"></i>

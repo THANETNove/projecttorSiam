@@ -64,6 +64,8 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::put('product/update/{id}', [ProductController::class, 'update'])->name('product/update');
     Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product/destroy');
     Route::post('product/search', [ProductController::class, 'search'])->name('product/search');
+    Route::get('product/search', [ProductController::class, 'search'])->name('product.search');
+
 });
 
 Route::fallback(function() {
