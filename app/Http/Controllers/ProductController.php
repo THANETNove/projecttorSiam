@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         $data = DB::table('products')
         ->orderBy('id', 'DESC')
-        ->paginate(1);
+        ->paginate(100);
 
         return view('admin.product.index',['data' =>  $data]);
     }
@@ -47,7 +47,7 @@ class ProductController extends Controller
         $data = DB::table('products')
         ->where('product_name', 'LIKE', "%$search%")
         ->orderBy('id', 'DESC')
-        ->paginate(1)
+        ->paginate(100)
         ->appends(['search' => $search]);
         return view('admin.product.index',['data' =>  $data]);
     }
