@@ -22,58 +22,7 @@
         </div>
     </div>
 
-    {{--  <div class="untree_co-section product-section before-footer-section">
-        <div class="container">
-            <div class="row">
-                @if ($data->count() > 0)
-                    @foreach ($data as $da)
-                        @php
-                            $img = json_decode($da->image);
-                            /*   dd($img[0]); */
-                        @endphp
-                        <div class="col-12 col-md-4 col-lg-3 mb-5">
-                            <a class="product-item"
-                                href="{{ route('particulars', ['name' => $da->product_name, 'id' => $da->id]) }}">
-                                <img src="{{ URL::asset($img[0]) }}" class="img-fluid product-thumbnail">
-                                <h3 class="product-title">{{ $da->product_name }}</h3>
-                                <strong class="product-price">
-                          
 
-                                    @if ($da->status_sale == 'on')
-                                        <span class="price">
-                                            ${{ number_format($da->price_sale) }}
-                                        </span>
-                                        <span class="sale-price">
-                                            ${{ number_format($da->price) }}
-                                        </span>
-                                    @else
-                                        <span class="price">
-                                            ${{ number_format($da->price) }}
-                                        </span>
-                                    @endif
-
-                                </strong>
-
-                                <span class="icon-cross">
-                                    <img src="{{ URL::asset('/assets/images/cross.svg') }}" class="img-fluid">
-                                </span>
-                            </a>
-                        </div>
-                    @endforeach
-
-                    <div class="mt-5 ml-3">
-                        {!! $data->links() !!}
-                    </div>
-                @else
-                    <div id="no-results" class="no-results">
-                        No results found.
-                    </div>
-                @endif
-
-
-            </div>
-        </div>
-    </div> --}}
 
     <div class="untree_co-section product-section before-footer-section">
         <div class="container">

@@ -16,7 +16,7 @@ class ShopFrontEndController extends Controller
     
 
         $data = DB::table('products')
-      //  ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
+        ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
         ->where('status_sell', "on")
         ->orderBy('id', 'DESC')
         ->paginate(100)
