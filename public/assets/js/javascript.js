@@ -231,7 +231,8 @@ function addToCart(event) {
 document.addEventListener('DOMContentLoaded', function () {
     const savedCart = sessionStorage.getItem('cart');
     const cart = savedCart ? JSON.parse(savedCart) : [];
-
+    document.getElementById('number-item').textContent = ``;
+    document.getElementById('number-item').classList.remove('number-item');
 
 
 
