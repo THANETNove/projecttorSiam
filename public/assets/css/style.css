@@ -1603,3 +1603,54 @@ textarea {
   border-radius: 50%;
   padding: 5px;
 }
+
+/* 
+.btn-cart {
+  background-color: #ef742d !important;
+  border-color: #ef742d !important;
+}
+
+.btn-cart:hover {
+  background-color: #ef742d !important;
+  border-color: #ef742d !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+.btn-cart {
+  background-color: #f57c00;
+  /* สีพื้นฐานของปุ่ม */
+  border-color: #f57c00;
+  /* สีขอบพื้นฐานของปุ่ม */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* เพิ่มการเปลี่ยนแปลงสำหรับพื้นหลังและขอบ */
+}
+
+.btn-cart:hover {
+  background-color: #ef742d !important;
+  border-color: #ef742d !important;
+  box-shadow: 0 0 10px rgba(239, 116, 45, 0.7);
+  /* เพิ่มเอฟเฟกต์เงา */
+}
+
+.custom-navbar {
+  transition: all 0.3s ease;
+  /* ทำให้การเปลี่ยนแปลงราบรื่น */
+}
+
+.custom-navbar.sticky-navbar {
+  background-color: #343a40;
+  /* เปลี่ยนสีพื้นหลังเมื่อ sticky */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* เพิ่มเงา */
+  padding: 10px 0;
+  /* เปลี่ยนขนาด padding */
+}
+
+/* เมื่อ navbar ติดอยู่ที่ด้านบน */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  /* ให้แถบเมนูอยู่เหนือเนื้อหาทั้งหมด */
+}

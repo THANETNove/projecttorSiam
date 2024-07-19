@@ -56,11 +56,13 @@ Route::get('/', function () {
         $products = $products->merge($categoryProducts);
     }
         $uniqueProducts = $products->unique('id');
+        $limitedProducts = $uniqueProducts->take(16);
+        
         $data = DB::table('banks')
         ->get();
 
 
-        return view('welcome',['imgSlide' =>  $imgSlide , 'products' => $products,'data' => $data]);
+        return view('welcome',['imgSlide' =>  $imgSlide , 'products' => $limitedProducts,'data' => $data]);
     }
     
  

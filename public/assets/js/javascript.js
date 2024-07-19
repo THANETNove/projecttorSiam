@@ -106,3 +106,32 @@ function calculateDistance() {
     document.getElementById('screen-text-right').textContent = `${b.toFixed(2)} m`;
     document.getElementById('screen-text-center').textContent = `${c.toFixed(2)} m`;
 }
+
+function addToCart(event) {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อคลิกปุ่ม
+
+    var quantity = document.getElementById('quantity').value;
+    if (quantity <= 0 || isNaN(quantity)) {
+        alert('Please enter a valid quantity greater than 0.');
+        return false;
+    }
+
+    // Logic to add item to cart with specified quantity
+    alert('Added ' + quantity + ' item(s) to the cart.');
+
+    // You can add code here to submit the form or redirect the user
+    // For example: document.getElementById('add-to-cart-form').submit();
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.custom-navbar');
+    const stickyOffset = navbar.offsetTop;
+
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > stickyOffset) {
+            navbar.classList.add('sticky-navbar');
+        } else {
+            navbar.classList.remove('sticky-navbar');
+        }
+    });
+});

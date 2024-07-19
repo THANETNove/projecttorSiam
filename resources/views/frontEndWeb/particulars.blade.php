@@ -82,8 +82,14 @@
                                 class="color-link">Other</a></p>
                     @endif
                     <br>
+                    <div class="form-group mb-3">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" value="1"
+                            step="1" required>
+                    </div>
+                    <a class="btn btn-cart mb-3" onclick="addToCart(event)">Add Cart</a>
+                    <a class="btn btn-cart mb-3" onclick="buyNow(event)">Buy Now</a>
 
-                    <a href="mailto:siammp@hotmail.co.th" class="btn btn-success mb-3">Send Email</a>
                 </div>
 
             </div>
@@ -121,8 +127,8 @@
                                 <p class="nav-link-p"> ขนาดภาพซ้าย-ขวา</p>
 
 
-                                <input type="number" class="form-control mt-3" id="exampleFormControlInput1" min="0"
-                                    oninput="calculateDistance()" placeholder="ขนาด ซ้าย-ขวา m">
+                                <input type="number" class="form-control mt-3" id="exampleFormControlInput1"
+                                    min="0" oninput="calculateDistance()" placeholder="ขนาด ซ้าย-ขวา m">
 
                             </div>
                             <div class="col-12 col-md-4 mb-4">
