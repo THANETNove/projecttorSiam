@@ -57,7 +57,7 @@
                         @endif
                     </p>
                     <p>Availability: {{ $data[0]->availability }}</p>
-                    <p>Brand: {{ $data[0]->brand }}</p>
+                    <p>Brand: <a href="#" class="price">{{ $data[0]->brand }}</a> </p>
                     <p>Product Code: {{ $data[0]->product_code }}</p>
                     @if ($data[0]->catalog)
                         <?php
@@ -65,38 +65,92 @@
                         $filename = basename($path);
                         ?>
                         <p>Download Catalog:
-                            <a href="{{ asset($path) }}" target="_blank" class="color-link">{{ $filename }}</a>
+                            <a href="{{ URL::asset($path) }}" target="_blank" class="color-link">{{ $filename }}</a>
                         </p>
                     @endif
+                    <br>
+                    @if ($data[0]->link_lazada)
+                        <p>Lazada Link: <a href="{{ URL::asset($data[0]->link_lazada) }}" target="_blank"
+                                class="color-link">Lazada</a> </p>
+                    @endif
+                    @if ($data[0]->link_shopee)
+                        <p>Shopee Link: <a href="{{ URL::asset($data[0]->link_shopee) }}" target="_blank"
+                                class="color-link">Shopee</a></p>
+                    @endif
+                    @if ($data[0]->other_links)
+                        <p>Other Links: <a href="{{ URL::asset($data[0]->other_links) }}" target="_blank"
+                                class="color-link">Other</a></p>
+                    @endif
+                    <br>
 
-
-
-                    {{--  <div class="row my-5">
-                        <div class="col-1 col-md-1">
-                            <div class="feature">
-                                <div>
-                                    <a href="https://line.me/ti/p/~@projectorsiam" target="_blank">
-                                        <img src="https://mallika.co.th/wp-content/uploads/2020/05/line-at-logo-png-8.png"
-                                            alt="LINE Logo" width="35">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1 col-md-1">
-                            <div class="feature">
-                                <div>
-                                    <a href="https://line.me/R/ti/p/@evd5610u" target="_blank">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png"
-                                            alt="LINE Logo" width="35">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                    <a href="mailto:siammp@hotmail.co.th" class="btn btn-success mb-3">Send Email</a>
                 </div>
 
+            </div>
 
 
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane"
+                        aria-selected="true">DESCRIPTION</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane"
+                        aria-selected="false">SPECIFICATION</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                        type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">SCREEN SIZE
+                        CALCULATOR</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    {!! $data[0]->description !!}</div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0"> {!! $data[0]->specification !!}</div>
+                <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
+                    tabindex="0">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-4" style="justify-content: left">
+                                <p class="nav-link-p">Screen Size Width</p>
+                                <p class="nav-link-p"> ขนาดภาพซ้าย-ขวา</p>
+
+
+                                <input type="number" class="form-control mt-3" id="exampleFormControlInput1" min="0"
+                                    oninput="calculateDistance()" placeholder="ขนาด ซ้าย-ขวา m">
+
+                            </div>
+                            <div class="col-12 col-md-4 mb-4">
+                                <p class="nav-link-screen">Ratio screen <span
+                                        id="ratio-screen">{{ $data[0]->ratio_screen }}</span></p>
+                                <hr>
+                                <p class="nav-link-screen">throw ratio min <span
+                                        id="ratio-min">{{ $data[0]->throw_ratio_min }}</span>
+                                </p>
+                                <hr>
+                                <p class="nav-link-screen">throw ratio max <span
+                                        id="ratio-max">{{ $data[0]->throw_ratio_max }}</span>
+                                </p>
+                                <hr>
+                                <p class="nav-link-screen">ระยะห่างจากเครื่องถึงจอ </p>
+                                <p class="nav-link-screen" id="distance-16-9">
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="box-screen">
+                                    <p class="screen-text-center" id="screen-text-center"></p>
+                                    <p class="screen-text-right" id="screen-text-right"></p>
+                                    <p class="screen-text-bottom" id="screen-text-bottom"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

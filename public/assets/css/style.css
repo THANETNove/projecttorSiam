@@ -1207,3 +1207,212 @@ textarea {
   transition: transform 0.5s ease;
   /* เพิ่มเอฟเฟกต์การขยายให้ดูนุ่มนวล */
 }
+
+.tab-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.tab-pane img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tab-pane {
+  background-color: #ffffff;
+}
+
+.nav-link {
+  display: block;
+  padding: .5rem 1rem;
+  color: #495057;
+  text-decoration: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-link:hover {
+  display: block;
+  padding: .5rem 1rem;
+  color: #495057;
+  text-decoration: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #ef742d;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-link-p {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-link-screen {
+  display: flex;
+  text-align: left;
+  font-size: 14px;
+  justify-content: space-between;
+  margin-right: "20%";
+}
+
+
+@media (max-width: 766px) {
+
+  .box-screen {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #3b5d50;
+    box-sizing: border-box;
+  }
+
+
+
+  .box-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 141%;
+    /* Diagonal length for a square box */
+    height: 1px;
+    /* Line thickness */
+    background-color: #3b5d50;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 992px) {
+
+  .box-screen {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #3b5d50;
+    box-sizing: border-box;
+  }
+
+
+
+  .box-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 126%;
+    /* Diagonal length for a square box */
+    height: 1px;
+    /* Line thickness */
+    background-color: #3b5d50;
+    transform: rotate(-37.5deg);
+    transform-origin: top right;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+
+  .box-screen {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #3b5d50;
+    box-sizing: border-box;
+  }
+
+
+
+  .box-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 124%;
+    /* Diagonal length for a square box */
+    height: 1px;
+    /* Line thickness */
+    background-color: #3b5d50;
+    transform: rotate(-36deg);
+    transform-origin: top right;
+  }
+}
+
+@media (min-width: 1201px) {
+
+  .box-screen {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #3b5d50;
+    box-sizing: border-box;
+  }
+
+
+
+  .box-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 126%;
+    /* Diagonal length for a square box */
+    height: 1px;
+    /* Line thickness */
+    background-color: #3b5d50;
+    transform: rotate(-37.2deg);
+    transform-origin: top right;
+  }
+}
+
+.screen-text-bottom {
+  color: #ef742d;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Optional: This ensures the text is vertically centered within the element if it has a height */
+
+  /* Optional: This ensures the text within the flex container is centered */
+}
+
+
+.screen-text-right {
+  color: #ef742d;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  right: 16px;
+
+}
+
+.screen-text-center {
+  color: #ef742d;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  margin-top: -16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transform: rotate(-37.2deg);
+  align-items: center;
+
+}

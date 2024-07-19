@@ -51,3 +51,58 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+
+function calculateDistance() {
+    // Retrieve values from the spans
+    const ratioScreen = document.getElementById('ratio-screen').textContent;
+    const throwRatioMin = parseFloat(document.getElementById('ratio-min').textContent);
+    const throwRatioMax = parseFloat(document.getElementById('ratio-max').textContent);
+
+
+    // Retrieve the input value
+    const inputElement = document.getElementById('exampleFormControlInput1');
+    const inputSize = parseFloat(inputElement.value);
+
+    if (isNaN(inputSize)) {
+        document.getElementById('distance-16-9').textContent = ``;
+        document.getElementById('screen-text-bottom').textContent = ``;
+        document.getElementById('screen-text-right').textContent = ``;
+        document.getElementById('screen-text-center').textContent = ``;
+
+        return;
+    }
+    const parts = ratioScreen.split(':');
+
+    // Convert the parts to numbers and round them if needed
+    const scrap = parseFloat(parts[0]);
+    const part = parseFloat(parts[1]);
+
+    let b;
+    let c;
+    if (ratioScreen == "4:3") {
+        b = inputSize * (3 / 4);
+        c = inputSize * (5 / 4);
+    }
+    if (ratioScreen == "16:9") {
+
+        b = inputSize * (9 / 16);
+        c = inputSize * (18.358 / 16);
+
+    }
+    if (ratioScreen == "16:10") {
+        b = inputSize * (10 / 16);
+        c = inputSize * (18.868 / 16);
+    }
+
+    // Example calculations (update as needed)
+    const minDistance = inputSize * throwRatioMin;
+    const maxDistance = inputSize * throwRatioMax;
+
+    // Display the results (you can update the text of an element on the page)
+    document.getElementById('distance-16-9').textContent = ` min: ${minDistance.toFixed(2)} m ถึง  max: ${maxDistance.toFixed(2)} m  Distance`;
+    document.getElementById('screen-text-bottom').textContent = `${inputSize} m`;
+    document.getElementById('screen-text-right').textContent = `${b.toFixed(2)} m`;
+    document.getElementById('screen-text-center').textContent = `${c.toFixed(2)} m`;
+}
