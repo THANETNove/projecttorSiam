@@ -64,14 +64,7 @@
                     </p>
 
 
-                    {{--  <li><a href="https://line.me/ti/p/~@projectorsiam" target="_blank">
-                        <img src="https://mallika.co.th/wp-content/uploads/2020/05/line-at-logo-png-8.png"
-                            alt="LINE Logo" width="25">
-                    </a></li> --}}
-                    {{--     <li><a href="https://line.me/R/ti/p/@evd5610u" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png"
-                            alt="LINE Logo" width="25">
-                    </a></li> --}}
+
                     <div class="row my-5">
                         <div class="col-1 col-md-1">
                             <div class="feature">

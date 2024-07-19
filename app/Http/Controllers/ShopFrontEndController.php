@@ -16,14 +16,52 @@ class ShopFrontEndController extends Controller
     
 
         $data = DB::table('products')
-        ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
+      //  ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode($name)])
         ->where('status_sell', "on")
         ->orderBy('id', 'DESC')
         ->paginate(100)
         ->appends(['name' => $name]);
+
+
+        $brands = DB::table('products')
+        ->whereNotNull('brand' )
+        ->where('status_sell', "on")
+        ->orderBy('id', 'DESC')
+        ->select('brand') // เพิ่ม category
+        ->groupBy('brand')
+        ->get();
+
+ 
  
 
-        return view('frontEndWeb.shop' ,['data' => $data]);
+        return view('frontEndWeb.shop' ,['data' => $data, 'brands' => $brands]);
+    }
+
+    
+    public function filterByBrand($name)
+    {
+
+
+        $data = DB::table('products')
+        ->where('brand', $name)
+        ->where('status_sell', "on")
+        ->orderBy('id', 'DESC')
+        ->paginate(100)
+        ->appends(['name' => $name]);
+
+
+        $brands = DB::table('products')
+        ->whereNotNull('brand' )
+        ->where('status_sell', "on")
+        ->orderBy('id', 'DESC')
+        ->select('brand') // เพิ่ม category
+        ->groupBy('brand')
+        ->get();
+
+ 
+ 
+
+        return view('frontEndWeb.shop' ,['data' => $data, 'brands' => $brands]);
     }
 
     /**
