@@ -128,6 +128,14 @@ function cartShow(cart) {
         cartItemsContainer.appendChild(itemDiv);
     });
 
+    const buyNowBtn = document.createElement('a');
+    buyNowBtn.href = '/path/to/checkout/page'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
+    buyNowBtn.className = 'buy-now-btn';
+    buyNowBtn.textContent = 'Buy Now';
+
+    // เพิ่มปุ่ม Buy Now เข้าไปใน container
+    cartItemsContainer.appendChild(buyNowBtn);
+
     // เพิ่ม event listener สำหรับปุ่มลบ
     cartItemsContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-btn')) {

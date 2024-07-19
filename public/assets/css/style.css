@@ -1678,7 +1678,7 @@ textarea {
 
 /* ตั้งค่ารูปแบบหลักสำหรับ container ของรายการสินค้า */
 #cart-items {
-
+  display: flex;
   flex-direction: column;
   gap: 10px;
   /* ช่องว่างระหว่างรายการ */
@@ -1716,4 +1716,47 @@ textarea {
 .remove-btn:hover {
   background-color: #ff4d4d;
   color: #fff;
+}
+
+/* CSS สำหรับปุ่ม Buy Now */
+.buy-now-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #ef742d;
+  /* สีโทนที่ต้องการ */
+  color: #fff;
+  /* สีตัวอักษร */
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  /* มุมโค้งมน */
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* เงาของปุ่ม */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  /* การเปลี่ยนสีและเงา */
+}
+
+.buy-now-btn:hover {
+  background-color: #d65a1e;
+  /* สีพื้นหลังเมื่อ hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  /* เงาเข้มขึ้นเมื่อ hover */
+}
+
+.buy-now-btn:active {
+  background-color: #c74e1b;
+  /* สีพื้นหลังเมื่อคลิก */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* เงาลดลงเมื่อคลิก */
+}
+
+.buy-now-btn:focus {
+  outline: none;
+  /* ลบเส้นขอบที่เกิดจากการ focus */
+  box-shadow: 0 0 0 4px rgba(239, 116, 45, 0.5);
+  /* เงาของการ focus */
 }
