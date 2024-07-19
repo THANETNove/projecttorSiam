@@ -1147,7 +1147,8 @@ textarea {
 }
 
 .price-size {
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 
@@ -1415,4 +1416,110 @@ textarea {
   transform: rotate(-37.2deg);
   align-items: center;
 
+}
+
+.page-item.active .page-link {
+  background-color: #ef742d !important;
+  border-color: #ef742d !important;
+  color: #ffffff !important;
+}
+
+.page-link:active {
+  border-color: #ff5722 !important;
+  /* สีขอบที่ต้องการเมื่อคลิก */
+  background-color: #ff5722 !important;
+  /* สีพื้นหลังที่เข้มกว่า */
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px #ef742d !important;
+}
+
+
+.navbar-toggler {
+  background-color: #ef742d !important;
+  border-color: #ef742d !important
+}
+
+.page-link {
+  color: #ef742d !important;
+}
+
+.product-section {
+  padding: 20px 0;
+}
+
+.category-section {
+  margin-bottom: 30px;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ef742d;
+  padding-bottom: 5px;
+}
+
+.product-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+
+.price2 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.sale-price {
+  color: #ff0000;
+  margin-right: 10px;
+}
+
+.original-price {
+  margin-left: 8px;
+  text-decoration: line-through;
+  color: #999;
+}
+
+.icon-cross {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icon-cross img {
+  width: 20px;
+  height: 20px;
 }

@@ -20,7 +20,47 @@ Route::get('/', function () {
         $imgSlide = DB::table('slide_homes')
         ->get();
 
-        return view('welcome',['imgSlide' =>  $imgSlide]);
+        
+       // ดึงหมวดหมู่ที่ไม่ซ้ำ
+       $rawCategories = DB::table('products')
+       ->where('status_sell', 'on')
+       ->selectRaw('DISTINCT JSON_UNQUOTE(JSON_EXTRACT(check_manu, "$[*]")) as category')
+       ->get()
+       ->pluck('category');
+
+       
+    $categories = collect();
+    foreach ($rawCategories as $rawCategory) {
+        $decodedCategories = json_decode($rawCategory);
+        if (is_array($decodedCategories)) {
+            foreach ($decodedCategories as $category) {
+                if (!$categories->contains($category)) {
+                    $categories->push($category);
+                }
+            }
+        }
+    }
+    
+    $products = collect();
+
+    foreach ($categories as $category) {
+        $categoryProducts = DB::table('products')
+            ->where('status_sell', 'on')
+            ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode([$category])]) // ใช้ array เพื่อความถูกต้อง
+            ->inRandomOrder()
+            ->select('id', 'image', 'product_name','price', 'price_sale', 'status_sale', DB::raw("'$category' as category")) // เพิ่ม category
+            ->distinct()
+            ->limit(4)
+            ->get();
+    
+        $products = $products->merge($categoryProducts);
+    }
+        $uniqueProducts = $products->unique('id');
+        $data = DB::table('banks')
+        ->get();
+
+
+        return view('welcome',['imgSlide' =>  $imgSlide , 'products' => $products,'data' => $data]);
     }
     
  
