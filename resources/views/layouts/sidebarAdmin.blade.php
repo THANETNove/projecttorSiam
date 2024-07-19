@@ -88,6 +88,16 @@
 
                         </ul>
                     </div>
+                    <div class="collapse {{ Request::is('serveice/*') ? 'show' : '' }}" id="product">
+                        <ul class="nav nav-collapse">
+                            <li class="{{ Request::is('serveice/*') ? 'active' : '' }}">
+                                <a href="{{ url('serveice/index') }}">
+                                    <span class="sub-item">Product</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </li>
 
 

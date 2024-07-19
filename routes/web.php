@@ -9,6 +9,7 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\SlideHomeController;
 use App\Http\Controllers\ManuBarController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServeiceBackEndController;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
@@ -110,6 +111,8 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('product/destroy/{id}', [ProductController::class, 'destroy'])->name('product/destroy');
     Route::post('product/search', [ProductController::class, 'search'])->name('product/search');
     Route::get('product/search', [ProductController::class, 'search'])->name('product/search');
+
+    Route::get('serveice/index', [ServeiceBackEndController::class, 'index'])->name('serveice/index');
 
 });
 
