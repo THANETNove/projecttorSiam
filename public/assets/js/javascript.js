@@ -107,6 +107,8 @@ function calculateDistance() {
     document.getElementById('screen-text-center').textContent = `${c.toFixed(2)} m`;
 }
 
+
+
 function addToCart(event) {
     event.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อคลิกปุ่ม
 
@@ -114,16 +116,64 @@ function addToCart(event) {
     if (quantity <= 0 || isNaN(quantity)) {
         alert('Please enter a valid quantity greater than 0.');
         return false;
+    } else {
+
+        const savedCart = sessionStorage.getItem('cart');
+        const cart = savedCart ? JSON.parse(savedCart) : [];
+        var name = document.getElementById('cart-product-name').value;
+        var price = document.getElementById('cart-price').value;
+        var brand = document.getElementById('cart-brand').value;
+        var ratio_screen = document.getElementById('cart-ratio_screen').value;
+
+
+        let totalPrice = Number(quantity) * Number(price);
+        var quantity = Number(quantity); // แปลงเป็นตัวเลข
+
+        // let array = [name, price, brand, ratio_screen, quantity, totalPrice]
+
+
+        const existingItemIndex = cart.findIndex(item => item.name === name);
+
+        if (existingItemIndex !== -1) {
+            // ถ้าพบรายการที่มีชื่อเดียวกัน, เพิ่มจำนวนสินค้า
+            cart[existingItemIndex].quantity += Number(quantity);
+            cart[existingItemIndex].totalPrice += totalPrice;
+        } else {
+            // ถ้าไม่พบรายการที่มีชื่อเดียวกัน, เพิ่มรายการใหม่
+            cart.push({ name, price, brand, ratio_screen, quantity, totalPrice });
+        }
+
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+
+        if (cart.length > 0) {
+            document.getElementById('number-item').textContent = `${cart.length}`;
+        } else {
+            document.getElementById('number-item').textContent = ``;
+        }
+
+
     }
 
-    // Logic to add item to cart with specified quantity
-    alert('Added ' + quantity + ' item(s) to the cart.');
 
     // You can add code here to submit the form or redirect the user
     // For example: document.getElementById('add-to-cart-form').submit();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    const savedCart = sessionStorage.getItem('cart');
+    const cart = savedCart ? JSON.parse(savedCart) : [];
+
+
+    if (cart.length > 0) {
+        document.getElementById('number-item').textContent = `${cart.length}`;
+    } else {
+        document.getElementById('number-item').textContent = ``;
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
     const navbar = document.querySelector('.custom-navbar');
     const stickyOffset = navbar.offsetTop;
 

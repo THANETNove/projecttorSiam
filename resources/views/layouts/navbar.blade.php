@@ -222,6 +222,7 @@
                         @endforeach
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown @if (Request::is('services/*')) active @endif">
                     <a class="nav-link dropdown-toggle" href="#" id="policyDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -232,6 +233,13 @@
                         <li><a class="nav-link" href="{{ url('services') }}">Services</a></li>
 
                     </ul>
+                </li>
+
+                <li data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="fa-solid fa-cart-arrow-down custom-icon">
+
+                    </i>
+                    <div class="number-item" id="number-item"></div>
                 </li>
 
             </ul>
@@ -280,3 +288,26 @@
     </div>
 
 </nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">สินค้าทั้งหมด</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <?php
+        // เริ่มเซสชัน
+        session_start();
+        
+        // ดึงข้อมูลตะกร้าจากเซสชัน
+        $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+        
+        // นับจำนวนรายการในตะกร้า
+        $itemCount = count($cart);
+        
+        // แสดงผลจำนวนรายการ
+        echo 'Items in Cart: ' . $itemCount;
+        ?>
+    </div>
+</div>

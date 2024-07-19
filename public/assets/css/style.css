@@ -1654,3 +1654,24 @@ textarea {
   z-index: 1020;
   /* ให้แถบเมนูอยู่เหนือเนื้อหาทั้งหมด */
 }
+
+.custom-icon {
+  font-size: 24px;
+  cursor: pointer;
+  /* ปรับขนาดตามต้องการ */
+}
+
+.number-item {
+  cursor: pointer;
+  margin-top: -38px;
+  margin-left: 16px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ef742d;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 50px;
+}

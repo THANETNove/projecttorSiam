@@ -81,8 +81,26 @@
                         <p>Other Links: <a href="{{ URL::asset($data[0]->other_links) }}" target="_blank"
                                 class="color-link">Other</a></p>
                     @endif
-                    <br>
                     <div class="form-group mb-3">
+
+                        <div style="display: none">
+                            @php
+
+                                if ($data[0]->status_sale == 'on') {
+                                    $price = $data[0]->price_sale;
+                                } else {
+                                    $price = $data[0]->price;
+                                }
+                            @endphp
+                            <input type="text" id="cart-product-name" name="name" class="form-control"
+                                value="{{ $data[0]->product_name }}" step="1" required>
+                            <input type="text" id="cart-price" name="price" class="form-control"
+                                value="{{ $price }}" step="1" required>
+                            <input type="text" id="cart-brand" name="brand" class="form-control"
+                                value="{{ $data[0]->brand }}" step="1" required>
+                            <input type="text" id="cart-ratio_screen" name="ratio_screen" class="form-control"
+                                value="{{ $data[0]->ratio_screen }}" step="1" required>
+                        </div>
                         <label for="quantity">Quantity:</label>
                         <input type="number" id="quantity" name="quantity" class="form-control" value="1"
                             step="1" required>
@@ -107,18 +125,20 @@
                         aria-selected="false">SPECIFICATION</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                        type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">SCREEN SIZE
+                    <button class="nav-link active" id="contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#contact-tab-pane" type="button" role="tab"
+                        aria-controls="contact-tab-pane" aria-selected="false">SCREEN SIZE
                         CALCULATOR</button>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
                     {!! $data[0]->description !!}</div>
                 <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                     tabindex="0"> {!! $data[0]->specification !!}</div>
-                <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
-                    tabindex="0">
+                <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel"
+                    aria-labelledby="contact-tab" tabindex="0">
 
                     <div class="container">
                         <div class="row">
