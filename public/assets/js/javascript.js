@@ -109,6 +109,67 @@ function calculateDistance() {
 
 
 
+function cartShow(cart) {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    console.log("cart", cart);
+    cart.forEach((item, index) => {
+        // สร้าง div สำหรับแต่ละรายการ
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+
+        // สร้างเนื้อหาสำหรับรายการ
+        itemDiv.innerHTML = `
+            <span>${item.name} - $${Number(item.price).toLocaleString()} x ${item.quantity} = ${Number(item.totalPrice).toLocaleString()}</span>
+            <span class="remove-btn" data-index="${index}">Remove</span>
+        `;
+
+        // เพิ่มรายการเข้าไปใน container
+        cartItemsContainer.appendChild(itemDiv);
+    });
+
+    // เพิ่ม event listener สำหรับปุ่มลบ
+    cartItemsContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('remove-btn')) {
+            const index = event.target.dataset.index;
+            cart.splice(index, 1); // ลบรายการออกจาก array
+            sessionStorage.setItem('cart', JSON.stringify(cart)); // อัปเดต sessionStorage
+
+            // รีเฟรชรายการที่แสดง
+            cartItemsContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                 
+                    <span>${item.name} - $${item.price} x ${item.quantity}  ${item.totalPrice} :: ${item.ratio_screen}</span>
+                    <span class="remove-btn" data-index="${index}">Remove</span>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+        if (cart.length > 0) {
+            document.getElementById('number-item').textContent = `${cart.length}`;
+            document.getElementById('number-item').classList.add('number-item');
+
+        } else {
+            document.getElementById('number-item').textContent = ``;
+            document.getElementById('number-item').classList.remove('number-item');
+
+        }
+    });
+
+    if (cart.length > 0) {
+        document.getElementById('number-item').textContent = `${cart.length}`;
+        document.getElementById('number-item').classList.add('number-item');
+    } else {
+        document.getElementById('number-item').textContent = ``;
+        document.getElementById('number-item').classList.remove('number-item');
+
+    }
+
+}
+
 function addToCart(event) {
     event.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อคลิกปุ่ม
 
@@ -147,10 +208,10 @@ function addToCart(event) {
 
         if (cart.length > 0) {
             document.getElementById('number-item').textContent = `${cart.length}`;
+            cartShow(cart);
         } else {
             document.getElementById('number-item').textContent = ``;
         }
-
 
     }
 
@@ -164,12 +225,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const cart = savedCart ? JSON.parse(savedCart) : [];
 
 
+
+
     if (cart.length > 0) {
-        document.getElementById('number-item').textContent = `${cart.length}`;
-    } else {
-        document.getElementById('number-item').textContent = ``;
+
+
+        cartShow(cart);
+
+
     }
 });
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
 

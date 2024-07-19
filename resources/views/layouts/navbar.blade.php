@@ -294,20 +294,6 @@
         <h5 class="offcanvas-title" id="offcanvasRightLabel">สินค้าทั้งหมด</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-
-        <?php
-        // เริ่มเซสชัน
-        session_start();
-        
-        // ดึงข้อมูลตะกร้าจากเซสชัน
-        $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-        
-        // นับจำนวนรายการในตะกร้า
-        $itemCount = count($cart);
-        
-        // แสดงผลจำนวนรายการ
-        echo 'Items in Cart: ' . $itemCount;
-        ?>
+    <div class="offcanvas-body" id="cart-items">
     </div>
 </div>
