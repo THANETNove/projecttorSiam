@@ -71,6 +71,12 @@ class ShopFrontEndController extends Controller
     {
         //
     }
+    public function buyNow()
+    {
+
+        
+        return view('frontEndWeb.buyNow');
+    }
 
     /**
      * Store a newly created resource in storage.

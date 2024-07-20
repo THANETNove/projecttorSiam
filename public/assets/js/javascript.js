@@ -129,7 +129,7 @@ function cartShow(cart) {
     });
 
     const buyNowBtn = document.createElement('a');
-    buyNowBtn.href = '/path/to/checkout/page'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
+    buyNowBtn.href = '/buy-now'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
     buyNowBtn.className = 'buy-now-btn';
     buyNowBtn.textContent = 'Buy Now';
 
@@ -178,8 +178,10 @@ function cartShow(cart) {
 
 }
 
-function addToCart(event) {
+function addToCart(event, evName) {
     event.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อคลิกปุ่ม
+
+
 
     var quantity = document.getElementById('quantity').value;
     if (quantity <= 0 || isNaN(quantity)) {
@@ -219,6 +221,12 @@ function addToCart(event) {
             cartShow(cart);
         } else {
             document.getElementById('number-item').textContent = ``;
+        }
+        if (evName == 'buy') {
+            window.location.href = '/buy-now';
+
+
+
         }
 
     }
@@ -264,3 +272,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+

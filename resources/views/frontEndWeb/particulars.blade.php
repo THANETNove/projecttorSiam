@@ -105,8 +105,8 @@
                         <input type="number" id="quantity" name="quantity" class="form-control" value="1"
                             step="1" required>
                     </div>
-                    <a class="btn btn-cart mb-3" onclick="addToCart(event)">Add Cart</a>
-                    <a class="btn btn-cart mb-3" onclick="buyNow(event)">Buy Now</a>
+                    <a class="btn btn-cart mb-3" onclick="addToCart(event,'add')">Add Cart</a>
+                    <a class="btn btn-cart mb-3" onclick="addToCart(event,'buy')">Buy Now</a>
 
                 </div>
 

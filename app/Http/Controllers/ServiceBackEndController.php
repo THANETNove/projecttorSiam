@@ -11,8 +11,7 @@ class ServiceBackEndController extends Controller
      */
     public function index()
     {
-        dd('fff');
-        //
+        dd("444");
     }
 
     /**

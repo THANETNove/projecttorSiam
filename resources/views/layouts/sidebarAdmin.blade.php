@@ -85,22 +85,14 @@
                                     <span class="sub-item">Product</span>
                                 </a>
                             </li>
-
-                        </ul>
-                    </div>
-                    <div class="collapse {{ Request::is('service/*') ? 'show' : '' }}" id="service">
-                        <ul class="nav nav-collapse">
                             <li class="{{ Request::is('service/*') ? 'active' : '' }}">
                                 <a href="{{ url('service/index') }}">
                                     <span class="sub-item">Services</span>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                 </li>
-
-
             </ul>
         </div>
     </div>
