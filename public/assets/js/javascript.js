@@ -120,7 +120,7 @@ function cartShow(cart) {
 
         // สร้างเนื้อหาสำหรับรายการ
         itemDiv.innerHTML = `
-            <span>${item.name} - $${Number(item.price).toLocaleString()} x ${item.quantity} = ${Number(item.totalPrice).toLocaleString()}</span>
+            <span>   <img src="${item.img}" alt="${item.name}" style="width: 70px; height: auto;"> <br>${item.name}  <br> $${Number(item.price).toLocaleString()} x ${item.quantity} = ${Number(item.totalPrice).toLocaleString()} <br> ${item.brand} :: ${item.ratio_screen}</span>
             <span class="remove-btn" data-index="${index}">Remove</span>
         `;
 
@@ -150,7 +150,7 @@ function cartShow(cart) {
                 itemDiv.className = 'cart-item';
                 itemDiv.innerHTML = `
                  
-                    <span>${item.name} - $${item.price} x ${item.quantity}  ${item.totalPrice} :: ${item.ratio_screen}</span>
+                <span>   <img src="${item.img}" alt="${item.name}" style="width: 70px; height: auto;"> <br>${item.name}  <br> $${Number(item.price).toLocaleString()} x ${item.quantity} = ${Number(item.totalPrice).toLocaleString()} <br> ${item.brand} :: ${item.ratio_screen}</span>
                     <span class="remove-btn" data-index="${index}">Remove</span>
                 `;
                 cartItemsContainer.appendChild(itemDiv);
@@ -194,6 +194,7 @@ function addToCart(event, evName) {
         var name = document.getElementById('cart-product-name').value;
         var price = document.getElementById('cart-price').value;
         var brand = document.getElementById('cart-brand').value;
+        var img = document.getElementById('cart-img').value;
         var ratio_screen = document.getElementById('cart-ratio_screen').value;
 
 
@@ -211,7 +212,7 @@ function addToCart(event, evName) {
             cart[existingItemIndex].totalPrice += totalPrice;
         } else {
             // ถ้าไม่พบรายการที่มีชื่อเดียวกัน, เพิ่มรายการใหม่
-            cart.push({ name, price, brand, ratio_screen, quantity, totalPrice });
+            cart.push({ img, name, price, brand, ratio_screen, quantity, totalPrice });
         }
 
         sessionStorage.setItem('cart', JSON.stringify(cart));

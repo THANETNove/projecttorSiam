@@ -94,6 +94,8 @@
                             @endphp
                             <input type="text" id="cart-product-name" name="name" class="form-control"
                                 value="{{ $data[0]->product_name }}" step="1" required>
+                            <input type="text" id="cart-img" name="img" class="form-control"
+                                value="{{ URL::asset($img[0]) }}" required>
                             <input type="text" id="cart-price" name="price" class="form-control"
                                 value="{{ $price }}" step="1" required>
                             <input type="text" id="cart-brand" name="brand" class="form-control"
