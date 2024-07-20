@@ -274,3 +274,100 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const savedCart = sessionStorage.getItem('cart');
+    const cart = savedCart ? JSON.parse(savedCart) : [];
+
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    let totalAmount = 0;
+
+    function renderCart() {
+        cartItemsContainer.innerHTML = '';
+        totalAmount = 0;
+
+        cart.forEach((item, index) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'buyItemAll-cart-item';
+
+            itemDiv.innerHTML = `
+                <div class="buyItemAll-item-details">
+                    <img src="${item.img}" alt="${item.name}" class="buyItemAll-item-image" />
+                    <span class="buyItemAll-item-name">${item.name}</span>
+                    <span class="buyItemAll-item-price">${item.brand}</span>
+                    <span class="buyItemAll-item-price">${item.ratio_screen}</span>
+                </div>
+                <span class="buyItemAll-item-price">$${Number(item.price).toLocaleString()}</span>
+                
+                <div class="buyItemAll-quantity-controls">
+                    ${item.quantity > 1 ? `<button class="buyItemAll-decrement-btn" data-index="${index}">-</button>` : ''}
+                    <span class="buyItemAll-item-quantity"> x ${item.quantity}</span>
+                    <button class="buyItemAll-increment-btn" data-index="${index}">+</button>
+                </div>
+                <span class="buyItemAll-item-total">= $${Number(item.totalPrice).toLocaleString()}</span>
+                <button class="buyItemAll-remove-btn" data-index="${index}">Remove</button>
+            `;
+
+            cartItemsContainer.appendChild(itemDiv);
+            totalAmount += item.totalPrice;
+        });
+
+        document.querySelectorAll('.buyItemAll-total-price').forEach(element => {
+            element.innerText = `$${Number(totalAmount).toLocaleString()}`;
+        });
+        document.querySelectorAll('.buyItemAll-remove-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.dataset.index;
+                cart.splice(index, 1);
+                renderCart();
+            });
+        });
+
+        document.querySelectorAll('.buyItemAll-decrement-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.dataset.index;
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity--;
+                    cart[index].totalPrice = cart[index].quantity * cart[index].price;
+                    renderCart();
+                }
+            });
+        });
+
+        document.querySelectorAll('.buyItemAll-increment-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const index = e.target.dataset.index;
+                cart[index].quantity++;
+                cart[index].totalPrice = cart[index].quantity * cart[index].price;
+                renderCart();
+            });
+        });
+    }
+
+    renderCart();
+
+    document.getElementById('totalPrice').innerText = `$${Number(totalAmount).toLocaleString()}`;
+    // สร้างปุ่ม Buy Now
+    const buyNowBtn = document.createElement('button');
+    buyNowBtn.className = 'now-btn';
+    buyNowBtn.textContent = 'Buy Now';
+    buyNowBtn.addEventListener('click', function () {
+        axios.post('/buy-now', { cart: cart }, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+            .then(function (response) {
+                console.log('Success:', response.data);
+                window.location.href = '/buy-now'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    });
+
+    // เพิ่มปุ่ม Buy Now เข้าไปใน container
+    document.getElementById('buy-now-item').appendChild(buyNowBtn);
+});
+
