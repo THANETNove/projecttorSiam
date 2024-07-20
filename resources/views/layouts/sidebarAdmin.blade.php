@@ -88,11 +88,11 @@
 
                         </ul>
                     </div>
-                    <div class="collapse {{ Request::is('serveice/*') ? 'show' : '' }}" id="product">
+                    <div class="collapse {{ Request::is('service/*') ? 'show' : '' }}" id="service">
                         <ul class="nav nav-collapse">
-                            <li class="{{ Request::is('serveice/*') ? 'active' : '' }}">
-                                <a href="{{ url('serveice/index') }}">
-                                    <span class="sub-item">Product</span>
+                            <li class="{{ Request::is('service/*') ? 'active' : '' }}">
+                                <a href="{{ url('service/index') }}">
+                                    <span class="sub-item">Services</span>
                                 </a>
                             </li>
 
