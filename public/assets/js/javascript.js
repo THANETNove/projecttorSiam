@@ -291,21 +291,25 @@ document.addEventListener('DOMContentLoaded', function () {
             itemDiv.className = 'buyItemAll-cart-item';
 
             itemDiv.innerHTML = `
-                <div class="buyItemAll-item-details">
-                    <img src="${item.img}" alt="${item.name}" class="buyItemAll-item-image" />
-                    <span class="buyItemAll-item-name">${item.name}</span>
-                    <span class="buyItemAll-item-price">${item.brand}</span>
-                    <span class="buyItemAll-item-price">${item.ratio_screen}</span>
-                </div>
-                <span class="buyItemAll-item-price">$${Number(item.price).toLocaleString()}</span>
-                
-                <div class="buyItemAll-quantity-controls">
-                    ${item.quantity > 1 ? `<button class="buyItemAll-decrement-btn" data-index="${index}">-</button>` : ''}
-                    <span class="buyItemAll-item-quantity"> x ${item.quantity}</span>
-                    <button class="buyItemAll-increment-btn" data-index="${index}">+</button>
-                </div>
+            <div class="buyItemAll-item-details">
+        <div>
+        <img src="${item.img}" alt="${item.name}" class="buyItemAll-item-image" />
+        <span class="buyItemAll-item-name">${item.name}</span>
+        <span class="buyItemAll-item-brand">${item.brand}</span>
+        <span class="buyItemAll-item-ratio">${item.ratio_screen}</span>
+        </div>
+            <div class="">
+            <span class="buyItemAll-item-price">$${Number(item.price).toLocaleString()}</span>
+                ${item.quantity > 1 ? `<button class="buyItemAll-decrement-btn" data-index="${index}">-</button>` : ''}
+                <span class="buyItemAll-item-quantity"> x ${item.quantity}</span>
+                <button class="buyItemAll-increment-btn" data-index="${index}">+</button>
                 <span class="buyItemAll-item-total">= $${Number(item.totalPrice).toLocaleString()}</span>
                 <button class="buyItemAll-remove-btn" data-index="${index}">Remove</button>
+            </div>
+        </div>
+      
+ 
+   
             `;
 
             cartItemsContainer.appendChild(itemDiv);

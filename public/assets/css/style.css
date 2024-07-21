@@ -1761,155 +1761,16 @@ textarea {
   /* เงาของการ focus */
 }
 
-.buyItemAll-cart-container {
-  padding-top: 16px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+
+.buyItemAll-item-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .buyItemAll-cart-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
-}
+  margin-top: 110px;
 
-.buyItemAll-cart-item:last-child {
-  border-bottom: none;
-}
-
-.buyItemAll-item-details {
-  display: flex;
-  align-items: center;
-}
-
-.buyItemAll-item-image {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.buyItemAll-item-name {
-  font-size: 18px;
-  font-weight: 500;
-  margin-right: 20px;
-}
-
-.buyItemAll-item-price,
-.buyItemAll-item-quantity,
-.buyItemAll-item-total {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666;
-  margin-right: 20px;
-}
-
-.buyItemAll-remove-btn {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buyItemAll-remove-btn:hover {
-  background-color: #e60000;
-}
-
-.buyItemAll-total-container {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.buyItemAll-total-price {
-  font-size: 20px;
-  font-weight: 700;
-  display: block;
-  margin-top: 10px;
-}
-
-.buyItemAll-checkout-btn {
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-.buyItemAll-checkout-btn:hover {
-  background-color: #333;
-}
-
-.buyItemAll-remove-btn,
-.buyItemAll-decrement-btn {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  margin-right: 8px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buyItemAll-remove-btn:hover,
-.buyItemAll-decrement-btn:hover {
-  background-color: #e60000;
-}
-
-.buyItemAll-remove-btn,
-.buyItemAll-decrement-btn,
-.buyItemAll-increment-btn {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  margin-left: -8px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-
-.buyItemAll-remove-btn:hover,
-.buyItemAll-decrement-btn:hover,
-.buyItemAll-increment-btn:hover {
-  background-color: #e60000;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col-sm-12 {
-  flex: 0 0 100%;
-}
-
-.col-md-8 {
-  flex: 0 0 66.66667%;
-}
-
-.col-md-4 {
-  flex: 0 0 33.33333%;
 }
