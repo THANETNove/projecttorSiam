@@ -29,8 +29,11 @@
         }
 
         h2 {
+            border-top: 2px solid #ef742d;
+            padding-top: 20px;
             font-size: 20px;
             margin-top: 30px;
+
         }
 
         .details,
@@ -132,9 +135,14 @@
         </div>
 
         <div class="back-button">
-            <a href="{{ url()->previous() }}">Go Back</a>
+            <a href="{{ url('/') }}">Go Back</a>
         </div>
+
+
     </div>
+    <script>
+        sessionStorage.removeItem('cart');
+    </script>
 </body>
 
 </html>
