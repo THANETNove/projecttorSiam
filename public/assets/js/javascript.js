@@ -128,6 +128,7 @@ function cartShow(cart) {
         cartItemsContainer.appendChild(itemDiv);
     });
 
+
     const buyNowBtn = document.createElement('a');
     buyNowBtn.href = '/buy-now'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
     buyNowBtn.className = 'buy-now-btn';
@@ -154,6 +155,8 @@ function cartShow(cart) {
                     <span class="remove-btn" data-index="${index}">Remove</span>
                 `;
                 cartItemsContainer.appendChild(itemDiv);
+                cartItemsContainer.appendChild(buyNowBtn);
+
             });
         }
         if (cart.length > 0) {
@@ -333,6 +336,9 @@ document.addEventListener('DOMContentLoaded', function () {
             button.addEventListener('click', (e) => {
                 const index = e.target.dataset.index;
                 cart.splice(index, 1);
+                sessionStorage.setItem('cart', JSON.stringify(cart)); // อัปเดต sessionStorage
+                document.getElementById('itemCart').value = `${JSON.stringify(cart)}`;
+                cartShow(cart);
                 renderCart();
             });
         });
@@ -343,6 +349,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cart[index].quantity > 1) {
                     cart[index].quantity--;
                     cart[index].totalPrice = cart[index].quantity * cart[index].price;
+                    sessionStorage.setItem('cart', JSON.stringify(cart)); // อัปเดต sessionStorage
+                    document.getElementById('itemCart').value = `${JSON.stringify(cart)}`;
+                    cartShow(cart);
                     renderCart();
                 }
             });
@@ -353,6 +362,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 const index = e.target.dataset.index;
                 cart[index].quantity++;
                 cart[index].totalPrice = cart[index].quantity * cart[index].price;
+                sessionStorage.setItem('cart', JSON.stringify(cart)); // อัปเดต sessionStorage
+                document.getElementById('itemCart').value = `${JSON.stringify(cart)}`;
+                cartShow(cart);
                 renderCart();
             });
         });
@@ -360,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderCart();
 
-    console.log("111");
+
     document.getElementById('itemCart').value = `${JSON.stringify(cart)}`;
 
     document.getElementById('totalPrice').innerText = `$${Number(totalAmount).toLocaleString()}`;

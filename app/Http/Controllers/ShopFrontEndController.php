@@ -102,7 +102,50 @@ class ShopFrontEndController extends Controller
     {
 
 
-        dd($request->itemCart);
+        $validated = $request->validate([
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'address_1' => ['required', 'string', 'max:255'],
+            'state_city' => ['required', 'string', 'max:255'],
+            'postal_zip' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'region' => ['required', 'string', 'max:255'],
+        ]);
+
+        
+        $items = json_decode($request->itemCart[0], true);
+
+        // ตรวจสอบว่าการแปลง JSON สำเร็จ
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            return response()->json(['error' => 'Invalid JSON'], 400);
+        }
+    
+        // คำนวณผลรวมทั้งหมดของ totalPrice
+        $totalPriceSum = array_reduce($items, function ($sum, $item) {
+            return $sum + $item['totalPrice'];
+        }, 0);
+    
+        // แสดงผลรวมทั้งหมด
+        dd($items, $totalPriceSum);
+        dd($request->itemCart,$totalPriceSum);
+        $data = new Bank;
+        
+        $data->itemCart = $request['itemCart'];
+        $data->fname = $request['fname'];
+        $data->lname = $request['lname'];
+        $data->email = $request['email'];
+        $data->phone = $request['phone'];
+        $data->fax = $request['fax'];
+        $data->company = $request['company'];
+        $data->address_1 = $request['address_1'];
+        $data->address_2 = $request['address_2'];
+        $data->state_city = $request['state_city'];
+        $data->postal_zip = $request['postal_zip'];
+        $data->country = $request['country'];
+        $data->region = $request['region'];
+       
     }
 
     /**
