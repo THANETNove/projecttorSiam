@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use App\Models\ShoppingList;
+use App\Mail\ExampleMail;
+use Mail;
 
 use Illuminate\Support\Facades\Session;
 
@@ -150,6 +152,11 @@ class ShopFrontEndController extends Controller
         $data->country = $request['country'];
         $data->region = $request['region'];
         $data->save();
+
+
+        
+        Mail::to($request['email'])->send(new ExampleMail($data));
+        return 'Email Sent';
         dd($items,  $priceSum);
         dd($request->itemCart,$totalPriceSum);
     }
