@@ -1770,7 +1770,130 @@ textarea {
   margin-right: 10px;
 }
 
-.buyItemAll-cart-item {
+.buyItemAll-cart {
   margin-top: 110px;
+  background-color: #ffffff;
 
+  margin-bottom: 200px;
+  padding-bottom: 64px;
+}
+
+.pseudo-content::after {
+  content: " ";
+  /* เนื้อหาที่เป็นช่องว่าง */
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #d65a1e;
+  /* สีเขียวของเส้น */
+  margin-top: 20px;
+}
+
+
+.buyItemAll-decrement-btn {
+  cursor: pointer;
+  background-color: #ff4d4d;
+  width: 50px;
+  height: "auto";
+  border: 1px solid #ff4d4d;
+  color: #ffffff;
+  border-radius: 16px;
+  margin-right: 8px;
+}
+
+.bg-white-cart {
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+}
+
+.bg-white {
+  padding-top: 16px;
+
+
+}
+
+.buyItemAll-increment-btn {
+  cursor: pointer;
+  background-color: #ff4d4d;
+  width: 50px;
+  height: "auto";
+  border: 1px solid #ff4d4d;
+  color: #ffffff;
+  border-radius: 16px;
+  margin-left: 8px;
+  margin-right: 16px;
+}
+
+.buyItemAll-remove-btn {
+  cursor: pointer;
+  background-color: #ff4d4d;
+  width: 70px;
+  height: "auto";
+  border: 1px solid #ff4d4d;
+  color: #ffffff;
+  border-radius: 16px;
+  margin-left: 16px;
+
+}
+
+@media (max-width: 576px) {
+  .buyItemAll-remove-btn {
+    cursor: pointer;
+    background-color: #ff4d4d;
+    width: 70px;
+    height: "auto";
+    border: 1px solid #ff4d4d;
+    color: #ffffff;
+    border-radius: 16px;
+    margin-left: 16px;
+    margin-top: 8px !important;
+
+  }
+}
+
+.quantity-button {
+  margin-top: 16px;
+}
+
+.purchase-details {
+
+  margin-left: 16px;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 64px;
+}
+
+.all-item {
+  margin-top: 18px;
+  font-size: 16px;
+  justify-content: space-between;
+  display: flex;
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
+.all-item-free {
+  font-size: 16px;
+  justify-content: space-between;
+  display: flex;
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
+.all-item-q {
+  font-size: 16px;
+  justify-content: space-between;
+  display: flex;
+  margin-right: 32px;
+  margin-left: 32px;
+  font-weight: bold;
+}
+
+.submit-buy-now {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
 }

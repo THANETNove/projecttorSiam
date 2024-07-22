@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Auth;
 
 class ShopFrontEndController extends Controller
 {
@@ -52,9 +53,8 @@ class ShopFrontEndController extends Controller
 
         $brands = DB::table('products')
         ->whereNotNull('brand' )
-        ->where('status_sell', "on")
+        ->where('users', "on")
         ->orderBy('id', 'DESC')
-        ->select('brand') // เพิ่ม category
         ->groupBy('brand')
         ->get();
 
@@ -73,9 +73,22 @@ class ShopFrontEndController extends Controller
     }
     public function buyNow()
     {
+    
+        if (Auth::check()) {
+            $data = DB::table('users')
+                ->where('users.id', Auth::user()->id)
+                ->leftJoin('addresses', 'users.id', '=', 'addresses.user_id')
+                ->select('users.*', 'addresses.phone', 'addresses.fax', 'addresses.company', 'addresses.address_1', 'addresses.address_2',
+                    'addresses.state_city', 'addresses.postal_zip', 'addresses.country', 'addresses.region')
+                ->orderBy('users.id', 'DESC')
+                ->get();
+        } else {
+            // Handle the case where the user is not authenticated
+            $data = collect(); // Return an empty collection or handle as needed
+        }
 
         
-        return view('frontEndWeb.buyNow');
+        return view('frontEndWeb.buyNow',['data' => $data]);
     }
 
     /**

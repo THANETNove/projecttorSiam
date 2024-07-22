@@ -288,28 +288,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
         cart.forEach((item, index) => {
             const itemDiv = document.createElement('div');
-            itemDiv.className = 'buyItemAll-cart-item';
+            itemDiv.className = '';
 
             itemDiv.innerHTML = `
-            <div class="buyItemAll-item-details">
-        <div>
+     
+        <div class="row bg-white-cart  pseudo-content">
+        <div class="col-3 col-md-2">
         <img src="${item.img}" alt="${item.name}" class="buyItemAll-item-image" />
-        <span class="buyItemAll-item-name">${item.name}</span>
-        <span class="buyItemAll-item-brand">${item.brand}</span>
-        <span class="buyItemAll-item-ratio">${item.ratio_screen}</span>
         </div>
-            <div class="">
-            <span class="buyItemAll-item-price">$${Number(item.price).toLocaleString()}</span>
-                ${item.quantity > 1 ? `<button class="buyItemAll-decrement-btn" data-index="${index}">-</button>` : ''}
+        <div class="col-9 col-md-10">
+            <div>
+                <span class="buyItemAll-item-name">${item.name}</span>
+            </div>
+            <div>
+            <span class="buyItemAll-item-brand">${item.brand}</span>
+            <span class="buyItemAll-item-ratio">${item.ratio_screen}</span>
+        </div>
+
+
+            <div>
+                <span class="buyItemAll-item-price"> $ ${Number(item.price).toLocaleString()}</span>
                 <span class="buyItemAll-item-quantity"> x ${item.quantity}</span>
-                <button class="buyItemAll-increment-btn" data-index="${index}">+</button>
-                <span class="buyItemAll-item-total">= $${Number(item.totalPrice).toLocaleString()}</span>
-                <button class="buyItemAll-remove-btn" data-index="${index}">Remove</button>
+                <span class="buyItemAll-item-total">= $ ${Number(item.totalPrice).toLocaleString()}</span>
+            </div>
+            <div class="quantity-button">
+            ${item.quantity > 1 ? `<button class="buyItemAll-decrement-btn" data-index="${index}">-</button>` : ''}
+            <span class="buyItemAll-item-quantity"> x ${item.quantity}</span>
+            <button class="buyItemAll-increment-btn" data-index="${index}">+</button>
+            <button class="buyItemAll-remove-btn" data-index="${index}">Remove</button>
             </div>
         </div>
-      
- 
-   
+    </div>
+
             `;
 
             cartItemsContainer.appendChild(itemDiv);
@@ -351,27 +361,6 @@ document.addEventListener('DOMContentLoaded', function () {
     renderCart();
 
     document.getElementById('totalPrice').innerText = `$${Number(totalAmount).toLocaleString()}`;
-    // สร้างปุ่ม Buy Now
-    const buyNowBtn = document.createElement('button');
-    buyNowBtn.className = 'now-btn';
-    buyNowBtn.textContent = 'Buy Now';
-    buyNowBtn.addEventListener('click', function () {
-        axios.post('/buy-now', { cart: cart }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
-        })
-            .then(function (response) {
-                console.log('Success:', response.data);
-                window.location.href = '/buy-now'; // เปลี่ยน URL เป็นหน้าชำระเงินของคุณ
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
-    });
 
-    // เพิ่มปุ่ม Buy Now เข้าไปใน container
-    document.getElementById('buy-now-item').appendChild(buyNowBtn);
 });
 
