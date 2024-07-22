@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Your Shopping List</title>
+    <title>projecttorSiam</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

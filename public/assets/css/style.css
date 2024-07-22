@@ -1897,3 +1897,8 @@ textarea {
   display: flex;
   justify-content: center;
 }
+
+.btn-processing {
+  border-color: #ff4d4d !important;
+  background-color: #ff4d4d !important;
+}

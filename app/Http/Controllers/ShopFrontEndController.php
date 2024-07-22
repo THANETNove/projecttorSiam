@@ -155,8 +155,8 @@ class ShopFrontEndController extends Controller
 
         $mail = 'siammp@hotmail.co.th';
 
-       /*  Mail::to($request['email'])->send(new ExampleMail($data));
-        Mail::to($mail)->send(new ExampleMail($data)); */
+        Mail::to($request['email'])->send(new ExampleMail($data));
+      //  Mail::to($mail)->send(new ExampleMail($data));
         return view('emails.succeedSendEmail',['data' => $data]);
     }
 

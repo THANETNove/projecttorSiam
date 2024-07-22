@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('confirm-purchase') }}">
+    {{--  --}}
+    <form method="POST" action="{{ route('confirm-purchase') }}" id="purchaseForm">
         @csrf
         <div class="row">
             <div class=" col-sm-12 col-md-6">
@@ -341,13 +342,38 @@
                 <button class="buyItemAll-checkout-btn">Checkout</button>
             </div> --}}
                 <div class="submit-buy-now">
-                    <button type="submit" class="btn btn-primary"
+                    {{--   <button type="submit" class="btn btn-primary"
                         style="border-color: #ff4d4d;background-color: #ff4d4d;">
                         Buy Now
-                    </button>
+                    </button> --}}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary buy-1"
+                            style="border-color: #ff4d4d;background-color: #ff4d4d;" id="submitButton">Submit</button>
+                    </div>
+
+                    <!-- Loading message or spinner -->
+                    <div id="loadingMessage" style="display: none;" class="btn btn-processing" style="">
+                        Processing...</div>
                 </div>
 
             </div>
         </div>
     </form>
+
+    <script>
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Disable the submit button to prevent multiple submissions
+            document.getElementById('submitButton').style.display = 'none';
+
+            // Show the loading message or spinner
+            document.getElementById('loadingMessage').style.display = 'block';
+
+            // Submit the form
+            this.submit();
+        });
+    </script>
+
 @endsection
