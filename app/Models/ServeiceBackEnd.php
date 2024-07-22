@@ -9,6 +9,6 @@ class ServeiceBackEnd extends Model
 {
     use HasFactory;
     protected $fillable = [
- 'serveice'
+        'description'
     ];
 }

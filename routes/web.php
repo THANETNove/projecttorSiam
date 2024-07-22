@@ -115,6 +115,10 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('product/search', [ProductController::class, 'search'])->name('product/search');
 
     Route::get('service/index', [ServiceBackEndController::class, 'index'])->name('service/index');
+    Route::get('service/create', [ServiceBackEndController::class, 'create'])->name('service/create');
+    Route::post('service/store', [ServiceBackEndController::class, 'store'])->name('service/store');
+    Route::get('service/edit/{id}', [ServiceBackEndController::class, 'edit'])->name('service/edit');
+    Route::put('service/update/{id}', [ServiceBackEndController::class, 'update'])->name('service/update');
 
 });
 

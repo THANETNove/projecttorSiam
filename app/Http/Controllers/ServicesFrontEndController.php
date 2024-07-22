@@ -15,8 +15,10 @@ class ServicesFrontEndController extends Controller
     {
         $data = DB::table('banks')
         ->get();
+        $dataServ = DB::table('serveice_back_ends')
+        ->get();
 
-        return view('frontEndWeb.services',['data' => $data]);
+        return view('frontEndWeb.services',['data' => $data, 'dataServ' => $dataServ]);
     }
     public function productPolicy()
     {
