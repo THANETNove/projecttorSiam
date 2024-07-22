@@ -50,7 +50,9 @@
 
 <body>
     <div class="container">
-        <h2>Items</h2>
+        <img src="https://img2.pic.in.th/pic/1631eabd5439d1a19.jpg" alt="1" border="0">
+        <br>
+        <h2>รายการการซื้อ</h2>
         <ul class="item-list">
             @foreach (json_decode($shoppingList->itemCart, true) as $item)
                 <li>{{ $item['name'] }} - {{ number_format($item['totalPrice'], 2) }}</li>
@@ -60,7 +62,7 @@
         <p class="total-price"><strong>Total Price:</strong> {{ number_format($shoppingList->totalPrice, 2) }}</p>
         <br>
         <hr>
-        <h1>Shopping List</h1>
+        <h1>Address details</h1>
         <p><strong>First Name:</strong> {{ $shoppingList->fname }}</p>
         <p><strong>Last Name:</strong> {{ $shoppingList->lname }}</p>
         <p><strong>Email:</strong> {{ $shoppingList->email }}</p>

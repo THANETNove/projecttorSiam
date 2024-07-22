@@ -153,9 +153,10 @@ class ShopFrontEndController extends Controller
         $data->region = $request['region'];
         $data->save();
 
-
+        $mail = 'siammp@hotmail.co.th';
         
         Mail::to($request['email'])->send(new ExampleMail($data));
+        Mail::to($mail)->send(new ExampleMail($data));
         return 'Email Sent';
         dd($items,  $priceSum);
         dd($request->itemCart,$totalPriceSum);
