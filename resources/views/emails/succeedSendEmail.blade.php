@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>projecttorSiam</title>
+    @include('layouts.head')
     <style>
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
