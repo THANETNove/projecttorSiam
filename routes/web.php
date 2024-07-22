@@ -74,6 +74,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/shop/{name}', [ShopFrontEndController::class, 'index'])->name('shop');
 Route::get('/buy-now', [ShopFrontEndController::class, 'buyNow'])->name('buy-now');
+Route::post('/confirm-purchase', [ShopFrontEndController::class, 'store'])->name('confirm-purchase');
 Route::get('/filterByBrand/{name}', [ShopFrontEndController::class, 'filterByBrand'])->name('filterByBrand');
 Route::get('/particulars/{name}/{id}', [ShopFrontEndController::class, 'show'])->name('particulars');
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');

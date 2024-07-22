@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form>
+    <form method="POST" action="{{ route('confirm-purchase') }}">
+        @csrf
         <div class="row">
             <div class=" col-sm-12 col-md-6">
                 <div class="untree_co-section2">
@@ -9,6 +10,8 @@
                         <div class="col-md-12 mb-4 mb-md-0">
                             <h2 class="h3 mb-3 text-black">กรอกรายละเอียด</h2>
                             <div class="p-3 p-lg-5 border bg-white">
+
+                                <input type="text" class="form-control" id="itemCart" name="itemCart[]" value="">
 
                                 @if ($data->isEmpty())
                                     <!-- ฟอร์มอินพุตสำหรับกรณีไม่มี $data -->

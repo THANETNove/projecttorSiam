@@ -360,7 +360,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderCart();
 
+    console.log("111");
+    document.getElementById('itemCart').value = `${JSON.stringify(cart)}`;
+
     document.getElementById('totalPrice').innerText = `$${Number(totalAmount).toLocaleString()}`;
+
 
 });
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class ShopFrontEndController extends Controller
 {
@@ -53,7 +55,7 @@ class ShopFrontEndController extends Controller
 
         $brands = DB::table('products')
         ->whereNotNull('brand' )
-        ->where('users', "on")
+        ->where('status_sell', "on")
         ->orderBy('id', 'DESC')
         ->groupBy('brand')
         ->get();
@@ -73,6 +75,8 @@ class ShopFrontEndController extends Controller
     }
     public function buyNow()
     {
+
+
     
         if (Auth::check()) {
             $data = DB::table('users')
@@ -96,7 +100,9 @@ class ShopFrontEndController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        dd($request->itemCart);
     }
 
     /**
