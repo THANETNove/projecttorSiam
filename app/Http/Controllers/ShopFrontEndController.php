@@ -151,15 +151,13 @@ class ShopFrontEndController extends Controller
         $data->postal_zip = $request['postal_zip'];
         $data->country = $request['country'];
         $data->region = $request['region'];
-        $data->save();
+       // $data->save();
 
         $mail = 'siammp@hotmail.co.th';
-        
-        Mail::to($request['email'])->send(new ExampleMail($data));
-        Mail::to($mail)->send(new ExampleMail($data));
-        return 'Email Sent';
-        dd($items,  $priceSum);
-        dd($request->itemCart,$totalPriceSum);
+
+       /*  Mail::to($request['email'])->send(new ExampleMail($data));
+        Mail::to($mail)->send(new ExampleMail($data)); */
+        return view('emails.succeedSendEmail',['data' => $data]);
     }
 
     /**
