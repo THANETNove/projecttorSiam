@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="subscription-form">
-                    <h3 class="d-flex align-items-center"><span class="me-1"><img
+                    {{--  <h3 class="d-flex align-items-center"><span class="me-1"><img
                                 src="{{ URL::asset('/assets/images/envelope-outline.svg') }}" alt="Image"
                                 class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
 
@@ -24,7 +24,7 @@
                                 <span class="fa fa-paper-plane"></span>
                             </button>
                         </div>
-                    </form>
+                    </form> --}}
 
                 </div>
             </div>

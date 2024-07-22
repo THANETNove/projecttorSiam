@@ -1,58 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--  <div class="hero2">
-
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="testimonial-slider-wrap text-center">
-
-                    <div id="testimonial-nav" aria-label="Carousel Navigation" tabindex="0">
-                        <span class="prev" data-controls="prev" aria-controls="tns1" tabindex="-1"><span
-                                class="fa fa-chevron-left"></span></span>
-                        <span class="next" data-controls="next" aria-controls="tns1" tabindex="-1"><span
-                                class="fa fa-chevron-right"></span></span>
-                    </div>
-
-                    <div class="tns-outer" id="tns1-ow">
-                        <div class="tns-nav" aria-label="Carousel Pagination"><button data-nav="0" aria-controls="tns1"
-                                style="" aria-label="Carousel Page 1 (Current Slide)"
-                                class="tns-nav-active"></button><button data-nav="1" aria-controls="tns1" style=""
-                                aria-label="Carousel Page 2" class="" tabindex="-1"></button><button data-nav="2"
-                                aria-controls="tns1" style="" aria-label="Carousel Page 3" class=""
-                                tabindex="-1"></button></div>
-                        <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide
-                            <span class="current">5</span> of 3
-                        </div>
-                        <div id="tns1-mw" class="tns-ovh">
-                            <div class="tns-inner" id="tns1-iw">
-                                <div class="testimonial-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-                                    id="tns1" style="transform: translate3d(-80%, 0px, 0px);">
-
-                                    @foreach ($imgSlide as $sildImg)
-                                        <div class="item tns-item" aria-hidden="true" tabindex="-1">
-                                            <div class="row justify-content-center">
-                                                <div class="col-lg-12 mx-auto">
-
-                                                    <img src="{{ URL::asset($da->slide_image) }}" class="bannerImage"
-                                                        alt="Maria Jones">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-
-                                    <!-- item tns-ite  end -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div> --}}
+    @php
+        $imgSlide = DB::table('slide_homes')->get();
+    @endphp
     <div class="hero2">
         <div class="row justify-content-center">
             <div class="col-lg-12">
