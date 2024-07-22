@@ -10,6 +10,7 @@ class ShoppingList extends Model
     use HasFactory;
     protected $fillable = [
         'itemCart',
+        'totalPrice',
         'fname',
         'lname',
         'email',

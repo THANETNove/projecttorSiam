@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\Models\ShoppingList;
+
 use Illuminate\Support\Facades\Session;
 
 
@@ -127,12 +129,14 @@ class ShopFrontEndController extends Controller
             return $sum + $item['totalPrice'];
         }, 0);
     
+
+        $priceSum =  number_format($totalPriceSum);
         // แสดงผลรวมทั้งหมด
-        dd($items, $totalPriceSum);
-        dd($request->itemCart,$totalPriceSum);
-        $data = new Bank;
+
+        $data = new ShoppingList;
         
-        $data->itemCart = $request['itemCart'];
+        $data->itemCart = json_encode($items);
+        $data->totalPrice = $totalPriceSum;
         $data->fname = $request['fname'];
         $data->lname = $request['lname'];
         $data->email = $request['email'];
@@ -145,7 +149,9 @@ class ShopFrontEndController extends Controller
         $data->postal_zip = $request['postal_zip'];
         $data->country = $request['country'];
         $data->region = $request['region'];
-       
+        $data->save();
+        dd($items,  $priceSum);
+        dd($request->itemCart,$totalPriceSum);
     }
 
     /**

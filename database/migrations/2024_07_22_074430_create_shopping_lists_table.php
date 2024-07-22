@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('shopping_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('itemCart')->nullable();
+            $table->text('itemCart')->nullable();
+            $table->string('totalPrice')->nullable();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
             $table->string('email')->nullable();
