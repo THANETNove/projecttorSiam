@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Your Shopping List</title>
+    <title>projecttorSiam</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +58,6 @@
                 <li>{{ $item['name'] }} - {{ number_format($item['totalPrice'], 2) }}</li>
             @endforeach
         </ul>
-
         <p class="total-price"><strong>Total Price:</strong> {{ number_format($shoppingList->totalPrice, 2) }}</p>
         <br>
         <hr>
@@ -75,8 +74,6 @@
         <p><strong>Postal/Zip Code:</strong> {{ $shoppingList->postal_zip }}</p>
         <p><strong>Country:</strong> {{ $shoppingList->country }}</p>
         <p><strong>Region:</strong> {{ $shoppingList->region }}</p>
-
-
     </div>
 </body>
 

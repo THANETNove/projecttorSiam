@@ -4285,6 +4285,11 @@ fieldset:disabled .btn {
     display: block
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
 .dropdown-header {
     display: block;
     padding: .5rem 1rem;

@@ -1093,6 +1093,10 @@ textarea {
   width: 100%;
   height: auto;
   max-width: 300px;
+  background-size: cover;
+  /* ทำให้ภาพครอบคลุมพื้นที่ทั้งหมด */
+  background-position: left;
+
 }
 
 .textHead {
@@ -1658,6 +1662,7 @@ textarea {
 .custom-icon {
   font-size: 24px;
   cursor: pointer;
+  margin-top: 8px;
   /* ปรับขนาดตามต้องการ */
 }
 

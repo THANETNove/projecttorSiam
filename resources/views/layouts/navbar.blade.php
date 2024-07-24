@@ -3,7 +3,7 @@
 
     <div class="container">
         <a class="navb ar-brand" href="{{ url('/') }}">
-            <img src="{{ URL::asset('/assets/images/cover/1.jpg') }}" class="imageLogo">
+            <img src="{{ URL::asset('/assets/images/cover/logo-gray.jpg') }}" class="imageLogo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
