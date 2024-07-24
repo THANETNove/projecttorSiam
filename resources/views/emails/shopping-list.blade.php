@@ -50,7 +50,7 @@
 
 <body>
     <div class="container">
-        <img src="https://img2.pic.in.th/pic/1631eabd5439d1a19.jpg" alt="1" border="0">
+        <img src="https://img5.pic.in.th/file/secure-sv1/logo-gray.jpg" alt="logo gray" width="300px" border="0">
         <br>
         <h2>รายการการซื้อ</h2>
         <ul class="item-list">
