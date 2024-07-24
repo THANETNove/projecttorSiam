@@ -57,7 +57,8 @@
                         @endif
                     </p>
                     <p>Availability: {{ $data[0]->availability }}</p>
-                    <p>Brand: <a href="#" class="price">{{ $data[0]->brand }}</a> </p>
+                    <p>Brand: <a href="{{ route('filterByBrand', ['name' => $data[0]->brand]) }}"
+                            class="price">{{ $data[0]->brand }}</a> </p>
                     <p>Product Code: {{ $data[0]->product_code }}</p>
                     @if ($data[0]->catalog)
                         <?php
