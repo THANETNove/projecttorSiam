@@ -330,13 +330,13 @@
             <div class="col-sm-12 col-md-6 buyItemAll-cart">
 
                 <div class="bg-white">
-                    <p class="purchase-details pseudo-content">รายละเอียดการซื้อ</p>
+                    <p class="purchase-details pseudo-content">Purchase details </p>
                     <br>
                     <div id="cartItemsContainer" class="buyItemAll-cart-item "></div>
                 </div>
-                <p class="all-item"> รวมทั้งหมด <span class="buyItemAll-total-price"></span></p>
-                <p class="all-item-free"> การจัดส่ง(จัดส่งหรี) <span>0</span></p>
-                <p class="all-item-q">คำสั่งซื้อทั้งหมด <span class="buyItemAll-total-price"></span></p>
+                <p class="all-item"> Total <span class="buyItemAll-total-price"></span></p>
+                <p class="all-item-free"> Delivery (free shipping) <span>0</span></p>
+                <p class="all-item-q">All orders <span class="buyItemAll-total-price"></span></p>
 
                 {{--   <div style="text-align: center; margin: 20px;">
                 <button class="buyItemAll-checkout-btn">Checkout</button>
