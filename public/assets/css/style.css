@@ -1908,3 +1908,7 @@ textarea {
   background-color: #ff4d4d !important;
 }
 
+.logo-gray {
+  width: 300px !important;
+  height: auto;
+}

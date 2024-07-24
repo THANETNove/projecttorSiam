@@ -5,7 +5,7 @@
         <div class="logo-header" data-background-color="dark">
             <a href="{{ url('/home') }}" class="logo">
                 <img src="{{ URL::asset('assets/images/cover/logo-gray.jpg') }}" alt="navbar brand" class="navbar-brand"
-                    height="40" />
+                    width="190px" />
 
             </a>
             <div class="nav-toggle">
