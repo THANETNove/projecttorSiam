@@ -116,70 +116,79 @@
             </div>
 
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs " id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
-                        type="button" role="tab" aria-controls="home-tab-pane"
-                        aria-selected="true">DESCRIPTION</button>
+                    <button class="nav-link @if (!$data[0]->throw_ratio_min && !$data[0]->throw_ratio_max) active @endif " id="home-tab"
+                        data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab"
+                        aria-controls="home-tab-pane" aria-selected="true">DESCRIPTION</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
                         type="button" role="tab" aria-controls="profile-tab-pane"
                         aria-selected="false">SPECIFICATION</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="contact-tab" data-bs-toggle="tab"
-                        data-bs-target="#contact-tab-pane" type="button" role="tab"
-                        aria-controls="contact-tab-pane" aria-selected="false">SCREEN SIZE
-                        CALCULATOR</button>
-                </li>
+
+                @if ($data[0]->throw_ratio_min && $data[0]->throw_ratio_max)
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#contact-tab-pane" type="button" role="tab"
+                            aria-controls="contact-tab-pane" aria-selected="false">SCREEN SIZE
+                            CALCULATOR</button>
+                    </li>
+                @endif
+
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade " id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-                    tabindex="0">
-                    {!! $data[0]->description !!}</div>
+                <div class="tab-pane fade  @if (!$data[0]->throw_ratio_min && !$data[0]->throw_ratio_max) show active @endif" id="home-tab-pane"
+                    role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    {!! $data[0]->description !!}
+                </div>
                 <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                     tabindex="0"> {!! $data[0]->specification !!}</div>
-                <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel"
-                    aria-labelledby="contact-tab" tabindex="0">
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 col-md-4 mb-4" style="justify-content: left">
-                                <p class="nav-link-p">Screen Size Width</p>
-                                <p class="nav-link-p"> ขนาดภาพซ้าย-ขวา</p>
+                @if ($data[0]->throw_ratio_min && $data[0]->throw_ratio_max)
+                    <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel"
+                        aria-labelledby="contact-tab" tabindex="0">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-4 mb-4" style="justify-content: left">
+                                    <p class="nav-link-p">Screen Size Width</p>
+                                    <p class="nav-link-p"> ขนาดภาพซ้าย-ขวา</p>
 
 
-                                <input type="number" class="form-control mt-3" id="exampleFormControlInput1"
-                                    min="0" oninput="calculateDistance()" placeholder="ขนาด ซ้าย-ขวา m">
+                                    <input type="number" class="form-control mt-3" id="exampleFormControlInput1"
+                                        min="0" oninput="calculateDistance()" placeholder="ขนาด ซ้าย-ขวา m">
 
-                            </div>
-                            <div class="col-12 col-md-4 mb-4">
-                                <p class="nav-link-screen">Ratio screen <span
-                                        id="ratio-screen">{{ $data[0]->ratio_screen }}</span></p>
-                                <hr>
-                                <p class="nav-link-screen">throw ratio min <span
-                                        id="ratio-min">{{ $data[0]->throw_ratio_min }}</span>
-                                </p>
-                                <hr>
-                                <p class="nav-link-screen">throw ratio max <span
-                                        id="ratio-max">{{ $data[0]->throw_ratio_max }}</span>
-                                </p>
-                                <hr>
-                                <p class="nav-link-screen">ระยะห่างจากเครื่องถึงจอ </p>
-                                <p class="nav-link-screen" id="distance-16-9">
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="box-screen">
-                                    <p class="screen-text-center" id="screen-text-center"></p>
-                                    <p class="screen-text-right" id="screen-text-right"></p>
-                                    <p class="screen-text-bottom" id="screen-text-bottom"></p>
+                                </div>
+                                <div class="col-12 col-md-4 mb-4">
+                                    <p class="nav-link-screen">Ratio screen <span
+                                            id="ratio-screen">{{ $data[0]->ratio_screen }}</span></p>
+                                    <hr>
+                                    <p class="nav-link-screen">throw ratio min <span
+                                            id="ratio-min">{{ $data[0]->throw_ratio_min }}</span>
+                                    </p>
+                                    <hr>
+                                    <p class="nav-link-screen">throw ratio max <span
+                                            id="ratio-max">{{ $data[0]->throw_ratio_max }}</span>
+                                    </p>
+                                    <hr>
+                                    <p class="nav-link-screen">ระยะห่างจากเครื่องถึงจอ </p>
+                                    <p class="nav-link-screen" id="distance-16-9">
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="box-screen">
+                                        <p class="screen-text-center" id="screen-text-center"></p>
+                                        <p class="screen-text-right" id="screen-text-right"></p>
+                                        <p class="screen-text-bottom" id="screen-text-bottom"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
             </div>
         </div>
     </div>
