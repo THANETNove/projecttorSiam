@@ -4281,9 +4281,9 @@ fieldset:disabled .btn {
     background-color: transparent
 }
 
-.dropdown-menu.show {
+/* .dropdown-menu.show {
     display: block
-}
+} */
 
 .dropdown:hover .dropdown-menu {
     display: block;
@@ -12189,4 +12189,3 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
-
