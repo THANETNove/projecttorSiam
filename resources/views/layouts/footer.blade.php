@@ -101,24 +101,26 @@
                         </ul>
                     </div>
 
-                    <div class="col-6 col-sm-6 col-md-3">
+                    {{--   <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
                             <li><a href="#">My Account</a></li>
                             <li><a href="#">Order History</a></li>
 
                         </ul>
-                    </div>
+                    </div> --}}
 
                     <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="#">Wish List</a></li>
-                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">ผลงานของเรา</a></li>
+                            <li><a href="#">น่ารู้ก่อนซื้อ</a></li>
                         </ul>
                     </div>
                 </div>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.470878086788!2d100.68140281463615!3d13.90333699029777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDU0JzIzLjgiTiAxMDHCsDU1JzA1LjAiRQ!5e0!3m2!1sth!2sth!4v1624422111246!5m2!1sth!2sth"
-                    width="100%" height="300" style="border:0;mt-3" allowfullscreen="" loading="lazy"></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3876.435548921067!2d100.6819468!3d13.9033829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d6297958cc79d%3A0xf8d7b5c04da6ce1a!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4quC4ouC4suC4oSDguYDguK3guYfguKHguJ7guLUg4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li1IOC4iOC4s-C4geC4seC4lA!5e0!3m2!1sth!2sth!4v1690645410746!5m2!1sth!2sth"
+                    width="100%" height="350px" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
 
         </div>
