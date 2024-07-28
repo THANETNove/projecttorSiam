@@ -14,15 +14,19 @@ class ServicesFrontEndController extends Controller
     public function index()
     {
         $data = DB::table('banks')
-        ->get();
+            ->get();
         $dataServ = DB::table('serveice_back_ends')
-        ->get();
+            ->get();
 
-        return view('frontEndWeb.services',['data' => $data, 'dataServ' => $dataServ]);
+        return view('frontEndWeb.services', ['data' => $data, 'dataServ' => $dataServ]);
     }
     public function productPolicy()
     {
         return view('frontEndWeb.productPolicy');
+    }
+    public function ourWork()
+    {
+        return view('frontEndWeb.ourWork');
     }
 
     /**

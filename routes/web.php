@@ -19,54 +19,52 @@ Route::get('/', function () {
     } else {
 
         $imgSlide = DB::table('slide_homes')
-        ->get();
+            ->get();
 
-        
-       // ดึงหมวดหมู่ที่ไม่ซ้ำ
-       $rawCategories = DB::table('products')
-       ->where('status_sell', 'on')
-       ->selectRaw('DISTINCT JSON_UNQUOTE(JSON_EXTRACT(check_manu, "$[*]")) as category')
-       ->get()
-       ->pluck('category');
 
-       
-    $categories = collect();
-    foreach ($rawCategories as $rawCategory) {
-        $decodedCategories = json_decode($rawCategory);
-        if (is_array($decodedCategories)) {
-            foreach ($decodedCategories as $category) {
-                if (!$categories->contains($category)) {
-                    $categories->push($category);
+        // ดึงหมวดหมู่ที่ไม่ซ้ำ
+        $rawCategories = DB::table('products')
+            ->where('status_sell', 'on')
+            ->selectRaw('DISTINCT JSON_UNQUOTE(JSON_EXTRACT(check_manu, "$[*]")) as category')
+            ->get()
+            ->pluck('category');
+
+
+        $categories = collect();
+        foreach ($rawCategories as $rawCategory) {
+            $decodedCategories = json_decode($rawCategory);
+            if (is_array($decodedCategories)) {
+                foreach ($decodedCategories as $category) {
+                    if (!$categories->contains($category)) {
+                        $categories->push($category);
+                    }
                 }
             }
         }
-    }
-    
-    $products = collect();
 
-    foreach ($categories as $category) {
-        $categoryProducts = DB::table('products')
-            ->where('status_sell', 'on')
-            ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode([$category])]) // ใช้ array เพื่อความถูกต้อง
-            ->inRandomOrder()
-            ->select('id', 'image', 'product_name','price', 'price_sale', 'status_sale', DB::raw("'$category' as category")) // เพิ่ม category
-            ->distinct()
-            ->limit(4)
-            ->get();
-    
-        $products = $products->merge($categoryProducts);
-    }
+        $products = collect();
+
+        foreach ($categories as $category) {
+            $categoryProducts = DB::table('products')
+                ->where('status_sell', 'on')
+                ->whereRaw('JSON_CONTAINS(check_manu, ?)', [json_encode([$category])]) // ใช้ array เพื่อความถูกต้อง
+                ->inRandomOrder()
+                ->select('id', 'image', 'product_name', 'price', 'price_sale', 'status_sale', DB::raw("'$category' as category")) // เพิ่ม category
+                ->distinct()
+                ->limit(4)
+                ->get();
+
+            $products = $products->merge($categoryProducts);
+        }
         $uniqueProducts = $products->unique('id');
         $limitedProducts = $uniqueProducts->take(16);
-        
+
         $data = DB::table('banks')
-        ->get();
+            ->get();
 
 
-        return view('welcome',['imgSlide' =>  $imgSlide , 'products' => $limitedProducts,'data' => $data]);
+        return view('welcome', ['imgSlide' =>  $imgSlide, 'products' => $limitedProducts, 'data' => $data]);
     }
-    
- 
 });
 
 Auth::routes();
@@ -79,6 +77,7 @@ Route::get('/filterByBrand/{name}', [ShopFrontEndController::class, 'filterByBra
 Route::get('/particulars/{name}/{id}', [ShopFrontEndController::class, 'show'])->name('particulars');
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/services', [ServicesFrontEndController::class, 'index'])->name('services');
+Route::get('/our-work', [ServicesFrontEndController::class, 'ourWork'])->name('our-work');
 Route::get('/policy', [ServicesFrontEndController::class, 'productPolicy'])->name('policy');
 
 Route::group(['middleware' => ['is_admin']], function () {
@@ -87,13 +86,13 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('/components/bank/create', [BankController::class, 'create'])->name('components/bank/create');
     Route::post('account_bank', [BankController::class, 'store'])->name('account_bank');
     Route::get('components/bank/destroy/{id}', [BankController::class, 'destroy'])->name('components/bank/destroy');
-    
+
     //SlideHomeController
     Route::get('components/slide', [SlideHomeController::class, 'index'])->name('components/slide');
     Route::get('components/slide/create', [SlideHomeController::class, 'create'])->name('components/slide/create');
     Route::post('imageSlide', [SlideHomeController::class, 'store'])->name('imageSlide');
     Route::get('components/slideHome/destroy/{id}', [SlideHomeController::class, 'destroy'])->name('components/slideHome/destroy');
-    
+
     //ManuBarController
     Route::get('components/manuBar', [ManuBarController::class, 'index'])->name('components/manuBar');
     Route::get('components/manuBar/create/{id}', [ManuBarController::class, 'create'])->name('components/manuBar/create');
@@ -119,9 +118,8 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::post('service/store', [ServiceBackEndController::class, 'store'])->name('service/store');
     Route::get('service/edit/{id}', [ServiceBackEndController::class, 'edit'])->name('service/edit');
     Route::put('service/update/{id}', [ServiceBackEndController::class, 'update'])->name('service/update');
-
 });
 
-Route::fallback(function() {
-    return view('404'); 
+Route::fallback(function () {
+    return view('404');
 });
