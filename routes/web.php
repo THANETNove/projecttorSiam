@@ -10,6 +10,7 @@ use App\Http\Controllers\SlideHomeController;
 use App\Http\Controllers\ManuBarController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceBackEndController;
+use App\Http\Controllers\OurWorkController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -120,6 +121,7 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::post('service/store', [ServiceBackEndController::class, 'store'])->name('service/store');
     Route::get('service/edit/{id}', [ServiceBackEndController::class, 'edit'])->name('service/edit');
     Route::put('service/update/{id}', [ServiceBackEndController::class, 'update'])->name('service/update');
+    Route::get('service/our-work/index', [OurWorkController::class, 'index'])->name('service/our-work/index');
 });
 
 Route::fallback(function () {

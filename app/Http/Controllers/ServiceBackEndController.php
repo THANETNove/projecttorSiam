@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ServeiceBackEnd;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 
 class ServiceBackEndController extends Controller
@@ -16,9 +16,9 @@ class ServiceBackEndController extends Controller
     {
 
         $data = DB::table('serveice_back_ends')
-        ->get();
+            ->get();
 
-        
+
         return view('admin.services.index', ['data' => $data]);
     }
 
@@ -35,14 +35,13 @@ class ServiceBackEndController extends Controller
      */
     public function store(Request $request)
     {
-       
+
 
         $data = new ServeiceBackEnd;
         $data->description = $request['description'];
         $data->save();
 
         return redirect('/service/index')->with('message', "บันทึกสำเร็จ");
-
     }
 
     /**
@@ -60,8 +59,7 @@ class ServiceBackEndController extends Controller
     {
 
         $data = ServeiceBackEnd::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
-        return view('admin.services.edit' ,['data' => $data]);
-      
+        return view('admin.services.edit', ['data' => $data]);
     }
 
     /**

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Bank;
 use Illuminate\Support\Facades\File;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class BankController extends Controller
 {
@@ -16,10 +16,10 @@ class BankController extends Controller
     public function index()
     {
         $data = DB::table('banks')
-        ->get();
+            ->get();
 
 
-        return view('admin.bank.index',['data' => $data]);
+        return view('admin.bank.index', ['data' => $data]);
     }
 
     /**
@@ -38,26 +38,26 @@ class BankController extends Controller
 
         $validated = $request->validate([
             'bank_name' => ['required', 'string', 'max:255'],
-          
+
             'account_number' => ['required', 'string', 'max:255'],
             'bank_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Validate as an image
         ]);
-    
+
         // Initialize a variable to hold the image path
         $imagePath = '';
-    
+
         // Check if an image file is uploaded
         if ($request->hasFile('bank_image')) {
             $image = $request->file('bank_image');
             $imageName = time() . '.' . $image->getClientOriginalExtension(); // Get the original extension
-    
+
             // Move the file to the specified directory (e.g., 'public/assets/images/bank')
             $image->move(public_path('assets/images/bank'), $imageName);
-    
+
             // Prepare the path to be saved in the database
             $imagePath = "assets/images/bank/" . $imageName; // Note the use of '.' for concatenation and '/' for path
         }
-    
+
         // Save the data to the database
         $data = new Bank;
         $data->bank_name = $request->input('bank_name');
@@ -66,7 +66,7 @@ class BankController extends Controller
         $data->bank_image = $imagePath; // Save the path to the image in the database
         $data->save();
 
-              
+
 
 
         return redirect('components/bank')->with('message', "บันทึกสำเร็จ");
@@ -105,19 +105,19 @@ class BankController extends Controller
         $user = Bank::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
 
 
-       
+
         $imagePath = $user->bank_image;
 
         // ตรวจสอบว่าภาพนั้นมีอยู่ในระบบไฟล์หรือไม่
         if (File::exists(public_path($imagePath))) {
-         
+
             File::delete(public_path($imagePath));
         } else {
             // หากภาพไม่พบในระบบไฟล์
-           
+
         }
-            $user->delete(); // ลบผู้ใช้นั้น
-  
+        $user->delete(); // ลบผู้ใช้นั้น
+
         return redirect('components/bank')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }
