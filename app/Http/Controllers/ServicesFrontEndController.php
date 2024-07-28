@@ -34,7 +34,10 @@ class ServicesFrontEndController extends Controller
     }
     public function worthKnowing()
     {
-        return view('frontEndWeb.worthKnowing');
+        $data = DB::table('worth_knowings')
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('frontEndWeb.worthKnowing', ['data' => $data]);
     }
 
     /**
