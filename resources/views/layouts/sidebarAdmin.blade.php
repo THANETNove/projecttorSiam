@@ -85,9 +85,30 @@
                                     <span class="sub-item">Product</span>
                                 </a>
                             </li>
+                    </div>
+                </li>
+                <li class="nav-item {{ Request::is('service/*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#service"
+                        class="{{ Request::is('service/*') ? '' : 'collapsed' }}">
+                        <i class="fas fa-th-list"></i>
+                        <p>service</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse {{ Request::is('service/*') ? 'show' : '' }}" id="service">
+                        <ul class="nav nav-collapse">
                             <li class="{{ Request::is('service/*') ? 'active' : '' }}">
                                 <a href="{{ url('service/index') }}">
                                     <span class="sub-item">Services</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('service/our-work/*') ? 'active' : '' }}">
+                                <a href="{{ url('service/our-work/index') }}">
+                                    <span class="sub-item">ผลงานของเรา</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('service/knowBefore/*') ? 'active' : '' }}">
+                                <a href="{{ url('service/knowBefore/index') }}">
+                                    <span class="sub-item">น่ารู้ก่อนซื้อ</span>
                                 </a>
                             </li>
                         </ul>
