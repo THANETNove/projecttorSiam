@@ -1273,7 +1273,7 @@ textarea {
   .box-screen {
     position: relative;
     width: 300px;
-    height: 300px;
+    height: 200px;
     border: 1px solid #3b5d50;
     box-sizing: border-box;
   }
@@ -1285,12 +1285,12 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    width: 141%;
+    width: 120%;
     /* Diagonal length for a square box */
     height: 1px;
     /* Line thickness */
     background-color: #3b5d50;
-    transform: rotate(-45deg);
+    transform: rotate(-33.5deg);
     transform-origin: top right;
   }
 }

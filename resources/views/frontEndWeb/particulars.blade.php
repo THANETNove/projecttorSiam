@@ -178,7 +178,10 @@
                                     </p>
                                 </div>
                                 <div class="col-12 col-md-4">
-                                    <div class="{{ $data[0]->ratio_screen ? 'box-screen-2' : 'box-screen' }}">
+                                    <div
+                                        class="@if ($data[0]->ratio_screen == '16:9') box-screen-2
+                                    @else
+                                    box-screen @endif">
                                         <p class="screen-text-center" id="screen-text-center"></p>
                                         <p class="screen-text-right" id="screen-text-right"></p>
                                         <p class="screen-text-bottom" id="screen-text-bottom"></p>
