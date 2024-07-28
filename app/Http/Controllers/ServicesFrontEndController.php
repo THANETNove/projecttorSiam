@@ -26,7 +26,11 @@ class ServicesFrontEndController extends Controller
     }
     public function ourWork()
     {
-        return view('frontEndWeb.ourWork');
+
+        $data = DB::table('our_works')
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('frontEndWeb.ourWork', ['data' => $data]);
     }
     public function worthKnowing()
     {

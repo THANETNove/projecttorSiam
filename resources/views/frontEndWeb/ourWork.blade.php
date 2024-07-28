@@ -12,6 +12,9 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <h2 class="section-title">ผลงานของเรา</h2>
+                        @foreach ($data as $da)
+                            {!! $da->description !!}
+                        @endforeach
                     </div>
                 </div>
 
