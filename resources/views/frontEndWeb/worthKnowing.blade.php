@@ -12,7 +12,7 @@
                 <div class="col-lg-9">
                     <div class="row">
 
-                        asdas
+                        55555
                     </div>
                 </div>
 

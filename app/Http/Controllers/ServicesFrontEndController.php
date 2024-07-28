@@ -28,6 +28,10 @@ class ServicesFrontEndController extends Controller
     {
         return view('frontEndWeb.ourWork');
     }
+    public function worthKnowing()
+    {
+        return view('frontEndWeb.worthKnowing');
+    }
 
     /**
      * Show the form for creating a new resource.

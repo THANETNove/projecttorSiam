@@ -11,6 +11,7 @@ use App\Http\Controllers\ManuBarController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceBackEndController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 
@@ -78,6 +79,7 @@ Route::get('/particulars/{name}/{id}', [ShopFrontEndController::class, 'show'])-
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
 Route::get('/services', [ServicesFrontEndController::class, 'index'])->name('services');
 Route::get('/our-work', [ServicesFrontEndController::class, 'ourWork'])->name('our-work');
+Route::get('/worth-knowing', [ServicesFrontEndController::class, 'worthKnowing'])->name('worth-knowing');
 Route::get('/policy', [ServicesFrontEndController::class, 'productPolicy'])->name('policy');
 
 Route::group(['middleware' => ['is_admin']], function () {

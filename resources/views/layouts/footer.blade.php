@@ -111,8 +111,8 @@
 
                     <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="{{url('our-work')}}">ผลงานของเรา</a></li>
-                            <li><a href="#">น่ารู้ก่อนซื้อ</a></li>
+                            <li><a href="{{ url('our-work') }}">ผลงานของเรา</a></li>
+                            <li><a href="{{ url('worth-knowing') }}">น่ารู้ก่อนซื้อ</a></li>
                         </ul>
                     </div>
                 </div>
