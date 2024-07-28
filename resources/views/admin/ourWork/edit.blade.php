@@ -6,16 +6,17 @@
             <div class="d-flex justify-content-center align-items-center">
                 <div class="col-md-12 col-lg-12">
                     <div class="card-header">
-                        <div class="card-title">รายละเอียด services</div>
+                        <div class="card-title">เเก้ไขรายละเอียด ผลงาน</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('services/service/store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('services/our-work/update', $data['id']) }}"
+                            enctype="multipart/form-data">
                             @csrf
-
+                            @method('PUT')
                             <div class="form-group">
                                 <label for="specification">รายะลเอียด</label>
                                 <textarea name="description" id="editor2" placeholder="Enter Specification">
-                                    {{ old('description') }}
+                                    {!! $data['description'] !!}
                                 </textarea>
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">

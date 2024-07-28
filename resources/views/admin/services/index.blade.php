@@ -14,7 +14,7 @@
                             <div class="card-head-row card-tools-still-right">
                                 <div class="card-title">services</div>
                                 <div class="card-tools">
-                                    {{--   <a href="{{ url('service/create') }}"
+                                    {{--   <a href="{{ url('services/service/create') }}"
                                         class="btn btn-label-success btn-round btn-sm me-2">
                                         <span class="btn-label">
                                             <i class="fa fa-pencil"></i>
@@ -32,7 +32,7 @@
                                         <tr>
                                             <th scope="col">ลำดับ</th>
                                             <th scope="col">รายละเอียด</th>
-                                            <th scope="col">ลบ</th>
+                                            <th scope="col">เเก้ไข</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,8 +49,8 @@
 
                                                 <td>
 
-                                                    <a href="{{ url('service/edit', $da->id) }}" style="width: 80px"
-                                                        class="btn btn-warning">เเก้ไข</a>
+                                                    <a href="{{ url('services/service/edit', $da->id) }}"
+                                                        style="width: 80px" class="btn btn-warning">เเก้ไข</a>
 
                                                 </td>
 

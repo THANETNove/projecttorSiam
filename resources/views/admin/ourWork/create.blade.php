@@ -6,10 +6,10 @@
             <div class="d-flex justify-content-center align-items-center">
                 <div class="col-md-12 col-lg-12">
                     <div class="card-header">
-                        <div class="card-title">รายละเอียด services</div>
+                        <div class="card-title">รายละเอียด ผลงาน</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('services/service/store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('services/our-work/store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">

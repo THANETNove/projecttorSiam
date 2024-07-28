@@ -9,7 +9,8 @@
                         <div class="card-title">เเก้ไขรายละเอียด services</div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('service/update', $data['id']) }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('services/service/update', $data['id']) }}"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

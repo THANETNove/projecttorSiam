@@ -116,12 +116,19 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::post('product/search', [ProductController::class, 'search'])->name('product/search');
     Route::get('product/search', [ProductController::class, 'search'])->name('product/search');
 
-    Route::get('service/index', [ServiceBackEndController::class, 'index'])->name('service/index');
-    Route::get('service/create', [ServiceBackEndController::class, 'create'])->name('service/create');
-    Route::post('service/store', [ServiceBackEndController::class, 'store'])->name('service/store');
-    Route::get('service/edit/{id}', [ServiceBackEndController::class, 'edit'])->name('service/edit');
-    Route::put('service/update/{id}', [ServiceBackEndController::class, 'update'])->name('service/update');
-    Route::get('service/our-work/index', [OurWorkController::class, 'index'])->name('service/our-work/index');
+    Route::get('services/service/index', [ServiceBackEndController::class, 'index'])->name('services/service/index');
+    Route::get('services/service/create', [ServiceBackEndController::class, 'create'])->name('services/service/create');
+    Route::post('services/service/store', [ServiceBackEndController::class, 'store'])->name('services/service/store');
+    Route::get('services/service/edit/{id}', [ServiceBackEndController::class, 'edit'])->name('services/service/edit');
+    Route::put('services/service/update/{id}', [ServiceBackEndController::class, 'update'])->name('services/service/update');
+
+
+    Route::get('services/our-work/index', [OurWorkController::class, 'index'])->name('services/our-work/index');
+    Route::get('services/our-work/create', [OurWorkController::class, 'create'])->name('services/our-work/create');
+    Route::post('services/our-work/store', [OurWorkController::class, 'store'])->name('services/our-work/store');
+    Route::get('services/our-work/edit/{id}', [OurWorkController::class, 'edit'])->name('services/our-work/edit');
+    Route::put('services/our-work/update/{id}', [OurWorkController::class, 'update'])->name('services/our-work/update');
+    Route::get('services/our-work/destroy/{id}', [OurWorkController::class, 'destroy'])->name('services/our-work/destroy');
 });
 
 Route::fallback(function () {

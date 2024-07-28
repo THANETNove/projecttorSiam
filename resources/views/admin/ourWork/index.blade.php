@@ -14,12 +14,13 @@
                             <div class="card-head-row card-tools-still-right">
                                 <div class="card-title">ผลงานของเรา</div>
                                 <div class="card-tools">
-                                    <a href="{{ url('service/create') }}"
+                                    <a href="{{ url('services/our-work/create') }}"
                                         class="btn btn-label-success btn-round btn-sm me-2">
                                         <span class="btn-label">
                                             <i class="fa fa-pencil"></i>
                                         </span>
                                         เพิ่มผลงาน
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -31,6 +32,7 @@
                                         <tr>
                                             <th scope="col">ลำดับ</th>
                                             <th scope="col">รายละเอียด</th>
+                                            <th scope="col">เเก้ไข</th>
                                             <th scope="col">ลบ</th>
                                         </tr>
                                     </thead>
@@ -48,9 +50,15 @@
 
                                                 <td>
 
-                                                    <a href="{{ url('service/edit', $da->id) }}" style="width: 80px"
-                                                        class="btn btn-warning">เเก้ไข</a>
+                                                    <a href="{{ url('services/our-work/edit', $da->id) }}"
+                                                        style="width: 80px" class="btn btn-warning">เเก้ไข</a>
 
+                                                </td>
+                                                <td>
+
+                                                    <a href="#"
+                                                        onclick="confirmDelete('{{ url('services/our-work/destroy', $da->id) }}')"
+                                                        class="btn btn-danger">ลบ</a>
                                                 </td>
 
                                             </tr>

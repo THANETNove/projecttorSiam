@@ -87,27 +87,27 @@
                             </li>
                     </div>
                 </li>
-                <li class="nav-item {{ Request::is('service/*') ? 'active' : '' }}">
-                    <a data-bs-toggle="collapse" href="#service"
-                        class="{{ Request::is('service/*') ? '' : 'collapsed' }}">
+                <li class="nav-item {{ Request::is('services/*') ? 'active' : '' }}">
+                    <a data-bs-toggle="collapse" href="#services"
+                        class="{{ Request::is('services/*') ? '' : 'collapsed' }}">
                         <i class="fas fa-th-list"></i>
                         <p>service</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse {{ Request::is('service/*') ? 'show' : '' }}" id="service">
+                    <div class="collapse {{ Request::is('services/*') ? 'show' : '' }}" id="services">
                         <ul class="nav nav-collapse">
-                            <li class="{{ Request::is('service/*') ? 'active' : '' }}">
-                                <a href="{{ url('service/index') }}">
+                            <li class="{{ Request::is('services/service/*') ? 'active' : '' }}">
+                                <a href="{{ url('services/service/index') }}">
                                     <span class="sub-item">Services</span>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('service/our-work/*') ? 'active' : '' }}">
-                                <a href="{{ url('service/our-work/index') }}">
+                            <li class="{{ Request::is('services/our-work/*') ? 'active' : '' }}">
+                                <a href="{{ url('services/our-work/index') }}">
                                     <span class="sub-item">ผลงานของเรา</span>
                                 </a>
                             </li>
-                            <li class="{{ Request::is('service/knowBefore/*') ? 'active' : '' }}">
-                                <a href="{{ url('service/knowBefore/index') }}">
+                            <li class="{{ Request::is('services/knowBefore/*') ? 'active' : '' }}">
+                                <a href="{{ url('services/knowBefore/index') }}">
                                     <span class="sub-item">น่ารู้ก่อนซื้อ</span>
                                 </a>
                             </li>
