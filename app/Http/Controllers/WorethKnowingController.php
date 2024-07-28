@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\WorthKnowing;
+use Illuminate\Support\Facades\DB;
 
 class WorethKnowingController extends Controller
 {
@@ -11,7 +13,10 @@ class WorethKnowingController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('worth_knowings')
+            ->orderBy('id', 'DESC')
+            ->get();
+        return view('admin.knowBefore.index', ['data' =>  $data]);
     }
 
     /**
@@ -19,7 +24,7 @@ class WorethKnowingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.knowBefore.create');
     }
 
     /**
@@ -27,7 +32,11 @@ class WorethKnowingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new WorthKnowing;
+        $data->description = $request['description'];
+        $data->save();
+
+        return redirect('services/knowBefore/index')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -43,7 +52,8 @@ class WorethKnowingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = WorthKnowing::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+        return view('admin.knowBefore.edit', ['data' => $data]);
     }
 
     /**
@@ -51,7 +61,11 @@ class WorethKnowingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data =  WorthKnowing::find($id);
+        $data->description = $request['description'];
+        $data->save();
+
+        return redirect('services/knowBefore/index')->with('message', "บันทึกสำเร็จ");
     }
 
     /**
@@ -59,6 +73,10 @@ class WorethKnowingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = WorthKnowing::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+        $data->delete(); // ลบ Product
+
+        return redirect('/services/knowBefore/index')->with('message', "ลบข้อมูลสำเร็จ");
     }
 }

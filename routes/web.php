@@ -11,6 +11,7 @@ use App\Http\Controllers\ManuBarController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceBackEndController;
 use App\Http\Controllers\OurWorkController;
+use App\Http\Controllers\WorethKnowingController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -129,6 +130,13 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('services/our-work/edit/{id}', [OurWorkController::class, 'edit'])->name('services/our-work/edit');
     Route::put('services/our-work/update/{id}', [OurWorkController::class, 'update'])->name('services/our-work/update');
     Route::get('services/our-work/destroy/{id}', [OurWorkController::class, 'destroy'])->name('services/our-work/destroy');
+
+    Route::get('services/knowBefore/index', [WorethKnowingController::class, 'index'])->name('services/knowBefore/index');
+    Route::get('services/knowBefore/create', [WorethKnowingController::class, 'create'])->name('services/knowBefore/create');
+    Route::post('services/knowBefore/store', [WorethKnowingController::class, 'store'])->name('services/knowBefore/store');
+    Route::get('services/knowBefore/edit/{id}', [WorethKnowingController::class, 'edit'])->name('services/knowBefore/edit');
+    Route::put('services/knowBefore/update/{id}', [WorethKnowingController::class, 'update'])->name('services/knowBefore/update');
+    Route::get('services/knowBefore/destroy/{id}', [WorethKnowingController::class, 'destroy'])->name('services/knowBefore/destroy');
 });
 
 Route::fallback(function () {
