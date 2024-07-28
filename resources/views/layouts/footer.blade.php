@@ -41,9 +41,9 @@
                     <br>
                     92/48 ถนนจตุโชติ แขวงออเงิน เขตสายไหม กรุงเทพมหานคร 10220
                     <br>
-                    92/48 Chatuchot Road, O Ngoen, Sai Mai,
+                    92/48 Chatuchot Road, O Ngoen, Sai Mai, Bangkok 10220
                     <br>
-                    <a href="mailto:siammp@hotmail.co.th">Email:: siammp@hotmail.co.th</a>
+                    <a href="mailto:projectorsiam@gmail.com">Email:: projectorsiam@gmail.com</a>
                     <br>
                     <span class="telColor">
                         Tel

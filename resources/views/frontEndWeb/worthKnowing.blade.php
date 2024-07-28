@@ -11,7 +11,7 @@
                 <!-- เนื้อหาหลักของผลิตภัณฑ์ -->
                 <div class="col-lg-9">
                     <div class="row">
-
+                        <h2 class="section-title">น่ารู้ก่อนซื้อ</h2>
                         55555
                     </div>
                 </div>
