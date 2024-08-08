@@ -98,8 +98,10 @@ class ManuBarController extends Controller
     public function edit(string $id)
     {
         $manu = MenuBar::find($id); // ค้นหาผู้ใช้ที่มี ID = 1
+
+
         $data = DB::table('navbar_manu_mains')
-            ->where('id', $id)
+            ->where('id', $manu->use)
             ->get();
 
         return view('admin.manuBar.edit', ['manu' => $manu, 'data' => $data]);

@@ -101,9 +101,9 @@ Route::group(['middleware' => ['is_admin']], function () {
     Route::get('components/manuBar', [ManuBarController::class, 'index'])->name('components/manuBar');
     Route::get('components/manuBar/create/{id}', [ManuBarController::class, 'create'])->name('components/manuBar/create');
     Route::post('account_manuBar', [ManuBarController::class, 'store'])->name('account_manuBar');
-    Route::get('components/slideHome/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
+    Route::get('components/manu/edit/{id}', [ManuBarController::class, 'edit'])->name('components/slideHome/edit');
     Route::put('update_manuBar/{id}', [ManuBarController::class, 'update'])->name('update_manuBar');
-    Route::get('components/slideHome/destroy/{id}', [ManuBarController::class, 'destroy'])->name('components/slideHome/destroy');
+    Route::get('components/manu/destroy/{id}', [ManuBarController::class, 'destroy'])->name('components/slideHome/destroy');
     Route::post('components/manuBar/search', [ManuBarController::class, 'search'])->name('components/manuBar/search');
     Route::get('components/manuBar/search', [ManuBarController::class, 'search'])->name('components/manuBar/search');
 

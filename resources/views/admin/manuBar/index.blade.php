@@ -161,12 +161,12 @@
 
                                                 <td>
 
-                                                    <a href="{{ url('components/slideHome/edit', $da->itemId) }}"
+                                                    <a href="{{ url('components/manu/edit', $da->itemId) }}"
                                                         class="btn btn-warning">เเก้ไข</a>
                                                 </td>
                                                 <td>
 
-                                                    <a onclick="confirmDelete('{{ url('components/slideHome/destroy', $da->itemId) }}')"
+                                                    <a onclick="confirmDelete('{{ url('components/manu/destroy', $da->itemId) }}')"
                                                         class="btn btn-danger">ลบ</a>
                                                 </td>
                                             </tr>
