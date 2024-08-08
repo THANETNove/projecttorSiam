@@ -163,11 +163,11 @@ class ShopFrontEndController extends Controller
         $data->region = $request['region'];
         $data->save();
 
-        // $mail = 'siammp@hotmail.co.th';
+
         $mail = 'Projectorsiam@gmail.com';
 
         Mail::to($request['email'])->send(new ExampleMail($data));
-        //Mail::to($mail)->send(new ExampleMail($data));
+        Mail::to($mail)->send(new ExampleMail($data));
         return view('emails.succeedSendEmail', ['data' => $data]);
     }
 
