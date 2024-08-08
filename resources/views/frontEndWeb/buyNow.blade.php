@@ -88,10 +88,10 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-12">
-                                            <label for="address_1" class="text-black">Address 1 <span
+                                            <label for="address_1" class="text-black">ชื่อ ที่อยู่ จัดสั่งสินค้า <span
                                                     class="text-danger">*</span></label>
                                             <textarea name="address_1" id="address_1" cols="30" rows="5"
-                                                class="form-control @error('address_1') is-invalid @enderror" placeholder="Address 1...">{{ old('address_1') }}</textarea>
+                                                class="form-control @error('address_1') is-invalid @enderror" placeholder="ชื่อ ที่อยู่ จัดสั่งสินค้า">{{ old('address_1') }}</textarea>
                                             @error('address_1')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -101,13 +101,13 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-12">
-                                            <label for="address_2" class="text-black">Address 2 <span
-                                                    class="text-danger"></span></label>
+                                            <label for="address_2" class="text-black">ชื่อ ที่อยู่ เลขประจำตัวผู้เสีภาษี
+                                                สำหรับเปิดใบกำกับภาษี <span class="text-danger"></span></label>
                                             <textarea name="address_2" id="address_2" cols="30" rows="5" class="form-control"
-                                                placeholder="Address 2...">{{ old('address_2') }}</textarea>
+                                                placeholder="ชื่อ ที่อยู่ เลขประจำตัวผู้เสีภาษี">{{ old('address_2') }}</textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    {{--     <div class="form-group row">
                                         <div class="col-md-6">
                                             <label for="state_city" class="text-black">City <span
                                                     class="text-danger">*</span></label>
@@ -162,7 +162,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 @else
                                     @foreach ($data as $da)
                                         <div class="form-group row">
