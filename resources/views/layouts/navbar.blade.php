@@ -30,7 +30,7 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                              {{--   <li>
+                                {{--   <li>
                                     <p class="textHead">By Use</p>
                                 </li> --}}
 
@@ -61,7 +61,7 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                               {{--  <li>
+                                {{--  <li>
                                     <p class="textHead">By Resolution</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -87,7 +87,7 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                               {{--  <li>
+                                {{--  <li>
                                     <p class="textHead">By Type</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -101,7 +101,7 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                               {{--  <li>
+                                {{--  <li>
                                     <p class="textHead">By Format</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -115,7 +115,7 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                               {{--  <li>
+                                {{--  <li>
                                     <p class="textHead">By Diagonal Size</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -141,7 +141,7 @@
                         <div class="row">
                             <!-- คอลัมน์แรก -->
                             <div class="col-4">
-                              {{--   <li>
+                                {{--   <li>
                                     <p class="textHead">By Feature</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -169,7 +169,7 @@
                             </div>
                             <!-- คอลัมน์ที่สอง -->
                             <div class="col-4">
-                              {{--   <li>
+                                {{--   <li>
                                     <p class="textHead">By Manufacturer</p>
                                 </li> --}}
                                 @foreach ($data as $da)
@@ -191,7 +191,7 @@
                         AV Solutions
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
-                       {{--  <li>
+                        {{--  <li>
                             <p class="textHead">Sound System</p>
                         </li> --}}
                         @foreach ($data as $da)
@@ -215,8 +215,7 @@
                         @foreach ($data as $da)
                             <!-- ตรวจสอบว่า use และ resolution ตรงกับค่าที่ต้องการหรือไม่ -->
                             @if ($da->use == 5 && $da->resolution == 1)
-                                <li><a class="nav-link"
-                                        href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
+                                <li><a class="nav-link" href="{{ url('shop', $da->feature) }}">{{ $da->feature }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -231,6 +230,9 @@
                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                         <li><a class="nav-link" href="{{ url('aboutus') }}">About us</a></li>
                         <li><a class="nav-link" href="{{ url('services') }}">Services</a></li>
+                        <li><a class="nav-link"
+                                href="https://www.trustmarkthai.com/callbackData/popup.php?data=8b8efb12d-28-5-eebd37c4c2e05cf6024100510ec7fdc9dce3"
+                                target="_blank">DBD</a></li>
 
                     </ul>
                 </li>
