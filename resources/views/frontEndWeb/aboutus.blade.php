@@ -71,8 +71,7 @@
 
                 <div class="col-lg-5">
                     <div class="img-wrap">
-                        <img src="{{ URL::asset('/assets/images/cover/EpsonEF-11_EF12-5.jpg') }}" alt="Image"
-                            class="img-fluid">
+                        <img src="{{ URL::asset('/assets/images/cover/service.jpg') }}" alt="Image" class="img-fluid">
                     </div>
                 </div>
 
